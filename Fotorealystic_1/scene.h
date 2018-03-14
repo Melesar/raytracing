@@ -21,8 +21,6 @@ public:
 
 	~Scene();
 
-private:
-
 	void trace(Ray r, Color& color, int maxBounce = 1, double maxDistance = INFINITY);
 
 };

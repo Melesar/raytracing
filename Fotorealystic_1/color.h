@@ -7,7 +7,7 @@ struct Color
 {
 	double r, g, b;
 
-	Color();
+	Color() : r(0), g(0), b(0) {}
 	Color(double r, double g, double b) : r(r), g(g), b(b) {}
 
 	void set(double r, double g, double b);
@@ -23,6 +23,7 @@ struct Color
 	friend Color operator * (double value, const Color& color);
 
 	Color& operator /= (const double& value);
+	bool operator == (const Color& other);
 
 	friend std::ostream& operator << (std::ostream& stream, const Color& color);
 

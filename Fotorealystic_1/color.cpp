@@ -1,9 +1,5 @@
 #include "color.h"
-
-Color::Color()
-{
-	r = g = b = 0;
-}
+#include <math.h>
 
 void Color::set(double r, double g, double b)
 {
@@ -14,38 +10,46 @@ void Color::set(double r, double g, double b)
 
 Color & Color::operator+=(const Color & other)
 {
-	r = normalize(r + other.r);
-	g = normalize(g + other.g);;
-	b = normalize(b + other.b);;
+	r = r + other.r;
+	g = g + other.g;
+	b = b + other.b;
 
 	return *this;
 }
 
 Color & Color::operator*=(const Color & other)
 {
-	r = normalize(r * other.r);
-	g = normalize(g * other.g);;
-	b = normalize(b * other.b);;
+	r = r * other.r;
+	g = g * other.g;
+	b = b * other.b;
 
 	return *this;
 }
 
 Color & Color::operator*=(const double & value)
 {
-	r = normalize(r * value);
-	g = normalize(g * value);
-	b = normalize(b * value);
+	r = r * value;
+	g = g * value;
+	b = b * value;
 
 	return *this;
 }
 
 Color& Color::operator/=(const double & value)
 {
-	r = normalize(r / value);
-	g = normalize(g / value);
-	b = normalize(b / value);
+	r = r / value;
+	g = g / value;
+	b = b / value;
 
 	return *this;
+}
+
+bool Color::operator==(const Color & other)
+{
+	double delta = 0.000001;
+	return abs(r - other.r) < delta
+		&& abs(g - other.g) < delta
+		&& abs(b - other.b) < delta;
 }
 
 Color operator+(Color left, const Color & right)

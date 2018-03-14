@@ -18,7 +18,15 @@ Ray* Camera::raycast(double x, double y, double screenWidth, double screenHeight
 	rays[3] = Ray(origin, pixelCoords3 - origin);
 	rays[4] = Ray(origin, pixelCoords4 - origin);
 
-	 return rays;
+	return rays;
+}
+
+Ray Camera::raycast(double x, double y, double screenWidth, double screenHeight)
+{
+	Vector3 pixelCoords = screenToWorldCoordinates(x, y, screenWidth, screenHeight);
+	Vector3 origin = transform->position();
+
+	return Ray(origin, pixelCoords - origin);
 }
 
 

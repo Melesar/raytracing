@@ -9,6 +9,7 @@ class Camera
 
 public:
 	Ray* raycast(double x, double y, double screenWidth, double screenHeight, int& raysCast);
+	Ray raycast(double x, double y, double screenWidth, double screenHeight);
 
 	Camera(double fov, bool isOrthographic = false) :
 		fieldOfView(fov),

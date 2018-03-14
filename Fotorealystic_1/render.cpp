@@ -9,16 +9,73 @@ void Render::render(char * outputPath)
 	for (int height = 0; height < imageHeight; ++height) {
 		for (int width = 0; width < imageWidth; ++width) {
 			Color result = backgroundColor;
-			int raysCast;
-			Ray* rays = camera->raycast(width, height, imageWidth, imageHeight, raysCast);
-			scene->trace(rays, raysCast, result);
+
+			int raysCast = 0;
+			samplePixel(width, height, result, raysCast);
+
+			////Shoot multiple rays to apply antialiasing
+			//int raysCast;
+			//Ray* rays = camera->raycast(width, height, imageWidth, imageHeight, raysCast);
+			//scene->trace(rays, raysCast, result);
+			//delete[] rays;
 
 			writePixel(file, result);
-			delete[] rays;
 		}
 	}
 
 	file->close();
+}
+
+void Render::samplePixel(double x, double y, Color& resultColor, int& raysCast, int depthLevel)
+{
+	if (depthLevel > 1) {
+		return;
+	}
+
+	Color result;
+
+	SamplingInfo center = trace(x, y, result, raysCast);
+	double midX, midY;
+	double offset = 0.5 / (depthLevel + 1);
+
+	SamplingInfo corners[4] {
+		trace(x - offset, y - offset, result, raysCast),
+		trace(x - offset, y + offset, result, raysCast),
+		trace(x + offset, y - offset, result, raysCast),
+		trace(x + offset, y + offset, result, raysCast),
+	};
+	
+	for (int i = 0; i < 4; ++i) {
+		SamplingInfo corner = corners[i];
+		if (!corner.compare(center)) {
+			corner.middle(center, midX, midY);
+			samplePixel(midX, midY, result, raysCast, depthLevel + 1);
+		}
+	}
+
+	if (depthLevel == 0) {
+		result /= raysCast;
+		resultColor = result;
+	} else {
+		resultColor += result;
+	}
+}
+
+Render::SamplingInfo Render::trace(double x, double y, Color & result, int & raysCast)
+{
+	Color rayColor;
+	Ray r = camera->raycast(x, y, imageWidth, imageHeight);
+	scene->trace(r, rayColor);
+
+	result += rayColor;
+	raysCast += 1;
+
+	SamplingInfo info;
+	info.x = x;
+	info.y = y;
+	info.color = rayColor;
+
+	return info;
 }
 
 Render::~Render()
