@@ -12,12 +12,17 @@ struct Color
 
 	void set(double r, double g, double b);
 
+	Color& operator += (const Color& other);
+	friend Color operator + (Color left, const Color& right);
+
 	Color& operator *= (const Color& other);
 	friend Color operator * (Color left, const Color& right);
 
 	Color& operator *= (const double& value);
 	friend Color operator * (Color color, const double value);
 	friend Color operator * (double value, const Color& color);
+
+	Color& operator /= (const double& value);
 
 	friend std::ostream& operator << (std::ostream& stream, const Color& color);
 

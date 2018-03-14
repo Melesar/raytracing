@@ -12,6 +12,15 @@ void Color::set(double r, double g, double b)
 	this->b = b;
 }
 
+Color & Color::operator+=(const Color & other)
+{
+	r = normalize(r + other.r);
+	g = normalize(g + other.g);;
+	b = normalize(b + other.b);;
+
+	return *this;
+}
+
 Color & Color::operator*=(const Color & other)
 {
 	r = normalize(r * other.r);
@@ -28,6 +37,21 @@ Color & Color::operator*=(const double & value)
 	b = normalize(b * value);
 
 	return *this;
+}
+
+Color& Color::operator/=(const double & value)
+{
+	r = normalize(r / value);
+	g = normalize(g / value);
+	b = normalize(b / value);
+
+	return *this;
+}
+
+Color operator+(Color left, const Color & right)
+{
+	left += right;
+	return left;
 }
 
 Color operator*(Color left, const Color & right)

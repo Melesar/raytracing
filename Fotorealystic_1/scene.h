@@ -17,7 +17,12 @@ public:
 	void addObject(Object* newObject);
 	void addLight(Light* light);
 
-	void trace(Ray r, Color& color, int maxBounce = 1, double maxDistance = INFINITY);
+	void trace(Ray* r, int raysCount, Color& color);
 
 	~Scene();
+
+private:
+
+	void trace(Ray r, Color& color, int maxBounce = 1, double maxDistance = INFINITY);
+
 };

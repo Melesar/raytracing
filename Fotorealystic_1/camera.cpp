@@ -1,11 +1,24 @@
 #include "camera.h"
 
-Ray Camera::raycast(double x, double y, double screenWidth, double screenHeight)
+Ray* Camera::raycast(double x, double y, double screenWidth, double screenHeight, int& raysCast)
 {
-		Vector3 origin = transform->position();
-		Vector3 pixelCoords = screenToWorldCoordinates(x, y, screenWidth, screenHeight);
+	Ray* rays = new Ray[5];
+	raysCast = 5;
 
-		return Ray(origin, pixelCoords - origin);
+	Vector3 origin = transform->position();
+	Vector3 pixelCoords0 = screenToWorldCoordinates(x, y, screenWidth, screenHeight);
+	Vector3 pixelCoords1 = screenToWorldCoordinates(x - 0.5, y - 0.5, screenWidth, screenHeight);
+	Vector3 pixelCoords2 = screenToWorldCoordinates(x + 0.5, y - 0.5, screenWidth, screenHeight);
+	Vector3 pixelCoords3 = screenToWorldCoordinates(x - 0.5, y + 0.5, screenWidth, screenHeight);
+	Vector3 pixelCoords4 = screenToWorldCoordinates(x + 0.5, y + 0.5, screenWidth, screenHeight);
+
+	rays[0] = Ray(origin, pixelCoords0 - origin);
+	rays[1] = Ray(origin, pixelCoords1 - origin);
+	rays[2] = Ray(origin, pixelCoords2 - origin);
+	rays[3] = Ray(origin, pixelCoords3 - origin);
+	rays[4] = Ray(origin, pixelCoords4 - origin);
+
+	 return rays;
 }
 
 

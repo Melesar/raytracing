@@ -13,7 +13,28 @@ void Scene::addLight(Light* newLight)
 	lights.push_back(newLight);
 }
 
-void Scene::trace(Ray r,  Color& color, int maxBounce, double maxDistance)
+void Scene::trace(Ray* r, int raysCount, Color& color)
+{
+	Color res;
+	for (int i = 0; i < raysCount; ++i) {
+		Color rayColor;
+		trace(r[i], rayColor);
+
+		res += rayColor;
+	}
+
+	res /= (double) raysCount;
+	color = res;
+}
+
+Scene::~Scene()
+{
+	for (auto obj : objects) {
+		delete obj;
+	}
+}
+
+void Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 {
 	int objectsCount = objects.size();
 	bool isObjectFound = false;
@@ -43,15 +64,8 @@ void Scene::trace(Ray r,  Color& color, int maxBounce, double maxDistance)
 		Vector3 hitNormal = hitObject->getNormal(hitPoint);
 		double cosine = -lightDirection.dot(hitNormal);
 		cosine = std::fmax(0.0, cosine);
-	
+
 		color = albedo * lightIntensity * light->color * cosine;
 		color *= hitObject->getMaterial().color;
-	}
-}
-
-Scene::~Scene()
-{
-	for (auto obj : objects) {
-		delete obj;
 	}
 }

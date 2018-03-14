@@ -9,10 +9,12 @@ void Render::render(char * outputPath)
 	for (int height = 0; height < imageHeight; ++height) {
 		for (int width = 0; width < imageWidth; ++width) {
 			Color result = backgroundColor;
-			Ray ray = camera->raycast(width, height, imageWidth, imageHeight);
-			scene->trace(ray, result);
+			int raysCast;
+			Ray* rays = camera->raycast(width, height, imageWidth, imageHeight, raysCast);
+			scene->trace(rays, raysCast, result);
 
 			writePixel(file, result);
+			delete[] rays;
 		}
 	}
 
