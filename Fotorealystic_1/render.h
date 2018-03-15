@@ -43,8 +43,8 @@ private:
 
 		void middle(const SamplingInfo& other, double& x, double& y)
 		{
-			x = (x + other.x) / 2;
-			y = (y + other.y) / 2;
+			x = (this->x + other.x) / 2;
+			y = (this->y + other.y) / 2;
 		}
 	};
 

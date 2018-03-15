@@ -56,6 +56,7 @@ void Render::samplePixel(double x, double y, Color& resultColor, int& raysCast, 
 	if (depthLevel == 0) {
 		result /= raysCast;
 		resultColor = result;
+		std::cout << "Rays cast: " << raysCast << std::endl;
 	} else {
 		resultColor += result;
 	}

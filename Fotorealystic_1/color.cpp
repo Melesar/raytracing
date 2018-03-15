@@ -46,7 +46,7 @@ Color& Color::operator/=(const double & value)
 
 bool Color::operator==(const Color & other)
 {
-	double delta = 0.000001;
+	double delta = 0.000000001;
 	return abs(r - other.r) < delta
 		&& abs(g - other.g) < delta
 		&& abs(b - other.b) < delta;
