@@ -11,28 +11,33 @@
 #include "triangle.h"
 #include "parser.h"
 
-int main()
+int main(int argc, char** argv)
 {
-	/*Camera* cam = new Camera(60.0);
+	Camera* cam = new PerspectiveCamera(60.0);
 	Scene* scene = new Scene();
-	Object* sphere = new Sphere(Vector3(0, 0, -40), 10);
-	sphere->getMaterial().color = Color(1, 1, 0);
+
+	Object* blueSphere = new Sphere(Vector3(1, 0, -40), 6);
+	blueSphere->getMaterial().color = Color(0, 0, 1);
+
+	Object* redSphere = new Sphere(Vector3(-8, 0, -40), 2);
+	redSphere->getMaterial().color = Color(1, 0, 0);
 
 	Plane* plane = new Plane(Vector3(0, 1, 0), Vector3(0, -20, 0));
 	plane->getMaterial().color = Color(0.8, 0.56, 0.12);
 	plane->getMaterial().setAlbedo(0.8);
 
-	scene->addObject(sphere);
+	scene->addObject(blueSphere);
+	scene->addObject(redSphere);
 	scene->addObject(plane);
 
 	Light* directionalLight = new DirectionalLight(Vector3(0, -1, -1), 5);
 
 	scene->addLight(directionalLight);
 
-	Render r(512, 512, scene, cam, Color(0, 0, 0.4));
+	Render r(512, 512, scene, cam, Color(0.12, 0.7, 0.4));
 	
-	r.render("out.bmp");*/
-    Mesh m("Wolf.obj");
+	r.render("perspective_60.bmp");
+    /*Mesh m("Wolf.obj");
 	
-	std::cin.get();
+	std::cin.get();*/
 }

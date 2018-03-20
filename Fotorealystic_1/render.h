@@ -48,9 +48,8 @@ private:
 		}
 	};
 
-	void samplePixel(double x, double y, Color& resultColor, int& raysCast, int depthLevel = 0);
-	SamplingInfo trace(double x, double y, Color& result, int& raysCast);
+	const int MaxSamplingDepth = 1;
 
-	std::ofstream* openImageFile(char* path, int width, int height) const;
-	void writePixel(std::ofstream* file, const Color& color) const;
+	void samplePixel(double x, double y, Color& resultColor, int depthLevel = 0);
+	SamplingInfo trace(double x, double y);
 };

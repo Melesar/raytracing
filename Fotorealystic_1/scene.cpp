@@ -34,7 +34,7 @@ Scene::~Scene()
 	}
 }
 
-void Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
+bool Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 {
 	int objectsCount = objects.size();
 	bool isObjectFound = false;
@@ -49,7 +49,7 @@ void Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 	}
 
 	if (!isObjectFound) {
-		return;
+		return false;
 	}
 
 	int lightsCount = lights.size();
@@ -68,4 +68,6 @@ void Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 		color = albedo * lightIntensity * light->color * cosine;
 		color *= hitObject->getMaterial().color;
 	}
+
+	return true;
 }

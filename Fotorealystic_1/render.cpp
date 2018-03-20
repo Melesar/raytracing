@@ -5,73 +5,63 @@
 
 void Render::render(char * outputPath)
 {
-	//std::ofstream* file = openImageFile(outputPath, imageWidth, imageHeight);
 	Image img(std::string(outputPath), imageWidth, imageHeight);
 
 	for (int height = 0; height < imageHeight; ++height) {
 		for (int width = 0; width < imageWidth; ++width) {
-			Color result = backgroundColor;
-
-			int raysCast = 0;
-			samplePixel(width, height, result, raysCast);
+			Color result;
+			samplePixel(width, height, result, 0);
 
 			img.write(width, height, result);
-			//writePixel(file, result);
 		}
 	}
 
 	img.save();
 }
 
-void Render::samplePixel(double x, double y, Color& resultColor, int& raysCast, int depthLevel)
+void Render::samplePixel(double x, double y, Color& resultColor, int depthLevel)
 {
-	if (depthLevel > 1) {
+	if (depthLevel > MaxSamplingDepth) {
 		return;
 	}
 
-	Color result;
-
-	SamplingInfo center = trace(x, y, result, raysCast);
+	SamplingInfo center = trace(x, y);
 	double midX, midY;
 	double offset = 0.5 / (depthLevel + 1);
 
 	SamplingInfo corners[4] {
-		trace(x - offset, y - offset, result, raysCast),
-		trace(x - offset, y + offset, result, raysCast),
-		trace(x + offset, y - offset, result, raysCast),
-		trace(x + offset, y + offset, result, raysCast),
+		trace(x - offset, y - offset),
+		trace(x - offset, y + offset),
+		trace(x + offset, y - offset),
+		trace(x + offset, y + offset),
 	};
 	
 	for (int i = 0; i < 4; ++i) {
 		SamplingInfo corner = corners[i];
 		if (!corner.compare(center)) {
 			corner.middle(center, midX, midY);
-			samplePixel(midX, midY, result, raysCast, depthLevel + 1);
+
+			Color sampleColor;
+			samplePixel(midX, midY, sampleColor, depthLevel + 1);
+			resultColor += sampleColor;
+		} else {
+			resultColor += (center.color + corner.color) * 0.5;
 		}
 	}
 
-	if (depthLevel == 0) {
-		result /= raysCast;
-		resultColor = result;
-		std::cout << "Rays cast: " << raysCast << std::endl;
-	} else {
-		resultColor += result;
-	}
+	resultColor *= 0.25;
 }
 
-Render::SamplingInfo Render::trace(double x, double y, Color & result, int & raysCast)
+Render::SamplingInfo Render::trace(double x, double y)
 {
 	Color rayColor;
 	Ray r = camera->raycast(x, y, imageWidth, imageHeight);
-	scene->trace(r, rayColor);
-
-	result += rayColor;
-	raysCast += 1;
+	bool isHit = scene->trace(r, rayColor);
 
 	SamplingInfo info;
 	info.x = x;
 	info.y = y;
-	info.color = rayColor;
+	info.color = isHit ? rayColor : backgroundColor;
 
 	return info;
 }
@@ -82,20 +72,4 @@ Render::~Render()
 
 	delete camera;
 	delete scene;
-}
-
-std::ofstream* Render::openImageFile(char * path, int width, int height) const
-{
-	std::string s(path);
-	s.append(".ppm");
-
-	std::ofstream* file = new std::ofstream(s.c_str(), std::ios::out | std::ios::binary);
-	(*file) << "P6\n" << width << " " << height << "\n255\n";
-
-	return file;
-}
-
-void Render::writePixel(std::ofstream * file, const Color & color) const
-{
-	(*file) << color;
 }
