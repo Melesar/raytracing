@@ -8,6 +8,13 @@ void Color::set(double r, double g, double b)
 	this->b = b;
 }
 
+void Color::normalize()
+{
+	r = Color::normalize(r);
+	g = Color::normalize(g);
+	b = Color::normalize(b);
+}
+
 Color & Color::operator+=(const Color & other)
 {
 	r = r + other.r;

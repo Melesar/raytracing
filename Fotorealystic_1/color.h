@@ -11,6 +11,7 @@ struct Color
 	Color(double r, double g, double b) : r(r), g(g), b(b) {}
 
 	void set(double r, double g, double b);
+	void normalize();
 
 	Color& operator += (const Color& other);
 	friend Color operator + (Color left, const Color& right);

@@ -10,7 +10,7 @@ bool Triangle::intersects(const Ray & ray, Intersection & intersection)
 		return false;
 	}
 
-	Plane p(N, v0);
+	Plane p(N, v0.pos);
 	Intersection planeIntersec;
 	if (!p.intersects(ray, planeIntersec)) {
 		return false;
@@ -19,9 +19,9 @@ bool Triangle::intersects(const Ray & ray, Intersection & intersection)
 	Vector3 P = planeIntersec.point;
 	
 	bool isIntersection =
-		inOutCheck(v1 - v0, P - v0, N) &&
-		inOutCheck(v2 - v1, P - v1, N) &&
-		inOutCheck(v0 - v2, P - v2, N);
+		inOutCheck(v1.pos - v0.pos, P - v0.pos, N) &&
+		inOutCheck(v2.pos - v1.pos, P - v1.pos, N) &&
+		inOutCheck(v0.pos - v2.pos, P - v2.pos, N);
 
 	if (!isIntersection) {
 		return false;
@@ -40,7 +40,7 @@ bool Triangle::inOutCheck(const Vector3 & edge, const Vector3 & point, const Vec
 
 Vector3 Triangle::getNormal(const Vector3 & position)
 {
-	Vector3 v01 = v1 - v0;
-	Vector3 v02 = v2 - v1;
+	Vector3 v01 = v1.pos - v0.pos;
+	Vector3 v02 = v2.pos - v1.pos;
 	return v01.cross(v02);
 }

@@ -1,10 +1,12 @@
 #include "render.h"
+#include "image.h"
 #include <fstream>
 #include <string>
 
 void Render::render(char * outputPath)
 {
-	std::ofstream* file = openImageFile(outputPath, imageWidth, imageHeight);
+	//std::ofstream* file = openImageFile(outputPath, imageWidth, imageHeight);
+	Image img(std::string(outputPath), imageWidth, imageHeight);
 
 	for (int height = 0; height < imageHeight; ++height) {
 		for (int width = 0; width < imageWidth; ++width) {
@@ -13,17 +15,12 @@ void Render::render(char * outputPath)
 			int raysCast = 0;
 			samplePixel(width, height, result, raysCast);
 
-			////Shoot multiple rays to apply antialiasing
-			//int raysCast;
-			//Ray* rays = camera->raycast(width, height, imageWidth, imageHeight, raysCast);
-			//scene->trace(rays, raysCast, result);
-			//delete[] rays;
-
-			writePixel(file, result);
+			img.write(width, height, result);
+			//writePixel(file, result);
 		}
 	}
 
-	file->close();
+	img.save();
 }
 
 void Render::samplePixel(double x, double y, Color& resultColor, int& raysCast, int depthLevel)

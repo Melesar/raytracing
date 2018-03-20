@@ -9,10 +9,11 @@
 #include "render.h"
 #include "light.h"
 #include "triangle.h"
+#include "parser.h"
 
 int main()
 {
-	Camera* cam = new Camera(60.0);
+	/*Camera* cam = new Camera(60.0);
 	Scene* scene = new Scene();
 	Object* sphere = new Sphere(Vector3(0, 0, -40), 10);
 	sphere->getMaterial().color = Color(1, 1, 0);
@@ -30,6 +31,8 @@ int main()
 
 	Render r(512, 512, scene, cam, Color(0, 0, 0.4));
 	
-	r.render("out");
-
+	r.render("out.bmp");*/
+    Mesh m("Wolf.obj");
+	
+	std::cin.get();
 }

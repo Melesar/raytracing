@@ -6,17 +6,25 @@
 class Ray;
 class Intersection;
 
-struct Triangle : public Object
+struct Vertex
 {
-	Vector3 v0, v1, v2;
+	Vector3 pos;
+	Vector3 uv;
+	Vector3 normal;
 
-	Triangle(const Vector3& v0 = Vector3(), const Vector3& v1 = Vector3(), const Vector3& v2 = Vector3())
-		: v0(v0), v1(v1), v2(v2) 
+	Vertex() : pos(Vector3()), uv (Vector3()), normal(Vector3())
 	{
 	}
+};
+
+struct Triangle : public Object
+{
+	Vertex v0, v1, v2;
 
 	bool intersects(const Ray& ray, Intersection& intersection);
+	Vector3 getNormal(const Vector3& position);
+	
+private:
 
 	bool inOutCheck(const Vector3& vertex, const Vector3& point, const Vector3& normal);
-	Vector3 getNormal(const Vector3& position);
 };
