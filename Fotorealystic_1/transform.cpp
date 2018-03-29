@@ -26,11 +26,7 @@ Vector3 Transform::left()
 
 Matrix4x4 Transform::rotationMatrix() const
 {
-	Matrix4x4 rotX = Matrix4x4::rotateX(rot.x);
-	Matrix4x4 rotY = Matrix4x4::rotateY(rot.y);
-	Matrix4x4 rotZ = Matrix4x4::rotateZ(rot.z);
-
-	return rotZ * rotY * rotZ;
+	return Matrix4x4::rotate(rot);
 }
 
 Matrix4x4 Transform::translationMatrix() const

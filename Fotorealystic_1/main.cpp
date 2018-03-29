@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 
 	//scene->addObject(t);
 
-	Light* directionalLight = new DirectionalLight(Vector3(0, 0, -1), 5);
+	Light* directionalLight = new DirectionalLight(Vector3(0, 0, -1), 1);
 
 	scene->addLight(directionalLight);
 
