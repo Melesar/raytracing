@@ -42,7 +42,7 @@ double Material::getSpecularPower() const
 
 void Material::setSpecularPower(double sp)
 {
-	specularPower = std::min(1.0, sp);
+	specularPower = std::max(1.0, sp);
 }
 
 Color Material::applyLight(const Vector3 & uv, const Vector3& worldPosition, const Light & light)

@@ -15,13 +15,14 @@ int main(int argc, char** argv)
 {
 	std::cout << "Program started" << std::endl;
 
-	Camera* cam = new OrthographicCamera(10);
+	Camera* cam = new PerspectiveCamera(60);
 	Scene* scene = new Scene();
 
 	Object* blueSphere = new Sphere(Vector3(1, 0, -40), 6);
 	blueSphere->getMaterial().color = Color(0, 0, 1);
-	blueSphere->getMaterial().specular = 0.3;
-	blueSphere->getMaterial().diffuse = 0.8;
+	blueSphere->getMaterial().specular = 1.2;
+	blueSphere->getMaterial().diffuse = 1;
+	blueSphere->getMaterial().setSpecularPower(10);
 
 	Object* redSphere = new Sphere(Vector3(-8, 0, -40), 2);
 	redSphere->getMaterial().color = Color(1, 0, 0);
@@ -43,9 +44,9 @@ int main(int argc, char** argv)
 
 	std::cout << "Mesh is created" << std::endl;
 
-	/*scene->addObject(blueSphere);
-	scene->addObject(redSphere);*/
-	scene->addObject(wolf);
+	scene->addObject(blueSphere);
+	scene->addObject(redSphere);
+	//scene->addObject(wolf);
 	scene->addObject(plane);
 
 	Triangle* t = new Triangle();
@@ -60,7 +61,7 @@ int main(int argc, char** argv)
 
 	//scene->addObject(t);
 
-	Light* directionalLight = new DirectionalLight(Vector3(0, 0, -1), 1);
+	Light* directionalLight = new DirectionalLight(Vector3(1, -1, -1), 1);
 
 	scene->addLight(directionalLight);
 
@@ -68,5 +69,5 @@ int main(int argc, char** argv)
 
 	std::cout << "Started rendering" << std::endl;
 	
-	r.render("orthographic_10.bmp");
+	r.render("perspective_60.bmp");
 }

@@ -2,7 +2,7 @@
 
 Vector3 DirectionalLight::getDirectionAt(const Vector3 & point) const
 {
-	return direction;
+	return direction.normalized();
 }
 
 double DirectionalLight::getIntensityAt(const Vector3 & point) const

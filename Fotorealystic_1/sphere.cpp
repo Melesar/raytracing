@@ -29,7 +29,7 @@ bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 		intersection.distance = distance;
 	}
 
-	intersection.hitNormal = intersection.point - center;
+	intersection.hitNormal = (intersection.point - center).normalized();
 
 	return true;
 }
