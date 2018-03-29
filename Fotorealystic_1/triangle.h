@@ -22,9 +22,10 @@ struct Triangle : public Object
 	Vertex v0, v1, v2;
 
 	bool intersects(const Ray& ray, Intersection& intersection);
-	Vector3 getNormal(const Vector3& position);
+	Vector3 getNormal();
+	void onPreRender() override {}
 	
 private:
 
-	bool inOutCheck(const Vector3& vertex, const Vector3& point, const Vector3& normal);
+	double inOutCheck(const Vector3& vertex, const Vector3& point, const Vector3& normal);
 };

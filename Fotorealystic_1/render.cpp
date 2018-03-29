@@ -7,6 +7,8 @@ void Render::render(char * outputPath)
 {
 	Image img(std::string(outputPath), imageWidth, imageHeight);
 
+	scene->onPreRender();
+
 	for (int height = 0; height < imageHeight; ++height) {
 		for (int width = 0; width < imageWidth; ++width) {
 			Color result;

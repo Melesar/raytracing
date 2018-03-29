@@ -16,9 +16,9 @@ public:
 
 	Vector3 getCenter() const { return center; }
 	double getRadius() const { return radius; }
-	Vector3 getNormal(const Vector3& position);
 
 	bool intersects(const Ray& ray, Intersection& intersection);
+	void onPreRender() override {}
 
 private:
 

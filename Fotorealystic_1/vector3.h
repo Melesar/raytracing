@@ -11,6 +11,7 @@ struct Vector3
 	Vector3() : x(0), y(0), z(0) {}
 
 	double magnitude() const;
+	double distanceTo(const Vector3& other) const;
 	Vector3 normalized() const;
 
 	double dot(const Vector3& other) const;

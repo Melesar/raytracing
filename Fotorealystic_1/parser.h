@@ -21,4 +21,5 @@ private:
 	Vector3 getNormal(std::istream& stream);
 	Triangle getTriangle(std::stringstream& stream, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals);
 	Vertex getVertex (std::istream& stream, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals);
+	void parseFace(std::stringstream& stream, std::vector<Triangle>& triangles, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals);
 };

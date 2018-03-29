@@ -76,6 +76,11 @@ double Vector3::magnitude() const
 	return sqrt(m);
 }
 
+double Vector3::distanceTo(const Vector3 & other) const
+{
+	return (*this - other).magnitude();
+}
+
 Vector3 Vector3::normalized() const
 {
 	return (*this) / magnitude();

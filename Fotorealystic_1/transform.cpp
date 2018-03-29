@@ -1,7 +1,7 @@
 ﻿#include "Transform.h"
 
 
-Matrix4x4 Transform::GetModelMatrix() const
+Matrix4x4 Transform::getModelMatrix() const
 {
 	return translationMatrix() * rotationMatrix() * scaleMatrix();
 }

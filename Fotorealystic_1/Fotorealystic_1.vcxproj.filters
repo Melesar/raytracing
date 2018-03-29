@@ -77,6 +77,9 @@
     <ClInclude Include="mesh.h">
       <Filter>Objects</Filter>
     </ClInclude>
+    <ClInclude Include="boundingbox.h">
+      <Filter>Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -115,9 +118,6 @@
     <ClCompile Include="color.cpp">
       <Filter>Data</Filter>
     </ClCompile>
-    <ClCompile Include="material.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="object.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
@@ -135,6 +135,12 @@
     </ClCompile>
     <ClCompile Include="mesh.cpp">
       <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="material.cpp">
+      <Filter>Data</Filter>
+    </ClCompile>
+    <ClCompile Include="boundingbox.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

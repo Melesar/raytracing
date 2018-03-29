@@ -22,7 +22,8 @@ void Parser::parse(const std::string & fileName, std::vector<Triangle>& triangle
 		} else if (token == "vn") {
 			normals.push_back(getNormal(sstream));
 		} else if (token == "f") {
-			triangles.push_back(getTriangle(sstream, verticies, uvs, normals));
+			parseFace(sstream, triangles, verticies, uvs, normals);
+			//triangles.push_back(getTriangle(sstream, verticies, uvs, normals));
 		}
 	}
 }
@@ -67,6 +68,7 @@ Triangle Parser::getTriangle(std::stringstream & stream, const std::vector<Vecto
 	return t;
 }
 
+
 Vertex Parser::getVertex(std::istream & stream, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals)
 {
 	Vertex v;
@@ -99,4 +101,34 @@ Vertex Parser::getVertex(std::istream & stream, const std::vector<Vector3>& vert
 	}
 
 	return v;
+}
+
+void Parser::parseFace(std::stringstream & stream, std::vector<Triangle>& triangles, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals)
+{
+	try {
+		std::vector<Vertex> faceVerticies;
+		while (!stream.eof()) {
+			faceVerticies.push_back(getVertex(stream, verticies, uvs, normals));
+		}
+
+		if (faceVerticies.size() < 3) {
+			throw InvalidValue;
+		}
+
+		int trisCount = faceVerticies.size() - 2;
+		for (size_t i = 0; i < trisCount; i++) {
+			Triangle t;
+			t.v0 = faceVerticies.at(0);
+			t.v1 = faceVerticies.at(i + 1);
+			t.v2 = faceVerticies.at(i + 2);
+
+			triangles.push_back(t);
+		}
+
+	}
+	catch (const int& err) {
+		if (err == InvalidValue) {
+			std::cout << "Failed to parse face " << stream.str() << std::endl;
+		}
+	}
 }

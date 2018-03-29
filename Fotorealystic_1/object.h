@@ -10,6 +10,10 @@ struct Intersection
 {
 	Vector3 point;
 	Object* object;
+
+	Vector3 hitNormal;
+	double distance;
+	double u, v;
 };
 
 class Object
@@ -21,7 +25,6 @@ public:
 	Object(const Material& material = Material()) : material(material) {}
 
 	Material& getMaterial();
-	virtual Vector3 getNormal(const Vector3& position) = 0;
-
 	virtual bool intersects(const Ray& ray, Intersection& intersection) = 0;
+	virtual void onPreRender() = 0;
 };

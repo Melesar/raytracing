@@ -52,4 +52,6 @@ private:
 
 	void samplePixel(double x, double y, Color& resultColor, int depthLevel = 0);
 	SamplingInfo trace(double x, double y);
+
+	
 };

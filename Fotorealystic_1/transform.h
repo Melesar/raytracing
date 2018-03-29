@@ -10,40 +10,40 @@ public:
 		const Vector3& scale = Vector3(1, 1, 1))
 		: pos(pos), rot(rot), scale(scale) {}
 
-	Matrix4x4 GetModelMatrix() const;
+	Matrix4x4 getModelMatrix() const;
 
 	Vector3 forward();
 	Vector3 up();
 	Vector3 left();
 
-	Vector3& position()
+	Vector3& getPosition()
 	{
 		return pos;
 	}
 
-	void SetPosition(const Vector3& highp_vec3)
+	void setPosition(const Vector3& newPosition)
 	{
-		pos = highp_vec3;
+		pos = newPosition;
 	}
 
-	Vector3& rotation()
+	Vector3& getRotation()
 	{
 		return rot;
 	}
 
-	void SetRotation(const Vector3& highp_vec3)
+	void setRotation(const Vector3& newRotation)
 	{
-		rot = highp_vec3;
+		rot = newRotation;
 	}
 
-	Vector3& scale1()
+	Vector3& getScale()
 	{
 		return scale;
 	}
 
-	void set_scale(const Vector3& highp_vec3)
+	void setScale(const Vector3& newScale)
 	{
-		scale = highp_vec3;
+		scale = newScale;
 	}
 
 private:

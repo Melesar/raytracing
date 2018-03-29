@@ -152,6 +152,14 @@ Vector4 Matrix4x4::operator*(const Vector4 & vect) const
 	return result;
 }
 
+Vector3 Matrix4x4::operator*(const Vector3 & vect) const
+{
+	Vector4 v4 = Vector4(vect.x, vect.y, vect.z, 1);
+	v4 = *this * v4;
+
+	return Vector3(v4.x, v4.y, v4.z);
+}
+
 
 
 

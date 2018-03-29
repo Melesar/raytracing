@@ -14,6 +14,7 @@ bool Plane::intersects(const Ray & ray, Intersection& intersection)
 	}
 
 	intersection.point = ray.getPoint(distance);
+	intersection.hitNormal = getNormal();
 	intersection.object = this;
 
 	return true;

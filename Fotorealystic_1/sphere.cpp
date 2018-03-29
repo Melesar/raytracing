@@ -1,11 +1,6 @@
 #include "sphere.h"
 #include "ray.h"
 
-Vector3 Sphere::getNormal(const Vector3 & position)
-{
-	return position - center;
-}
-
 bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 {
 	Vector3 d = ray.getDirection();
@@ -24,13 +19,17 @@ bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 
 	if (descr == 0) {
 		intersection.point = ray.getPoint(-b);
-		return true;
+		intersection.distance = -b;
+	} else {
+		double t1 = -b + descr;
+		double t2 = -b - descr;
+
+		double distance = t1 < t2 ? t1 : t2;
+		intersection.point = ray.getPoint(distance);
+		intersection.distance = distance;
 	}
 
-	double t1 = -b + descr;
-	double t2 = -b - descr;
-
-	intersection.point = ray.getPoint(t1 < t2 ? t1 : t2);
+	intersection.hitNormal = intersection.point - center;
 
 	return true;
 }

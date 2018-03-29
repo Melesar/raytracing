@@ -22,6 +22,7 @@ struct Matrix4x4
 	friend std::ostream& operator << (std::ostream& stream, const Matrix4x4& matrix);
 
 	Vector4 operator * (const Vector4& vect) const;
+	Vector3 operator * (const Vector3& vect) const;
 
 private:
 
@@ -88,6 +89,15 @@ public:
 		res.matrix[2][2] = res.matrix[3][3] = 1;
 
 		return res;
+	}
+
+	static Matrix4x4 rotate(Vector3 rotation)
+	{
+		Matrix4x4 rotX = Matrix4x4::rotateX(rotation.x);
+		Matrix4x4 rotY = Matrix4x4::rotateY(rotation.y);
+		Matrix4x4 rotZ = Matrix4x4::rotateZ(rotation.z);
+
+		return rotZ * rotY * rotZ;
 	}
 
 	static Matrix4x4 perspective(double fov, double near, double far, double aspect = 1.0)
