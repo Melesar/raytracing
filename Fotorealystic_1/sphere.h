@@ -22,5 +22,5 @@ public:
 
 private:
 
-
+	void calculateUVs(Intersection& intersection) const;
 };

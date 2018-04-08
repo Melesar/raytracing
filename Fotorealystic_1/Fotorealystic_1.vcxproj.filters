@@ -18,6 +18,9 @@
     <Filter Include="Lights">
       <UniqueIdentifier>{324d026f-c077-4a2c-b0a2-b8f8281d99e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Parsers">
+      <UniqueIdentifier>{0d0ed955-8257-4483-82b7-99319071a4d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -71,14 +74,26 @@
     <ClInclude Include="image.h">
       <Filter>Data</Filter>
     </ClInclude>
-    <ClInclude Include="parser.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="mesh.h">
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="boundingbox.h">
       <Filter>Data</Filter>
+    </ClInclude>
+    <ClInclude Include="CImg.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="objParser.h">
+      <Filter>Parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="mtlParser.h">
+      <Filter>Parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -127,9 +142,6 @@
     <ClCompile Include="image.cpp">
       <Filter>Data</Filter>
     </ClCompile>
-    <ClCompile Include="parser.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="triangle.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
@@ -140,6 +152,15 @@
       <Filter>Data</Filter>
     </ClCompile>
     <ClCompile Include="boundingbox.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="objParser.cpp">
+      <Filter>Parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="mtlParser.cpp">
+      <Filter>Parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>

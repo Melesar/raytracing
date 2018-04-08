@@ -1,5 +1,5 @@
 #include "mesh.h"
-#include "parser.h"
+#include "objParser.h"
 #include "ray.h"
 #include "transform.h"
 
@@ -12,14 +12,9 @@ Mesh::Mesh(const std::string & fileName)
 	transform = new Transform();
 	triangles = new std::vector<Triangle>();
 
-	Parser p;
+	ObjParser p;
 	p.parse(fileName, *triangles);
-
-	std::cout << "OBJ file parsed" << std::endl;
-
 	calculateAABB();
-
-	std::cout << "Bounding box created" << std::endl;
 }
 
 Mesh::~Mesh()
@@ -35,6 +30,7 @@ bool Mesh::intersects(const Ray & ray, Intersection & intersection)
 		return false;
 	}
 
+	Material* material;
 	Vector3 nearestIntesection, hitNormal;
 	double u, v;
 	double nearestDistance = std::numeric_limits<double>::infinity();
@@ -51,6 +47,7 @@ bool Mesh::intersects(const Ray & ray, Intersection & intersection)
 				hitNormal = tIntersec.hitNormal;
 				u = tIntersec.u;
 				v = tIntersec.v;
+				material = tIntersec.material;
 			}
 		}
 	}
@@ -63,6 +60,7 @@ bool Mesh::intersects(const Ray & ray, Intersection & intersection)
 	intersection.point = nearestIntesection;
 	intersection.hitNormal = hitNormal;
 	intersection.distance = nearestDistance;
+	intersection.material = material;
 	intersection.u = u;
 	intersection.v = v;
 

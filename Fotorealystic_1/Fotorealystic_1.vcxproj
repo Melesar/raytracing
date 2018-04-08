@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -94,7 +95,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>.\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;glew32s.lib;SDL2test.lib;SDL2main.lib;SDL2.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glew32s.lib;SDL2test.lib;SDL2main.lib;SDL2.lib;OpenGL32.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -145,14 +146,17 @@
     <ClInclude Include="bitmap_image.hpp" />
     <ClInclude Include="boundingbox.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="CImg.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="light.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="material.h" />
     <ClInclude Include="matrix4x4.h" />
     <ClInclude Include="mesh.h" />
+    <ClInclude Include="mtlParser.h" />
     <ClInclude Include="object.h" />
-    <ClInclude Include="parser.h" />
+    <ClInclude Include="objParser.h" />
     <ClInclude Include="plane.h" />
     <ClInclude Include="ray.h" />
     <ClInclude Include="render.h" />
@@ -160,6 +164,7 @@
     <ClInclude Include="sphere.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="triangle.h" />
+    <ClInclude Include="utils.h" />
     <ClInclude Include="vector3.h" />
     <ClInclude Include="vector4.h" />
   </ItemGroup>
@@ -173,8 +178,9 @@
     <ClCompile Include="material.cpp" />
     <ClCompile Include="matrix4x4.cpp" />
     <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="mtlParser.cpp" />
     <ClCompile Include="object.cpp" />
-    <ClCompile Include="parser.cpp" />
+    <ClCompile Include="objParser.cpp" />
     <ClCompile Include="plane.cpp" />
     <ClCompile Include="ray.cpp" />
     <ClCompile Include="render.cpp" />
@@ -182,6 +188,7 @@
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="transform.cpp" />
     <ClCompile Include="triangle.cpp" />
+    <ClCompile Include="utils.cpp" />
     <ClCompile Include="vector3.cpp" />
     <ClCompile Include="vector4.cpp" />
   </ItemGroup>

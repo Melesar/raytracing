@@ -84,11 +84,23 @@ Color operator * (double value, const Color& color)
 
 std::ostream & operator<<(std::ostream & stream, const Color & color)
 {
-	char r = (char)(255 * Color::normalize(color.r));
-	char g = (char)(255 * Color::normalize(color.g));
-	char b = (char)(255 * Color::normalize(color.b));
+	int r = (int)(255 * Color::normalize(color.r));
+	int g = (int)(255 * Color::normalize(color.g));
+	int b = (int)(255 * Color::normalize(color.b));
 
-	stream << r << g << b;
+	stream << '(' << r << ", " << g << ", " << b << ')';
+
+	return stream;
+}
+
+std::istream & operator>>(std::istream & stream, Color & color)
+{
+	double r, g, b;
+	stream >> r >> g >> b;
+
+	color.r = r;
+	color.g = g;
+	color.b = b;
 
 	return stream;
 }

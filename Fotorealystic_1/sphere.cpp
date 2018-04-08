@@ -1,12 +1,14 @@
 #include "sphere.h"
 #include "ray.h"
 
+#include "utils.h"
+
 bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 {
 	Vector3 d = ray.getDirection();
 	Vector3 v = ray.getOrigin() - center;
 	double b = d.dot(v);
-	
+
 	double descr = b * b - d.dot(d) * (v.dot(v) - radius * radius);
 
 	if (descr < 0) {
@@ -30,6 +32,29 @@ bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 	}
 
 	intersection.hitNormal = (intersection.point - center).normalized();
+	intersection.material = &getMaterial();
+
+	calculateUVs(intersection);
 
 	return true;
+}
+
+void Sphere::calculateUVs(Intersection & intersection) const
+{
+	Vector3 hitPoint = intersection.point;
+	Vector3 center = this->center;
+
+	Vector3 localPoint = (hitPoint - center).normalized();
+
+	double theta = acos(localPoint.y);
+	double phi = atan2(localPoint.x, localPoint.z);
+
+	if (phi < 0) {
+		phi += Utils::DoublePi;
+	}
+
+	static int debugOutputs;
+
+	intersection.u = phi * Utils::InvDoublePi;
+	intersection.v = 1.0 - theta * Utils::InvPi;
 }

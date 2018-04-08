@@ -27,6 +27,7 @@ struct Color
 	bool operator == (const Color& other);
 
 	friend std::ostream& operator << (std::ostream& stream, const Color& color);
+	friend std::istream& operator >> (std::istream& stream, Color& color);
 
 private:
 

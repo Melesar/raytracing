@@ -2,6 +2,7 @@
 #include "light.h"
 
 #include <algorithm>
+#include "image.h"
 
 double Material::getAlbedo() const
 {
@@ -13,26 +14,40 @@ void Material::setAlbedo(const double newAlbedo)
 	albedo = newAlbedo;
 }
 
-double Material::getDiffuse() const
+Color Material::getDiffuse() const
 {
 	return diffuse;
 }
 
 void Material::setDiffuse(double d)
 {
-	diffuse = std::max(d, 1.0);
-	diffuse = std::min(d, 0.0);
+	double df = std::min(d, 1.0);
+	df = std::max(df, 0.0);
+
+	diffuse.set(df, df, df);
 }
 
-double Material::getSpecular() const
+void Material::setDiffuse(const Color & diffuse)
+{
+	this->diffuse = diffuse;
+}
+
+Color Material::getSpecular() const
 {
 	return specular;
 }
 
 void Material::setSpecular(double s)
 {
-	specular = std::max(s, 1.0);
-	specular = std::min(s, 0.0);
+	double sp = std::min(s, 1.0);
+	sp = std::max(sp, 0.0);
+
+	specular.set(sp, sp, sp);
+}
+
+void Material::setSpecular(const Color & specular)
+{
+	this->specular = specular;
 }
 
 double Material::getSpecularPower() const
@@ -45,12 +60,20 @@ void Material::setSpecularPower(double sp)
 	specularPower = std::max(1.0, sp);
 }
 
-Color Material::applyLight(const Vector3 & uv, const Vector3& worldPosition, const Light & light)
+void Material::setDiffuseMap(Image* diffuseMap)
 {
-	Color c;
-
-	Vector3 L = light.getDirectionAt(worldPosition);
-	double lightIntensity = light.getIntensityAt(worldPosition);
-
-	return c;
+	this->diffuseMap.reset(diffuseMap);
 }
+
+const Image & Material::getDiffuseMap() const
+{
+	return *diffuseMap.get();
+}
+
+Color Material::getDiffuseColor(double u, double v) const
+{
+	Image* diffuseTexture = diffuseMap.get();
+
+	return diffuseTexture != nullptr ? diffuseTexture->getColor(u, v) : color;
+}
+

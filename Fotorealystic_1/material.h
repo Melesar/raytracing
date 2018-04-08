@@ -1,8 +1,10 @@
 #pragma once
 
 #include "color.h"
+#include <memory>
 
 class Vector3;
+class Image;
 class Light;
 
 struct Material
@@ -12,27 +14,37 @@ struct Material
 	double getAlbedo() const;
 	void setAlbedo(const double newAlbedo);
 
-	double getDiffuse() const;
+	Color getDiffuse() const;
 	void setDiffuse(double d);
+	void setDiffuse(const Color& diffuse);
 
-	double getSpecular() const;
+	Color getSpecular() const;
 	void setSpecular(double s);
+	void setSpecular(const Color& specular);
 
 	double getSpecularPower() const;
 	void setSpecularPower(double sp);
 
-	Color applyLight(const Vector3& uv, const Vector3& worldPosition, const Light& light);
+	void setDiffuseMap(Image* diffuseMap);
+	const Image& getDiffuseMap() const;
+
+	Color getDiffuseColor(double u, double v) const;
 
 	Material(const Color& color = Color(255, 255, 255), double albedo = 3.1415, double diffuse = 1, double specular = 0, double specularPower = 2)
 		:	color(color),
 			albedo(albedo),
-			diffuse(diffuse),
-			specular(specular),
 			specularPower(specularPower)
-	{}
+	{
+		setDiffuse(diffuse);
+		setSpecular(specular);
+	}
+
+private:
 
 	double albedo;
-	double diffuse, specular;
+	Color diffuse, specular;
+
+	std::shared_ptr<Image> diffuseMap;
 
 	double specularPower;
 };

@@ -62,7 +62,7 @@ bool Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 	}
 
 	Material& m = intersec.object->getMaterial();
-	float Kd = m.getDiffuse(), Ks = m.getSpecular();
+	Color Kd = m.getDiffuse(), Ks = m.getSpecular();
 	int lightsCount = lights.size();
 	for (int lightIndex = 0; lightIndex < lightsCount; ++lightIndex) {
 		Light* light = lights.at(lightIndex);
@@ -88,7 +88,7 @@ Color Scene::diffuse(const Light & light, const Intersection& intersec) const
 	cosine = std::fmax(0.0, cosine);
 
 	Color color = albedo * lightIntensity * light.color * cosine;
-	color *= material.color;
+	color *= material.getDiffuseColor(intersec.u, intersec.v);
 
 	return color;
 }

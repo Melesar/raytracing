@@ -5,7 +5,7 @@
 
 void Render::render(char * outputPath)
 {
-	Image img(std::string(outputPath), imageWidth, imageHeight);
+	Image img(imageWidth, imageHeight);
 
 	scene->onPreRender();
 
@@ -18,7 +18,7 @@ void Render::render(char * outputPath)
 		}
 	}
 
-	img.save();
+	img.save(std::string(outputPath));
 }
 
 void Render::samplePixel(double x, double y, Color& resultColor, int depthLevel)

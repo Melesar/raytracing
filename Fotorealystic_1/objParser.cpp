@@ -1,10 +1,11 @@
-#include "parser.h"
+#include "mtlParser.h"
+#include "objParser.h"
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
 
-
-void Parser::parse(const std::string & fileName, std::vector<Triangle>& triangles)
+void ObjParser::parse(const std::string & fileName, std::vector<Triangle>& triangles)
 {
 	std::ifstream file(fileName.c_str());
 	std::string s;
@@ -23,12 +24,21 @@ void Parser::parse(const std::string & fileName, std::vector<Triangle>& triangle
 			normals.push_back(getNormal(sstream));
 		} else if (token == "f") {
 			parseFace(sstream, triangles, verticies, uvs, normals);
-			//triangles.push_back(getTriangle(sstream, verticies, uvs, normals));
+		} else if (token == "mtllib") {
+			parseMtl(sstream);
+		} else if (token == "usemtl") {
+			setCurrentMaterial(sstream);
 		}
 	}
 }
 
-Vector3 Parser::getVertex(std::istream & stream)
+
+ObjParser::~ObjParser()
+{
+	delete materialsMap;
+}
+
+Vector3 ObjParser::getVertex(std::istream & stream)
 {
 	Vector3 result;
 	stream >> result.x >> result.y >> result.z;
@@ -36,7 +46,7 @@ Vector3 Parser::getVertex(std::istream & stream)
 	return result;
 }
 
-Vector3 Parser::getUV(std::istream & stream)
+Vector3 ObjParser::getUV(std::istream & stream)
 {
 	Vector3 uv;
 	stream >> uv.x >> uv.y;
@@ -44,32 +54,13 @@ Vector3 Parser::getUV(std::istream & stream)
 	return uv;
 }
 
-Vector3 Parser::getNormal(std::istream & stream)
+Vector3 ObjParser::getNormal(std::istream & stream)
 {
 	Vector3 normal = getVertex(stream);
 	return normal.normalized();
 }
 
-Triangle Parser::getTriangle(std::stringstream & stream, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals)
-{
-	Triangle t;
-
-	try	{
-		t.v0 = getVertex(stream, verticies, uvs, normals);
-		t.v1 = getVertex(stream, verticies, uvs, normals);
-		t.v2 = getVertex(stream, verticies, uvs, normals);
-	} catch (const int& err) {
-		if (err == InvalidValue) {
-			std::cout << "Failed to parse face " << stream.str() << std::endl;
-		}
-	}
-	
-
-	return t;
-}
-
-
-Vertex Parser::getVertex(std::istream & stream, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals)
+Vertex ObjParser::getVertex(std::istream & stream, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals)
 {
 	Vertex v;
 
@@ -103,7 +94,7 @@ Vertex Parser::getVertex(std::istream & stream, const std::vector<Vector3>& vert
 	return v;
 }
 
-void Parser::parseFace(std::stringstream & stream, std::vector<Triangle>& triangles, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals)
+void ObjParser::parseFace(std::stringstream & stream, std::vector<Triangle>& triangles, const std::vector<Vector3>& verticies, const std::vector<Vector3>& uvs, const std::vector<Vector3>& normals)
 {
 	try {
 		std::vector<Vertex> faceVerticies;
@@ -122,6 +113,8 @@ void Parser::parseFace(std::stringstream & stream, std::vector<Triangle>& triang
 			t.v1 = faceVerticies.at(i + 1);
 			t.v2 = faceVerticies.at(i + 2);
 
+			t.setMaterial(currentMaterial);
+
 			triangles.push_back(t);
 		}
 
@@ -131,4 +124,29 @@ void Parser::parseFace(std::stringstream & stream, std::vector<Triangle>& triang
 			std::cout << "Failed to parse face " << stream.str() << std::endl;
 		}
 	}
+}
+
+void ObjParser::parseMtl(std::stringstream &sstream)
+{
+	std::string mtlFileName = sstream.str();
+	mtlFileName = mtlFileName.substr(mtlFileName.find(' ') + 1);
+
+	MtlParser mtlParser = MtlParser();
+	materialsMap = mtlParser.parse(mtlFileName);
+}
+
+void ObjParser::setCurrentMaterial(std::stringstream &sstream)
+{
+	std::string materialName;
+	sstream >> materialName;
+
+	std::map<std::string, Material*>::iterator it = materialsMap->find(materialName);
+	if (it != materialsMap->end()) {
+		currentMaterial = it->second;
+		return;
+	}
+
+	std::cout << "Couldn't find a material " << materialName << ". Using default one" << std::endl;
+	currentMaterial = new Material();
+	return;
 }
