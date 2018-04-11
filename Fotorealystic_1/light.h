@@ -35,3 +35,18 @@ public:
 
 	DirectionalLight(const Vector3& direction, double intensity = 1.0) : Light(intensity), direction(direction.normalized()) {}
 };
+
+class PointLight : public Light
+{
+	Vector3 position;
+	double radius;
+
+public:
+
+	Vector3 getDirectionAt(const Vector3& point) const;
+	double getIntensityAt(const Vector3& point) const;
+
+	PointLight (const Vector3& position, double radius, double intensity = 1.0) 
+		: Light(intensity), position(position), radius(radius) {}
+
+};

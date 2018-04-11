@@ -30,11 +30,17 @@ struct Material
 
 	Color getDiffuseColor(double u, double v) const;
 
+	double getResolutionX() const { return resolutionX; }
+	double getResolutionY() const { return resolutionY; }
+
 	Material(const Color& color = Color(255, 255, 255), double albedo = 3.1415, double diffuse = 1, double specular = 0, double specularPower = 2)
 		:	color(color),
 			albedo(albedo),
 			specularPower(specularPower)
 	{
+		resolutionX = 150;
+		resolutionY = 75;
+
 		setDiffuse(diffuse);
 		setSpecular(specular);
 	}
@@ -43,6 +49,8 @@ private:
 
 	double albedo;
 	Color diffuse, specular;
+
+	double resolutionX, resolutionY;
 
 	std::shared_ptr<Image> diffuseMap;
 

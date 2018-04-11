@@ -29,12 +29,15 @@ void createPrimitives(Scene& scene)
 	redSphere->getMaterial().setSpecular(0);
 	redSphere->getMaterial().setDiffuse(1);
 
-	Plane* plane = new Plane(Vector3(0, 1, 0), Vector3(0, -20, 0));
+	Plane* plane = new Plane(Vector3(0, 1, 0), Vector3(50, -20, 50));
 	plane->getMaterial().color = Color(0.8, 0.56, 0.12);
 
-	/*scene.addObject(blueSphere);
+	Image* planeTexture = new Image(std::string("textures/sea.jpg"));
+	plane->getMaterial().setDiffuseMap(planeTexture);
+
+	scene.addObject(blueSphere);
 	scene.addObject(redSphere);
-	scene.addObject(plane);*/
+	scene.addObject(plane);
 }
 
 void createMesh(Scene& scene)
@@ -47,7 +50,7 @@ void createMesh(Scene& scene)
 	model->getTransform()->setRotation(Vector3(0, 0, 0));
 	model->getTransform()->setScale(Vector3(3, 3, 3));
 
-	scene.addObject(model);
+	//scene.addObject(model);
 }
 
 void createTriangle(Scene& scene)
@@ -69,17 +72,20 @@ void createLight(Scene& scene)
 {
 	Light* directionalLight = new DirectionalLight(Vector3(1, -1, -1), 1.5);
 	scene.addLight(directionalLight);
+
+	/*Light* pointLight = new PointLight(Vector3(-3, 1, -35), 10.0, 5.0);
+	scene.addLight(pointLight);*/
 }
 
 int main(int argc, char** argv)
 {
 	std::cout << "Program started" << std::endl;
 
-	Camera* cam = new OrthographicCamera(10);
+	Camera* cam = new PerspectiveCamera(60);
 	Scene* scene = new Scene();
 
 	createPrimitives(*scene);
-	createMesh(*scene);
+	//createMesh(*scene);
 	createTriangle(*scene);
 
 	createLight(*scene);
@@ -88,7 +94,7 @@ int main(int argc, char** argv)
 
 	std::cout << "Started rendering" << std::endl;
 	
-	r.render("mesh_rendered.bmp");
+	r.render("perspective_60.bmp");
 
 	return 0;
 }

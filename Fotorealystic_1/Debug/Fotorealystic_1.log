@@ -1,13 +1,15 @@
-﻿  mesh.cpp
-c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(7): warning C4099: Vector3: имя типа, ранее отображенное с помощью "class", теперь отображено с помощью "struct"
-  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(6): note:  см. объявление "Vector3"
+﻿  main.cpp
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\material.h(6): warning C4099: Vector3: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(7): note:  см. объявление "Vector3"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\matrix4x4.h(8): warning C4099: Vector3: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\material.h(6): note:  см. объявление "Vector3"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\light.h(6): warning C4099: Vector3: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\matrix4x4.h(8): note:  см. объявление "Vector3"
 c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\triangle.h(8): warning C4099: Intersection: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
   c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\object.h(10): note:  см. объявление "Intersection"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\image.h(7): warning C4099: Color: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\color.h(7): note:  см. объявление "Color"
 c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\mesh.h(10): warning C4099: Vertex: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
   c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\triangle.h(11): note:  см. объявление "Vertex"
-c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\matrix4x4.h(8): warning C4099: Vector3: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
-  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(7): note:  см. объявление "Vector3"
-c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\mesh.cpp(38): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\mesh.cpp(80): warning C4018: <: несоответствие типов со знаком и без знака
   Fotorealystic_1.vcxproj -> C:\Users\Serg\documents\visual studio 2017\Projects\Fotorealystic_1\Debug\Fotorealystic_1.exe
   Fotorealystic_1.vcxproj -> C:\Users\Serg\documents\visual studio 2017\Projects\Fotorealystic_1\Debug\Fotorealystic_1.pdb (Partial PDB)

@@ -17,4 +17,8 @@ public:
 
 	bool intersects(const Ray& ray, Intersection& intersection);
 	void onPreRender() override {}
+
+private:
+
+	void calculateUVs(Intersection& intersection);
 };

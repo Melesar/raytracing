@@ -15,20 +15,6 @@ void Scene::addLight(Light* newLight)
 	lights.push_back(newLight);
 }
 
-void Scene::trace(Ray* r, int raysCount, Color& color)
-{
-	Color res;
-	for (int i = 0; i < raysCount; ++i) {
-		Color rayColor;
-		trace(r[i], rayColor);
-
-		res += rayColor;
-	}
-
-	res /= (double) raysCount;
-	color = res;
-}
-
 void Scene::onPreRender()
 {
 	for (auto obj : objects) {
@@ -61,7 +47,7 @@ bool Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 		return false;
 	}
 
-	Material& m = intersec.object->getMaterial();
+	Material& m = *intersec.material;
 	Color Kd = m.getDiffuse(), Ks = m.getSpecular();
 	int lightsCount = lights.size();
 	for (int lightIndex = 0; lightIndex < lightsCount; ++lightIndex) {
@@ -78,7 +64,7 @@ bool Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 Color Scene::diffuse(const Light & light, const Intersection& intersec) const
 {
 	Vector3 hitPoint = intersec.point;
-	Material& material = intersec.object->getMaterial();
+	Material& material = *intersec.material;
 
 	double albedo = material.getAlbedo() / 3.1415;
 	double lightIntensity = light.getIntensityAt(hitPoint);
@@ -96,7 +82,7 @@ Color Scene::diffuse(const Light & light, const Intersection& intersec) const
 Color Scene::specular(const Light & light, const Vector3& viewDirection, const Intersection& intersec) const
 {
 	Vector3 hitPoint = intersec.point;
-	Material& material = intersec.object->getMaterial();
+	Material& material = *intersec.material;
 
 	Vector3 L = light.getDirectionAt(hitPoint);
 	Vector3 N = intersec.hitNormal;

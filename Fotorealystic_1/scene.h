@@ -17,8 +17,6 @@ public:
 	void addObject(Object* newObject);
 	void addLight(Light* light);
 
-	void trace(Ray* r, int raysCount, Color& color);
-
 	void onPreRender();
 
 	~Scene();
