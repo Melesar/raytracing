@@ -73,7 +73,7 @@ void createLight(Scene& scene)
 	Light* directionalLight = new DirectionalLight(Vector3(1, -1, -1), 1.5);
 	scene.addLight(directionalLight);
 
-	/*Light* pointLight = new PointLight(Vector3(-3, 1, -35), 10.0, 5.0);
+	/*Light* pointLight = new PointLight(Vector3(-3, 1, -68), 10.0, 15.0);
 	scene.addLight(pointLight);*/
 }
 
@@ -81,6 +81,7 @@ int main(int argc, char** argv)
 {
 	std::cout << "Program started" << std::endl;
 
+	//Camera* cam = new OrthographicCamera(10);
 	Camera* cam = new PerspectiveCamera(60);
 	Scene* scene = new Scene();
 
@@ -94,6 +95,7 @@ int main(int argc, char** argv)
 
 	std::cout << "Started rendering" << std::endl;
 	
+	//r.render("orthographic_10.bmp");
 	r.render("perspective_60.bmp");
 
 	return 0;

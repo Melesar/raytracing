@@ -44,8 +44,8 @@ bool Triangle::intersects(const Ray & ray, Intersection & intersection)
 	intersection.distance = t;
 	intersection.hitNormal = (1 - u - v) * v0.normal + u * v1.normal + v * v2.normal;
 	intersection.material = &getMaterial();
-	intersection.u = u;
-	intersection.v = v;
+	intersection.u = (1 - u - v) * v0.uv.x + u * v1.uv.x + v * v2.uv.x;
+	intersection.v = (1 - u - v) * v0.uv.y + u * v1.uv.y + v * v2.uv.y;
 
 	return true;
 }
