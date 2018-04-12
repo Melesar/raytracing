@@ -4,7 +4,6 @@
 #include "color.h"
 #include <random>
 
-
 class Vector3;
 
 
@@ -21,7 +20,15 @@ public:
 
 	Transform& getTransform() { return transform; };
 
+	friend std::ostream& operator << (std::ostream& stream, const Light& light)
+	{
+		light.print(stream);
+		return stream;
+	}
+
 protected:
+
+	virtual void print(std::ostream& stream) const = 0;
 
 	Transform transform;
 	double intensity;
@@ -36,6 +43,10 @@ public:
 	double getIntensityAt(const Vector3& point) const;
 
 	DirectionalLight(const Vector3& direction, double intensity = 1.0) : Light(intensity), direction(direction.normalized()) {}
+
+protected:
+
+	void print(std::ostream& stream) const;
 };
 
 class PointLight : public Light
@@ -50,6 +61,9 @@ public:
 	PointLight (const Vector3& position, double intensity = 1.0) 
 		: Light(intensity), position(position) {}
 
+protected:
+
+	void print(std::ostream& stream) const;
 };
 
 class AreaLight : public Light
@@ -74,4 +88,8 @@ public:
 private:
 
 	Vector3 getPoint() const;
+
+protected:
+
+	void print(std::ostream& stream) const;
 };

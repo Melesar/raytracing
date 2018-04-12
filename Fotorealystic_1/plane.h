@@ -18,6 +18,10 @@ public:
 	bool intersects(const Ray& ray, Intersection& intersection);
 	void onPreRender() override {}
 
+protected:
+
+	virtual void print(std::ostream& stream) const;
+
 private:
 
 	void calculateUVs(Intersection& intersection);

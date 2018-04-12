@@ -23,6 +23,11 @@ bool Plane::intersects(const Ray & ray, Intersection& intersection)
 	return true;
 }
 
+void Plane::print(std::ostream & stream) const
+{
+	stream << "Point: " << point << ", " << "normal: " << normal;
+}
+
 void Plane::calculateUVs(Intersection & intersection)
 {
 	Material& mat = getMaterial();

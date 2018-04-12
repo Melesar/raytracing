@@ -72,3 +72,8 @@ Material & Triangle::getMaterial()
 {
 	return *triangleMaterial.get();
 }
+
+void Triangle::print(std::ostream & stream) const
+{
+	stream << "v0: " << v0.pos << ", v1: " << v1.pos << ", v2:" << v2.pos;
+}

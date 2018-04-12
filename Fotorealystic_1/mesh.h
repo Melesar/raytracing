@@ -26,6 +26,10 @@ public:
 	virtual bool intersects(const Ray & ray, Intersection & intersection) override;
 	virtual void onPreRender() override;
 
+protected:
+
+	virtual void print(std::ostream& stream) const;
+
 private:
 
 	void applyTransform();

@@ -1,4 +1,5 @@
 #include "logger.h"
+#include "scene.h"
 
 void Logger::output()
 {
@@ -8,7 +9,7 @@ void Logger::output()
 
 	file << "Rendering completed in " << millisPassed / 1000 << " sec" << std::endl;
 	file << "Scene configuration: " << std::endl;
-	file << scene << std::endl;
+	file << *scene << std::endl;
 
 	file.close();
 }
@@ -22,5 +23,6 @@ Logger::Logger(Scene * scene)
 {
 	this->scene = scene;
 
-	file.open(fileName);
+	file.open(fileName, std::ios::app);
+	file << std::endl;
 }

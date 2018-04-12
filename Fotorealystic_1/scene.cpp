@@ -94,9 +94,21 @@ Color Scene::specular(const Light & light, const Vector3& viewDirection, const I
 	return color;
 }
 
-std::ostream & operator<<(std::ostream & stream, const Scene & scene)
+std::ostream & operator<<(std::ostream & stream, const Scene& scene)
 {
-	stream << "Scene description is meant to be here";
+	stream << "Objects: [" << std::endl;
+	for (size_t i = 0; i < scene.objects.size(); i++) {
+		stream << "\t" << *scene.objects.at(i) << std::endl;
+	}
+	stream << "]" << std::endl;
+
+	stream << "Lights: [" << std::endl;
+
+	for (size_t i = 0; i < scene.lights.size(); i++) {
+		stream << "\t" << *scene.lights.at(i) << std::endl;
+	}
+
+	stream << "]" << std::endl;
 
 	return stream;
 }

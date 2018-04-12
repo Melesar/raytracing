@@ -72,6 +72,11 @@ void Mesh::onPreRender()
 	applyTransform();
 }
 
+void Mesh::print(std::ostream & stream) const
+{
+	stream << "Triangles count: " << triangles->size();
+}
+
 void Mesh::applyTransform()
 {
 	Matrix4x4 modelMatrix = transform->getModelMatrix();

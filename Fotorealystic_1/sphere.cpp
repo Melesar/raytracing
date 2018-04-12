@@ -39,6 +39,11 @@ bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 	return true;
 }
 
+void Sphere::print(std::ostream & stream) const
+{
+	stream << "Center: " << center << ", radius: " << radius;
+}
+
 void Sphere::calculateUVs(Intersection & intersection) const
 {
 	Vector3 hitPoint = intersection.point;

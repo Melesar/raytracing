@@ -1,3 +1,13 @@
-Rendering completed in 752 sec
+
+
+Rendering completed in 112 sec
 Scene configuration: 
-006F8488
+Objects: [
+	Center: (1, 0, -40), radius: 6
+	Center: (-8, 0, -40), radius: 2
+	Point: (50, -20, 50), normal: (0, 1, 0)
+]
+Lights: [
+	Point light:	position: (-3, 1, -35), intensity: 10
+]
+

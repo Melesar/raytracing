@@ -3,6 +3,8 @@
 #include "material.h"
 #include "vector3.h"
 
+#include <ostream>
+
 class Ray;
 class Object;
 
@@ -30,4 +32,14 @@ public:
 	virtual Material& getMaterial();
 	virtual bool intersects(const Ray& ray, Intersection& intersection) = 0;
 	virtual void onPreRender() = 0;
+
+	friend std::ostream& operator << (std::ostream& stream, const Object& obj)
+	{
+		obj.print(stream);
+		return stream;
+	}
+
+protected:
+
+	virtual void print(std::ostream& stream) const = 0;
 };

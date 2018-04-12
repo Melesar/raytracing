@@ -33,6 +33,10 @@ struct Triangle : public Object
 
 	void setMaterial(Material* material);
 	Material& getMaterial() override;
+
+protected:
+
+	virtual void print(std::ostream& stream) const;
 	
 private:
 	std::shared_ptr<Material> triangleMaterial;
