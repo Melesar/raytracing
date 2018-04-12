@@ -76,7 +76,7 @@ void createLight(Scene& scene)
 	/*Light* pointLight = new PointLight(Vector3(-3, 1, -35), 10.0);
 	scene.addLight(pointLight);*/
 
-	Light* areaLight = new AreaLight(Vector3(-3, 1, -40), 10.0, 10.0);
+	Light* areaLight = new AreaLight(Vector3(-3, 8, -40), Vector3(1, 8, -30), 25.0);
 	scene.addLight(areaLight);
 }
 

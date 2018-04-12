@@ -3,9 +3,9 @@
 #include "transform.h"
 #include "color.h"
 #include <random>
+#include <time.h>
 
 class Vector3;
-
 
 class Light
 {
@@ -68,21 +68,17 @@ protected:
 
 class AreaLight : public Light
 {
-	Vector3 position;
-	double radius;
-
-	std::uniform_real_distribution<double> distribution;
+	Vector3 min, max;
 
 public:
 
 	Vector3 getDirectionAt(const Vector3& point) const;
 	double getIntensityAt(const Vector3& point) const;
 
-	AreaLight(const Vector3& position, double radius, double intensity = 5.0)
-		: Light(intensity), position(position), radius (radius) 
+	AreaLight(const Vector3& min, const Vector3& max, double intensity = 5.0)
+		: Light(intensity), min(min), max(max)
 	{ 
-		std::random_device rd;
-		std::mt19937 gen = std::mt19937(rd());
+		srand(unsigned(time(NULL)));
 	}
 
 private:

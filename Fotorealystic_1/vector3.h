@@ -29,4 +29,17 @@ struct Vector3
 	Vector3 operator / (double value) const;
 
 	friend std::ostream& operator << (std::ostream& stream, const Vector3& vect);
+
+	static Vector3 lerp(const Vector3& v1, const Vector3& v2, double t)
+	{
+		if (t <= 0) {
+			return v1;
+		}
+
+		if (t >= 1) {
+			return v2;
+		}
+
+		return v1 + (v2 - v1) * t;
+	}
 };

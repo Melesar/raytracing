@@ -11,3 +11,91 @@ Lights: [
 	Point light:	position: (-3, 1, -35), intensity: 10
 ]
 
+
+Rendering completed in 572 sec
+Scene configuration: 
+Objects: [
+	Center: (1, 0, -40), radius: 6
+	Center: (-8, 0, -40), radius: 2
+	Point: (50, -20, 50), normal: (0, 1, 0)
+]
+Lights: [
+	Area light:	position: (-3, 1, -40), radius: 10, intensity 10
+]
+
+
+Rendering completed in 96 sec
+Scene configuration: 
+Objects: [
+	Center: (1, 0, -40), radius: 6
+	Center: (-8, 0, -40), radius: 2
+	Point: (50, -20, 50), normal: (0, 1, 0)
+]
+Lights: [
+	Area light:	position: (-3, 1, -40), radius: 10, intensity 10
+]
+
+
+
+
+Rendering completed in 140 sec
+Scene configuration: 
+Objects: [
+	Center: (1, 0, -40), radius: 6
+	Center: (-8, 0, -40), radius: 2
+	Point: (50, -20, 50), normal: (0, 1, 0)
+]
+Lights: [
+	Area light:	max: (3, 1, -35), min: (-3, 1, -45), intensity 10
+]
+
+
+
+Rendering completed in 152 sec
+Scene configuration: 
+Objects: [
+	Center: (1, 0, -40), radius: 6
+	Center: (-8, 0, -40), radius: 2
+	Point: (50, -20, 50), normal: (0, 1, 0)
+]
+Lights: [
+	Area light:	max: (3, 8, -35), min: (-3, 10, -45), intensity 100
+]
+
+
+Rendering completed in 217 sec
+Scene configuration: 
+Objects: [
+	Center: (1, 0, -40), radius: 6
+	Center: (-8, 0, -40), radius: 2
+	Point: (50, -20, 50), normal: (0, 1, 0)
+]
+Lights: [
+	Area light:	max: (3, 8, -35), min: (-3, 8, -45), intensity 100
+]
+
+
+
+Rendering completed in 227 sec
+Scene configuration: 
+Objects: [
+	Center: (1, 0, -40), radius: 6
+	Center: (-8, 0, -40), radius: 2
+	Point: (50, -20, 50), normal: (0, 1, 0)
+]
+Lights: [
+	Area light:	max: (3, 8, -35), min: (-3, 8, -45), intensity 100
+]
+
+
+Rendering completed in 180 sec
+Scene configuration: 
+Objects: [
+	Center: (1, 0, -40), radius: 6
+	Center: (-8, 0, -40), radius: 2
+	Point: (50, -20, 50), normal: (0, 1, 0)
+]
+Lights: [
+	Area light:	max: (1, 8, -30), min: (-3, 8, -40), intensity 25
+]
+

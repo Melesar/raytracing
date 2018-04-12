@@ -1,6 +1,5 @@
 #include "light.h"
 
-
 //------------ Directional light ----------
 
 Vector3 DirectionalLight::getDirectionAt(const Vector3 & point) const
@@ -55,15 +54,18 @@ double AreaLight::getIntensityAt(const Vector3 & point) const
 
 Vector3 AreaLight::getPoint() const
 {
-	std::random_device rd;
-	std::mt19937 gen = std::mt19937(rd());
-	double randomValue = this->distribution(gen);
+	double xt = (double) rand() / RAND_MAX;
+	double yt = (double) rand() / RAND_MAX;
+	double zt = (double) rand() / RAND_MAX;
 
-	double offset = radius * (2.0 * randomValue - 1.0);
-	return position + Vector3(1, 1, 1) * offset;
+	double px = min.x + (max.x - min.x) * xt;
+	double py = min.y + (max.y - min.y) * yt;
+	double pz = min.z + (max.z - min.z) * zt;
+
+	return Vector3(px, py, pz);
 }
 
 void AreaLight::print(std::ostream & stream) const
 {
-	stream << "Area light:\t" << "position: " << position << ", radius: "<< radius << ", intensity " << intensity;
+	stream << "Area light:\t" << "max: " << max << ", min: "<< min << ", intensity " << intensity;
 }
