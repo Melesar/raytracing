@@ -1,0 +1,3 @@
+Rendering completed in 752 sec
+Scene configuration: 
+006F8488

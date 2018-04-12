@@ -2,11 +2,14 @@
 #include "image.h"
 #include <fstream>
 #include <string>
+#include "logger.h"
 
 void Render::render(char * outputPath)
 {
 	Image img(imageWidth, imageHeight);
+	Logger logger(scene);
 
+	logger.start();
 	scene->onPreRender();
 
 	for (int height = 0; height < imageHeight; ++height) {
@@ -18,6 +21,7 @@ void Render::render(char * outputPath)
 		}
 	}
 
+	logger.output();
 	img.save(std::string(outputPath));
 }
 

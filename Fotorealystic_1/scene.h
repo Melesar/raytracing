@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <ostream>
 #include "object.h"
 #include "color.h"
 
@@ -25,4 +26,6 @@ public:
 
 	Color diffuse(const Light& light, const Intersection& intersec) const;
 	Color specular(const Light& light, const Vector3& viewDirection, const Intersection& intersec) const;
+
+	friend std::ostream& operator << (std::ostream& stream, const Scene& scene);
 };

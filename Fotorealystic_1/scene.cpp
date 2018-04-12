@@ -93,3 +93,10 @@ Color Scene::specular(const Light & light, const Vector3& viewDirection, const I
 	Color color = light.getIntensityAt(hitPoint) * light.color * S;
 	return color;
 }
+
+std::ostream & operator<<(std::ostream & stream, const Scene & scene)
+{
+	stream << "Scene description is meant to be here";
+
+	return stream;
+}

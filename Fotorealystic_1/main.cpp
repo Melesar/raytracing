@@ -70,11 +70,14 @@ void createTriangle(Scene& scene)
 
 void createLight(Scene& scene)
 {
-	Light* directionalLight = new DirectionalLight(Vector3(1, -1, -1), 1.5);
-	scene.addLight(directionalLight);
+	/*Light* directionalLight = new DirectionalLight(Vector3(1, -1, -1), 1.5);
+	scene.addLight(directionalLight);*/
 
-	/*Light* pointLight = new PointLight(Vector3(-3, 1, -68), 10.0, 15.0);
+	/*Light* pointLight = new PointLight(Vector3(-3, 1, -35), 10.0);
 	scene.addLight(pointLight);*/
+
+	Light* areaLight = new AreaLight(Vector3(-3, 1, -40), 10.0, 10.0);
+	scene.addLight(areaLight);
 }
 
 int main(int argc, char** argv)
