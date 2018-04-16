@@ -31,6 +31,10 @@ bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 		intersection.distance = distance;
 	}
 
+	if (intersection.distance <= 0) {
+		return false;
+	}
+
 	intersection.viewDirection = ray.getDirection();
 	intersection.hitNormal = (intersection.point - center).normalized();
 	intersection.material = getMaterial();

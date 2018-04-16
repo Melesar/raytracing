@@ -14,6 +14,8 @@ class Scene
 	std::vector<Object*> objects;
 	std::vector<Light*> lights;
 
+	const double MinIntersectionDistance = 0.0001;
+
 public:
 
 	void addObject(Object* newObject);
@@ -23,10 +25,8 @@ public:
 
 	~Scene();
 
-	bool trace(Ray r, Color& color, int maxBounce = 1, double maxDistance = INFINITY);
-
-	Color diffuse(const Light& light, const Intersection& intersec) const;
-	Color specular(const Light& light, const Vector3& viewDirection, const Intersection& intersec) const;
+	bool trace(const Ray& r, Color& color, int maxBounce = 1, double maxDistance = INFINITY) const;
+	bool traceForIntersection(const Ray& ray, Intersection& intersec, double maxDistance) const;
 
 	friend std::ostream& operator << (std::ostream& stream, const Scene& scene);
 };

@@ -39,6 +39,10 @@ bool Triangle::intersects(const Ray & ray, Intersection & intersection)
 
 	double t = E2.dot(Q) * invDeterminant;
 
+	if (t <= 0) {
+		return false;
+	}
+
 	intersection.object = this;
 	intersection.point = ray.getPoint(t);
 	intersection.distance = t;

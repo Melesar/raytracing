@@ -3,6 +3,7 @@
 #include "light.h"
 
 #include <algorithm>
+#include <iostream>
 
 
 void Scene::addObject(Object * newObject)
@@ -29,22 +30,28 @@ Scene::~Scene()
 	}
 }
 
-bool Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
+bool Scene::traceForIntersection(const Ray& ray, Intersection& intersec, double maxDistance) const
 {
 	int objectsCount = objects.size();
 	bool isObjectFound = false;
-	Intersection intersec;
 
 	double nearestDistance = 1e+10;
 	for (int objIndex = 0; objIndex < objectsCount; ++objIndex) {
 		Object* obj = objects.at(objIndex);
-		if (obj->intersects(r, intersec) && intersec.distance < nearestDistance) {
+		if (obj->intersects(ray, intersec) && intersec.distance < nearestDistance && intersec.distance > MinIntersectionDistance) {
 			nearestDistance = intersec.distance;
 			isObjectFound = true;
 		}
 	}
 
-	if (!isObjectFound) {
+	return isObjectFound && nearestDistance > MinIntersectionDistance && nearestDistance <= maxDistance;
+}
+
+bool Scene::trace(const Ray& r, Color & color, int maxBounce, double maxDistance) const
+{
+	Intersection intersec;
+
+	if (!traceForIntersection(r, intersec, maxDistance)) {
 		return false;
 	}
 
@@ -55,7 +62,7 @@ bool Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 		Ray secondaryRay;
 		Color materialColor;
 		if (!intersec.material->getColorAndSendSecondaryRayIfNeeded(light, intersec, materialColor, secondaryRay)) {
-			color += materialColor;
+			color += light->shade(intersec.point, *this) * materialColor;
 		} else {
 			//trace secondary ray
 		}
