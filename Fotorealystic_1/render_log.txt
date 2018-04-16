@@ -99,3 +99,478 @@ Lights: [
 	Area light:	max: (1, 8, -30), min: (-3, 8, -40), intensity 25
 ]
 
+
+Rendering completed in 23 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+]
+
+
+Rendering completed in 23 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+]
+
+
+Rendering completed in 34 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+]
+
+
+Rendering completed in 38 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 35 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 25 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 26 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 32 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+
+Rendering completed in 26 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+
+Rendering completed in 26 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+
+Rendering completed in 36 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 33 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 25 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 24 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 24 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 26 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 39 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 43 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 62 sec
+Scene configuration: 
+Objects: [
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+
+Rendering completed in 68 sec
+Scene configuration: 
+Objects: [
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 83 sec
+Scene configuration: 
+Objects: [
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 72 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 83 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+
+Rendering completed in 72 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 72 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 77 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 66 sec
+Scene configuration: 
+Objects: [
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 80 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 81 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+
+Rendering completed in 77 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+]
+Lights: [
+	Directional light:	direction: (0.57735, -0.57735, -0.57735), intensity: 1.5
+]
+
+
+Rendering completed in 163 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+]
+Lights: [
+	Point light:	position: (0, 20, -40), intensity: 25
+]
+
+
+Rendering completed in 175 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+]
+Lights: [
+	Point light:	position: (0, 20, -40), intensity: 25
+]
+
+
+Rendering completed in 159 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+]
+Lights: [
+	Point light:	position: (0, 20, -40), intensity: 25
+]
+
+
+Rendering completed in 156 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (1, 0, -30), radius: 6
+]
+Lights: [
+	Point light:	position: (0, 20, -40), intensity: 25
+]
+
+
+Rendering completed in 195 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (1, 0, -30), radius: 6
+]
+Lights: [
+	Point light:	position: (0, 20, -40), intensity: 25
+]
+
+
+Rendering completed in 196 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (1, 0, -30), radius: 6
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 25
+]
+
+
+Rendering completed in 208 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (1, 0, -30), radius: 6
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 32
+]
+
+
+Rendering completed in 199 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 40
+]
+
+
+
+Rendering completed in 213 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, 0, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 40
+]
+
+
+Rendering completed in 214 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, 0, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+

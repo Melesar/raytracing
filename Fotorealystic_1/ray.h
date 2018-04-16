@@ -14,8 +14,6 @@ public:
 		invDirection.x = 1.0 / direction.x;
 		invDirection.y = 1.0 / direction.y;
 		invDirection.z = 1.0 / direction.z;
-
-		//invDirection = invDirection.normalized();
 	}
 
 	Vector3 getOrigin() const { return origin; }

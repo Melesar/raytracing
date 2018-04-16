@@ -35,11 +35,12 @@ bool Scene::trace(Ray r, Color & color, int maxBounce, double maxDistance)
 	bool isObjectFound = false;
 	Intersection intersec;
 
+	double nearestDistance = 1e+10;
 	for (int objIndex = 0; objIndex < objectsCount; ++objIndex) {
 		Object* obj = objects.at(objIndex);
-		if (obj->intersects(r, intersec)) {
+		if (obj->intersects(r, intersec) && intersec.distance < nearestDistance) {
+			nearestDistance = intersec.distance;
 			isObjectFound = true;
-			break;
 		}
 	}
 

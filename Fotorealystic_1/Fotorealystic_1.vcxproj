@@ -159,6 +159,7 @@
     <ClInclude Include="object.h" />
     <ClInclude Include="objParser.h" />
     <ClInclude Include="plane.h" />
+    <ClInclude Include="quad.h" />
     <ClInclude Include="ray.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="scene.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="object.cpp" />
     <ClCompile Include="objParser.cpp" />
     <ClCompile Include="plane.cpp" />
+    <ClCompile Include="quad.cpp" />
     <ClCompile Include="ray.cpp" />
     <ClCompile Include="render.cpp" />
     <ClCompile Include="scene.cpp" />
