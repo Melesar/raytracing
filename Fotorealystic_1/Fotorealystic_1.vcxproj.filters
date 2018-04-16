@@ -107,6 +107,12 @@
     <ClInclude Include="material.h">
       <Filter>Materials</Filter>
     </ClInclude>
+    <ClInclude Include="areaLight.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="emissiveMaterial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -182,6 +188,12 @@
       <Filter>Materials</Filter>
     </ClCompile>
     <ClCompile Include="material.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="areaLight.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="emissiveMaterial.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "phongMaterial.h"
-#include "material.h"
+#include "emissiveMaterial.h"
 #include "vector3.h"
 
 #include <ostream>

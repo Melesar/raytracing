@@ -44,7 +44,7 @@ bool Scene::traceForIntersection(const Ray& ray, Intersection& intersec, double 
 		}
 	}
 
-	return isObjectFound && nearestDistance > MinIntersectionDistance && nearestDistance <= maxDistance;
+	return isObjectFound && nearestDistance <= maxDistance;
 }
 
 bool Scene::trace(const Ray& r, Color & color, int maxBounce, double maxDistance) const

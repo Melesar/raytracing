@@ -74,29 +74,3 @@ protected:
 
 };
 
-class AreaLight : public Light
-{
-	Vector3 min, max;
-
-public:
-
-	Vector3 getDirectionAt(const Vector3& point) const;
-	double getIntensityAt(const Vector3& point) const;
-
-	virtual double shade(const Vector3 & point, const Scene & scene) const override;
-
-	AreaLight(const Vector3& min, const Vector3& max, double intensity = 5.0)
-		: Light(intensity), min(min), max(max)
-	{ 
-		srand(unsigned(time(NULL)));
-	}
-
-private:
-
-	Vector3 getPoint() const;
-
-protected:
-
-	void print(std::ostream& stream) const;
-
-};

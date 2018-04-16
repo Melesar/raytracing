@@ -115,3 +115,22 @@ Lights: [
 	Point light:	position: (0, 20, -20), intensity: 60
 ]
 
+
+
+
+Rendering completed in 299 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, -5, -25), radius: 3
+	Center: (0, 0, -10), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+

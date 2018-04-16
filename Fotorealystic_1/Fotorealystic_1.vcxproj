@@ -143,11 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="areaLight.h" />
     <ClInclude Include="bitmap_image.hpp" />
     <ClInclude Include="boundingbox.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="CImg.h" />
     <ClInclude Include="color.h" />
+    <ClInclude Include="emissiveMaterial.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="light.h" />
     <ClInclude Include="logger.h" />
@@ -172,9 +174,11 @@
     <ClInclude Include="vector4.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="areaLight.cpp" />
     <ClCompile Include="boundingbox.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="color.cpp" />
+    <ClCompile Include="emissiveMaterial.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="light.cpp" />
     <ClCompile Include="logger.cpp" />

@@ -119,6 +119,11 @@ void createPrimitives(Scene& scene)
 	redSphere->setMaterial(redSphereMaterial);
 
 	scene.addObject(redSphere);
+
+	Object* emissiveSphere = new Sphere(Vector3(0, 0, -10), 3);
+	emissiveSphere->setMaterial(new EmissiveMaterial(Color(0, 1, 0)));
+
+	scene.addObject(emissiveSphere);
 }
 
 void createLight(Scene& scene)
