@@ -10,6 +10,8 @@ class Render
 	Camera* camera;
 
 	int imageWidth, imageHeight;
+	int maxSecondaryRays;
+
 	Color* imageBuffer;
 	Color backgroundColor;
 
@@ -17,12 +19,13 @@ public:
 
 	void render(char* outputPath);
 
-	Render(int imageWidth, int imageHeight, Scene* scene, Camera* camera, const Color& backgroundColor = Color(0, 0, 0.4)) :
+	Render(int imageWidth, int imageHeight, Scene* scene, Camera* camera, const Color& backgroundColor = Color(0, 0, 0.4), int maxSecondaryRays = 1) :
 		imageWidth(imageWidth),
 		imageHeight(imageHeight),
 		scene(scene),
 		camera(camera),
-		backgroundColor(backgroundColor)
+		backgroundColor(backgroundColor),
+		maxSecondaryRays(maxSecondaryRays)
 	{
 		imageBuffer = new Color [imageWidth * imageHeight];
 	}
@@ -52,6 +55,4 @@ private:
 
 	void samplePixel(double x, double y, Color& resultColor, int depthLevel = 0);
 	SamplingInfo trace(double x, double y);
-
-	
 };

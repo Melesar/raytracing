@@ -134,3 +134,165 @@ Lights: [
 	Point light:	position: (0, 20, -20), intensity: 60
 ]
 
+
+Rendering completed in 354 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, -5, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+
+Rendering completed in 547 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, -5, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+Rendering completed in 358 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, -5, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+Rendering completed in 349 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, -5, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+Rendering completed in 319 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, -5, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+Rendering completed in 346 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (8, -2, -30), radius: 6
+	Center: (-3, -5, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+Rendering completed in 327 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-3, -5, -25), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+Rendering completed in 327 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-3, -5, -20), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+Rendering completed in 270 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-15, -5, -45), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+
+
+
+Rendering completed in 398 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+]
+Lights: [
+	Point light:	position: (0, 20, -20), intensity: 60
+]
+

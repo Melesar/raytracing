@@ -63,8 +63,8 @@ bool Scene::trace(const Ray& r, Color & color, int maxBounce, double maxDistance
 		Color materialColor;
 		if (!intersec.material->getColorAndSendSecondaryRayIfNeeded(light, intersec, materialColor, secondaryRay)) {
 			color += light->shade(intersec.point, *this) * materialColor;
-		} else {
-			//trace secondary ray
+		} else if (maxBounce > 0) {
+			return trace(secondaryRay, color, maxBounce - 1, maxDistance);
 		}
 	}
 

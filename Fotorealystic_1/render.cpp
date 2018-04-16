@@ -62,7 +62,7 @@ Render::SamplingInfo Render::trace(double x, double y)
 {
 	Color rayColor;
 	Ray r = camera->raycast(x, y, imageWidth, imageHeight);
-	bool isHit = scene->trace(r, rayColor);
+	bool isHit = scene->trace(r, rayColor, maxSecondaryRays);
 
 	SamplingInfo info;
 	info.x = x;

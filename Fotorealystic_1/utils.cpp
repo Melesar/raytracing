@@ -9,5 +9,11 @@ void Utils::replace(std::string & str, const std::string & pattern, const std::s
 		str.replace(start, len, sub);
 		start = str.find(pattern);
 	}
-
 }
+
+Vector3 Utils::reflect(const Vector3 & direction, const Vector3 & normal)
+{
+	return (2 * normal.dot(direction) * normal - direction).normalized();
+}
+
+

@@ -113,6 +113,12 @@
     <ClInclude Include="emissiveMaterial.h">
       <Filter>Materials</Filter>
     </ClInclude>
+    <ClInclude Include="reflectiveMaterial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="refractiveMaterial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -194,6 +200,12 @@
       <Filter>Lights</Filter>
     </ClCompile>
     <ClCompile Include="emissiveMaterial.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="reflectiveMaterial.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="refractiveMaterial.cpp">
       <Filter>Materials</Filter>
     </ClCompile>
   </ItemGroup>

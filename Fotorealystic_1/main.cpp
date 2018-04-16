@@ -1,3 +1,5 @@
+#include "reflectiveMaterial.h"
+#include "refractiveMaterial.h"
 #include "ray.h"
 #include "sphere.h"
 #include "plane.h"
@@ -97,45 +99,21 @@ void createPrimitives(Scene& scene)
 
 	scene.addObject(topQuad);
 
-	Object* blueSphere = new Sphere(Vector3(8, -2, -30), 6);
-
-	PhongMaterial* blueSphereMaterial = new PhongMaterial();
-	blueSphereMaterial->color = Color(0, 0, 1);
-	blueSphereMaterial->setSpecular(1);
-	blueSphereMaterial->setDiffuse(1);
-	blueSphereMaterial->setSpecularPower(10);
-
-	blueSphere->setMaterial(blueSphereMaterial);
+	Object* blueSphere = new Sphere(Vector3(3, -2, -30), 6);
+	blueSphere->setMaterial(new ReflectiveMaterial());
 
 	scene.addObject(blueSphere);
 
-	Object* redSphere = new Sphere(Vector3(-3, -5, -25), 3);
-
-	PhongMaterial* redSphereMaterial = new PhongMaterial();
-	redSphereMaterial->color = Color(1, 0, 0);
-	redSphereMaterial->setSpecular(0);
-	redSphereMaterial->setDiffuse(1);
-
-	redSphere->setMaterial(redSphereMaterial);
+	Object* redSphere = new Sphere(Vector3(-8, -5, -20), 3);
+	redSphere->setMaterial(new RefractiveMaterial());
 
 	scene.addObject(redSphere);
-
-	Object* emissiveSphere = new Sphere(Vector3(0, 0, -10), 3);
-	emissiveSphere->setMaterial(new EmissiveMaterial(Color(0, 1, 0)));
-
-	scene.addObject(emissiveSphere);
 }
 
 void createLight(Scene& scene)
 {
-	/*Light* directionalLight = new DirectionalLight(Vector3(1, -1, -1), 1.5);
-	scene.addLight(directionalLight);*/
-
 	Light* pointLight = new PointLight(Vector3(0, 20, -20), 60.0);
 	scene.addLight(pointLight);
-
-	/*Light* areaLight = new AreaLight(Vector3(-3, 8, -40), Vector3(1, 8, -30), 25.0);
-	scene.addLight(areaLight);*/
 }
 
 int main(int argc, char** argv)

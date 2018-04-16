@@ -164,6 +164,8 @@
     <ClInclude Include="plane.h" />
     <ClInclude Include="quad.h" />
     <ClInclude Include="ray.h" />
+    <ClInclude Include="reflectiveMaterial.h" />
+    <ClInclude Include="refractiveMaterial.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="sphere.h" />
@@ -193,6 +195,8 @@
     <ClCompile Include="plane.cpp" />
     <ClCompile Include="quad.cpp" />
     <ClCompile Include="ray.cpp" />
+    <ClCompile Include="reflectiveMaterial.cpp" />
+    <ClCompile Include="refractiveMaterial.cpp" />
     <ClCompile Include="render.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="sphere.cpp" />

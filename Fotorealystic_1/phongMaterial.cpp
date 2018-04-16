@@ -2,6 +2,7 @@
 #include "light.h"
 
 #include "object.h"
+#include "utils.h"
 
 #include <algorithm>
 #include "image.h"
@@ -39,7 +40,7 @@ Color PhongMaterial::specular(const Light & light, const Intersection& intersec)
 
 	Vector3 L = light.getDirectionAt(hitPoint);
 	Vector3 N = intersec.hitNormal;
-	Vector3 R = (2 * N.dot(L) * N - L).normalized();
+	Vector3 R = Utils::reflect(L, N);
 
 	double S = std::pow(std::max(0.0, R.dot(intersec.viewDirection)), getSpecularPower());
 
