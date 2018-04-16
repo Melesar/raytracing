@@ -1,6 +1,6 @@
 #include "object.h"
 
-Material & Object::getMaterial()
+Material* Object::getMaterial()
 {
 	return material;
 }

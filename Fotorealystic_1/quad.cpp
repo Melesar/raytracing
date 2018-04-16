@@ -56,7 +56,8 @@ bool Quad::intersects(const Ray & ray, Intersection & intersection)
 	intersection.point = ray.getPoint(t);
 	intersection.distance = t;
 	intersection.hitNormal = normal;
-	intersection.material = &getMaterial();
+	intersection.viewDirection = D;
+	intersection.material = getMaterial();
 	intersection.u = u;
 	intersection.v = v;
 

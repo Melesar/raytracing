@@ -21,6 +21,9 @@
     <Filter Include="Parsers">
       <UniqueIdentifier>{0d0ed955-8257-4483-82b7-99319071a4d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Materials">
+      <UniqueIdentifier>{6cc87e00-47c5-4757-b212-d37468bf9fad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -54,9 +57,6 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="color.h">
-      <Filter>Data</Filter>
-    </ClInclude>
-    <ClInclude Include="material.h">
       <Filter>Data</Filter>
     </ClInclude>
     <ClInclude Include="light.h">
@@ -100,6 +100,12 @@
     </ClInclude>
     <ClInclude Include="quad.h">
       <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="phongMaterial.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="material.h">
+      <Filter>Materials</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -154,9 +160,6 @@
     <ClCompile Include="mesh.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="material.cpp">
-      <Filter>Data</Filter>
-    </ClCompile>
     <ClCompile Include="boundingbox.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
@@ -174,6 +177,12 @@
     </ClCompile>
     <ClCompile Include="quad.cpp">
       <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="phongMaterial.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="material.cpp">
+      <Filter>Materials</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

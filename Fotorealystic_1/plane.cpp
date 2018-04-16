@@ -15,8 +15,9 @@ bool Plane::intersects(const Ray & ray, Intersection& intersection)
 
 	intersection.point = ray.getPoint(distance);
 	intersection.hitNormal = getNormal();
+	intersection.viewDirection = ray.getDirection();
 	intersection.object = this;
-	intersection.material = &getMaterial();
+	intersection.material = getMaterial();
 
 	calculateUVs(intersection);
 
@@ -30,11 +31,11 @@ void Plane::print(std::ostream & stream) const
 
 void Plane::calculateUVs(Intersection & intersection)
 {
-	Material& mat = getMaterial();
+	Material* mat = getMaterial();
 	Vector3 intersectionPoint = intersection.point;
 
-	double u = abs(intersectionPoint.x - point.x) / mat.getResolutionX();
-	double v = abs(intersectionPoint.z - point.z) / mat.getResolutionY();
+	double u = abs(intersectionPoint.x - point.x) / mat->getResolutionX();
+	double v = abs(intersectionPoint.z - point.z) / mat->getResolutionY();
 
 	intersection.u = u - (int)u;
 	intersection.v = v - (int)v;

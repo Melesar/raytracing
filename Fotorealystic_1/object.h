@@ -1,5 +1,6 @@
 #pragma once
 
+#include "phongMaterial.h"
 #include "material.h"
 #include "vector3.h"
 
@@ -15,6 +16,7 @@ struct Intersection
 	Material* material;
 
 	Vector3 hitNormal;
+	Vector3 viewDirection;
 	double distance;
 	double u, v;
 };
@@ -23,13 +25,14 @@ class Object
 {
 protected:
 
-	Material material;
+	Material* material;
 
 public:
 
-	Object(const Material& material = Material()) : material(material) {}
+	Object(Material* material = new PhongMaterial()) : material(material) {}
 
-	virtual Material& getMaterial();
+	virtual void setMaterial(Material* newMaterial) { this->material = newMaterial; }
+	virtual Material* getMaterial();
 	virtual bool intersects(const Ray& ray, Intersection& intersection) = 0;
 	virtual void onPreRender() = 0;
 

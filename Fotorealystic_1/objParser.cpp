@@ -140,13 +140,13 @@ void ObjParser::setCurrentMaterial(std::stringstream &sstream)
 	std::string materialName;
 	sstream >> materialName;
 
-	std::map<std::string, Material*>::iterator it = materialsMap->find(materialName);
+	std::map<std::string, PhongMaterial*>::iterator it = materialsMap->find(materialName);
 	if (it != materialsMap->end()) {
 		currentMaterial = it->second;
 		return;
 	}
 
 	std::cout << "Couldn't find a material " << materialName << ". Using default one" << std::endl;
-	currentMaterial = new Material();
+	currentMaterial = new PhongMaterial();
 	return;
 }

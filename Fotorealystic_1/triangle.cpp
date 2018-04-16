@@ -43,7 +43,8 @@ bool Triangle::intersects(const Ray & ray, Intersection & intersection)
 	intersection.point = ray.getPoint(t);
 	intersection.distance = t;
 	intersection.hitNormal = (1 - u - v) * v0.normal + u * v1.normal + v * v2.normal;
-	intersection.material = &getMaterial();
+	intersection.viewDirection = D;
+	intersection.material = getMaterial();
 	intersection.u = (1 - u - v) * v0.uv.x + u * v1.uv.x + v * v2.uv.x;
 	intersection.v = (1 - u - v) * v0.uv.y + u * v1.uv.y + v * v2.uv.y;
 
@@ -63,14 +64,14 @@ Vector3 Triangle::getNormal()
 	return v01.cross(v02);
 }
 
-void Triangle::setMaterial(Material * material)
+void Triangle::setMaterial(Material* material)
 {
 	triangleMaterial.reset(material);
 }
 
-Material & Triangle::getMaterial()
+Material* Triangle::getMaterial()
 {
-	return *triangleMaterial.get();
+	return triangleMaterial.get();
 }
 
 void Triangle::print(std::ostream & stream) const

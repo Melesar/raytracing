@@ -24,15 +24,15 @@ struct Triangle : public Object
 
 	Triangle()
 	{
-		triangleMaterial.reset(new Material());
+		triangleMaterial.reset(new PhongMaterial());
 	}
 
 	bool intersects(const Ray& ray, Intersection& intersection);
 	Vector3 getNormal();
 	void onPreRender() override {}
 
-	void setMaterial(Material* material);
-	Material& getMaterial() override;
+	void setMaterial(Material* material) override;
+	Material* getMaterial() override;
 
 protected:
 

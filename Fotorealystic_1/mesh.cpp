@@ -59,6 +59,7 @@ bool Mesh::intersects(const Ray & ray, Intersection & intersection)
 	intersection.object = this;
 	intersection.point = nearestIntesection;
 	intersection.hitNormal = hitNormal;
+	intersection.viewDirection = ray.getDirection();
 	intersection.distance = nearestDistance;
 	intersection.material = material;
 	intersection.u = u;

@@ -24,8 +24,8 @@ private:
 
 	const int InvalidValue = -13;
 
-	std::map<std::string, Material*>* materialsMap;
-	Material* currentMaterial;
+	std::map<std::string, PhongMaterial*>* materialsMap;
+	PhongMaterial* currentMaterial;
 
 	Vector3 getVertex(std::istream& stream);
 	Vector3 getUV(std::istream& stream);

@@ -153,6 +153,7 @@
     <ClInclude Include="logger.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="material.h" />
+    <ClInclude Include="phongMaterial.h" />
     <ClInclude Include="matrix4x4.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="mtlParser.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="material.cpp" />
+    <ClCompile Include="phongMaterial.cpp" />
     <ClCompile Include="matrix4x4.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="mtlParser.cpp" />

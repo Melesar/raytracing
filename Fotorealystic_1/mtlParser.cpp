@@ -4,13 +4,13 @@
 #include <sstream>
 #include "image.h"
 
-#include "material.h"
+#include "phongMaterial.h"
 #include "utils.h"
 
 
-std::map<std::string, Material*>* MtlParser::parse(const std::string & fileName)
+std::map<std::string, PhongMaterial*>* MtlParser::parse(const std::string & fileName)
 {
-	std::map<std::string, Material*>* materialsMap = new std::map<std::string, Material*>();
+	std::map<std::string, PhongMaterial*>* materialsMap = new std::map<std::string, PhongMaterial*>();
 
 	std::string s;
 	std::ifstream file(fileName.c_str());
@@ -47,13 +47,13 @@ std::map<std::string, Material*>* MtlParser::parse(const std::string & fileName)
 	return materialsMap;
 }
 
-void MtlParser::swapMaterial(std::map<std::string, Material*> & map, std::stringstream & stream)
+void MtlParser::swapMaterial(std::map<std::string, PhongMaterial*> & map, std::stringstream & stream)
 {
 	std::string materialName;
 	stream >> materialName;
 
-	currentMaterial = new Material();
-	std::pair<std::string, Material*> pair(materialName, currentMaterial);
+	currentMaterial = new PhongMaterial();
+	std::pair<std::string, PhongMaterial*> pair(materialName, currentMaterial);
 	map.insert(pair);
 }
 
