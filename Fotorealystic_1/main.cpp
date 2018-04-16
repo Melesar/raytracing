@@ -92,7 +92,7 @@ void createPrimitives(Scene& scene)
 	blueSphere->getMaterial().setDiffuseMap(sphereTexture);*/
 	scene.addObject(blueSphere);
 
-	Object* redSphere = new Sphere(Vector3(-3, 0, -25), 3);
+	Object* redSphere = new Sphere(Vector3(-3, -5, -25), 3);
 	redSphere->getMaterial().color = Color(1, 0, 0);
 	redSphere->getMaterial().setSpecular(0);
 	redSphere->getMaterial().setDiffuse(1);
@@ -104,7 +104,6 @@ void createPrimitives(Scene& scene)
 	Image* planeTexture = new Image(std::string("textures/sea.jpg"));
 	plane->getMaterial().setDiffuseMap(planeTexture);
 	scene.addObject(plane);*/
-
 }
 
 void createMesh(Scene& scene)

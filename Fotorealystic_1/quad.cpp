@@ -61,48 +61,6 @@ bool Quad::intersects(const Ray & ray, Intersection & intersection)
 	intersection.v = v;
 
 	return true;
-	/*Vector3 d = ray.getDirection();
-
-	//Check if ray is parallel to the quad
-	double aCos = d.dot(normal);
-	if (abs(aCos) < 1e-6) {
-		return false;
-	}
-
-	double distance = -normal.dot(ray.getOrigin() - v1) / aCos;
-	if (distance < 0) {
-		return false;
-	}
-
-	Vector3 point = ray.getPoint(distance);
-	Vector3 intP = point - ray.getOrigin();
-
-	Vector3 v21 = v2 - v1;
-	Vector3 v31 = v3 - v1;
-
-	double width = v21.magnitude();
-	double height = v31.magnitude();
-	
-	double u = intP.dot(v21);
-	double v = intP.dot(v31);
-
-	bool isIntersects =
-		u >= 0 && u < width &&
-		v >= 0 && v < height;
-
-	if (!isIntersects) {
-		return false;
-	}
-
-	intersection.point = point;
-	intersection.hitNormal = normal;
-	intersection.distance = distance;
-	intersection.object = this;
-	intersection.material = &getMaterial();
-	intersection.u = u / width;
-	intersection.v = v / height;
-
-	return true;*/
 }
 
 void Quad::onPreRender()
