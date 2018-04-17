@@ -4,8 +4,6 @@
 #include "sphere.h"
 #include "plane.h"
 #include "matrix4x4.h"
-#include "vector4.h"
-#include "transform.h"
 #include "camera.h"
 #include "scene.h"
 #include "render.h"
@@ -15,6 +13,7 @@
 #include "mesh.h"
 #include "utils.h"
 #include "quad.h"
+#include "areaLight.h"
 
 void createPrimitives(Scene& scene)
 {
@@ -112,8 +111,16 @@ void createPrimitives(Scene& scene)
 
 void createLight(Scene& scene)
 {
-	Light* pointLight = new PointLight(Vector3(0, 20, -20), 60.0);
-	scene.addLight(pointLight);
+	/*Light* pointLight = new PointLight(Vector3(0, 20, -20), 60.0);
+	scene.addLight(pointLight);*/
+
+	Quad* areaLightShape = new Quad(Vector3(5, 24, -30), Vector3(-5, 24, -30), Vector3(5, 24, -15));
+	areaLightShape->invertNormal();
+
+	Light* areaLight = new AreaLight(areaLightShape, 50);
+
+	scene.addLight(areaLight);
+	scene.addObject(areaLightShape);
 }
 
 int main(int argc, char** argv)
@@ -127,7 +134,7 @@ int main(int argc, char** argv)
 	createPrimitives(*scene);
 	createLight(*scene);
 
-	Render r(800, 600, scene, cam, Color(0.12, 0.7, 0.4), 2);
+	Render r(800, 600, scene, cam, Color(0, 0, 0.6), 2);
 
 	std::cout << "Started rendering" << std::endl;
 	

@@ -15,9 +15,13 @@ class Render
 	Color* imageBuffer;
 	Color backgroundColor;
 
+	bool antialiasingEnabled = true;
+
 public:
 
 	void render(char* outputPath);
+
+	void setAntialiasing(bool isEnabled);
 
 	Render(int imageWidth, int imageHeight, Scene* scene, Camera* camera, const Color& backgroundColor = Color(0, 0, 0.4), int maxSecondaryRays = 1) :
 		imageWidth(imageWidth),

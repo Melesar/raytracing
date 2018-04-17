@@ -1,5 +1,5 @@
 
-Rendering completed in 398 sec
+Rendering completed in 2286 sec
 Scene configuration: 
 Objects: [
 	
@@ -9,13 +9,14 @@ Objects: [
 	
 	Center: (3, -2, -30), radius: 6
 	Center: (-8, -5, -20), radius: 3
+	
 ]
 Lights: [
-	Point light:	position: (0, 20, -20), intensity: 60
+	
 ]
 
 
-Rendering completed in 284 sec
+Rendering completed in 182 sec
 Scene configuration: 
 Objects: [
 	
@@ -25,13 +26,16 @@ Objects: [
 	
 	Center: (3, -2, -30), radius: 6
 	Center: (-8, -5, -20), radius: 3
+	
 ]
 Lights: [
-	Point light:	position: (0, 20, -20), intensity: 60
+	
 ]
 
 
-Rendering completed in 485 sec
+
+
+Rendering completed in 30 sec
 Scene configuration: 
 Objects: [
 	
@@ -41,13 +45,15 @@ Objects: [
 	
 	Center: (3, -2, -30), radius: 6
 	Center: (-8, -5, -20), radius: 3
+	
 ]
 Lights: [
-	Point light:	position: (0, 20, -20), intensity: 60
+	
 ]
 
 
-Rendering completed in 438 sec
+
+Rendering completed in 52 sec
 Scene configuration: 
 Objects: [
 	
@@ -57,8 +63,147 @@ Objects: [
 	
 	Center: (3, -2, -30), radius: 6
 	Center: (-8, -5, -20), radius: 3
+	
 ]
 Lights: [
-	Point light:	position: (0, 20, -20), intensity: 60
+	
+]
+
+
+
+Rendering completed in 73 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+	
+]
+Lights: [
+	
+]
+
+
+Rendering completed in 161 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+	
+]
+Lights: [
+	
+]
+
+
+Rendering completed in 176 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+	
+]
+Lights: [
+	
+]
+
+
+Rendering completed in 139 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+	
+]
+Lights: [
+	
+]
+
+
+
+Rendering completed in 133 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+	
+]
+Lights: [
+	
+]
+
+
+Rendering completed in 88 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+	
+]
+Lights: [
+	
+]
+
+
+Rendering completed in 132 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+	
+]
+Lights: [
+	
+]
+
+
+Rendering completed in 6402 sec
+Scene configuration: 
+Objects: [
+	
+	
+	
+	
+	
+	Center: (3, -2, -30), radius: 6
+	Center: (-8, -5, -20), radius: 3
+	
+]
+Lights: [
+	
 ]
 

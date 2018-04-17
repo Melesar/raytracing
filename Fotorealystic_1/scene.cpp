@@ -2,9 +2,6 @@
 #include "ray.h"
 #include "light.h"
 
-#include <algorithm>
-#include <iostream>
-
 
 void Scene::addObject(Object * newObject)
 {

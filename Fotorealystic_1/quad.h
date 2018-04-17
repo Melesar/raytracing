@@ -1,8 +1,9 @@
 #pragma once
 
 #include "object.h"
+#include "AreaLightShape.h"
 
-class Quad : public Object
+class Quad : public Object, public AreaLightShape
 {
 	Vector3 v1, v2, v3;
 	Vector3 normal;
@@ -13,7 +14,10 @@ public:
 
 	void invertNormal();
 
-	virtual bool intersects(const Ray& ray, Intersection & intersection) override;
-	virtual void onPreRender() override;
-	virtual void print(std::ostream& stream) const override;
+	Vector3 getSamplePoint(double u, double v) override;
+	void setMaterial(Material* material) override;
+
+	bool intersects(const Ray& ray, Intersection & intersection) override;
+	void onPreRender() override;
+	void print(std::ostream& stream) const override;
 };

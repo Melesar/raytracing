@@ -119,6 +119,9 @@
     <ClInclude Include="refractiveMaterial.h">
       <Filter>Materials</Filter>
     </ClInclude>
+    <ClInclude Include="AreaLightShape.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

@@ -17,7 +17,8 @@ public:
 	Vector3 getCenter() const { return center; }
 	double getRadius() const { return radius; }
 
-	bool intersects(const Ray& ray, Intersection& intersection);
+
+	bool intersects(const Ray& ray, Intersection& intersection) override;
 	void onPreRender() override {}
 
 protected:

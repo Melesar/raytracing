@@ -44,12 +44,12 @@ bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 	return true;
 }
 
-void Sphere::print(std::ostream & stream) const
+void Sphere::print(std::ostream& stream) const
 {
 	stream << "Center: " << center << ", radius: " << radius;
 }
 
-void Sphere::calculateUVs(Intersection & intersection) const
+void Sphere::calculateUVs(Intersection& intersection) const
 {
 	Vector3 hitPoint = intersection.point;
 	Vector3 center = this->center;
@@ -62,8 +62,6 @@ void Sphere::calculateUVs(Intersection & intersection) const
 	if (phi < 0) {
 		phi += Utils::DoublePi;
 	}
-
-	static int debugOutputs;
 
 	intersection.u = phi * Utils::InvDoublePi;
 	intersection.v = 1.0 - theta * Utils::InvPi;

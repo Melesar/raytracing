@@ -9,13 +9,19 @@ Quad::Quad(const Vector3& v1, const Vector3& v2, const Vector3& v3)
 	Vector3 v2v1 = v2 - v1;
 	Vector3 v3v1 = v3 - v1;
 	normal = v2v1.cross(v3v1).normalized();
-
-	//std::cout << "Normal: " << normal << std::endl;
 }
 
 void Quad::invertNormal()
 {
 	normal = -1 * normal;
+}
+
+Vector3 Quad::getSamplePoint(double u, double v)
+{
+	const Vector3 horizontal = (v2 - v1) * u;
+	const Vector3 vertical = (v3 - v1) * v;
+
+	return v1 + horizontal + vertical + normal * 0.04;
 }
 
 bool Quad::intersects(const Ray & ray, Intersection & intersection)
@@ -74,4 +80,9 @@ void Quad::onPreRender()
 
 void Quad::print(std::ostream & stream) const
 {
+}
+
+void Quad::setMaterial(Material* material)
+{
+	Object::setMaterial(material);
 }

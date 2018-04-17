@@ -25,8 +25,18 @@ void Render::render(char * outputPath)
 	img.save(std::string(outputPath));
 }
 
+void Render::setAntialiasing(bool isEnabled)
+{
+	antialiasingEnabled = isEnabled;
+}
+
 void Render::samplePixel(double x, double y, Color& resultColor, int depthLevel)
 {
+	if (!antialiasingEnabled) {
+		resultColor = trace(x, y).color;
+		return;
+	}
+
 	if (depthLevel > MaxSamplingDepth) {
 		return;
 	}

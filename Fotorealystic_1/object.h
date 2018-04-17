@@ -30,10 +30,11 @@ protected:
 public:
 
 	Object(Material* material = new PhongMaterial()) : material(material) {}
-	~Object();
+	virtual ~Object();
 
 	virtual void setMaterial(Material* newMaterial);
 	virtual Material* getMaterial();
+
 	virtual bool intersects(const Ray& ray, Intersection& intersection) = 0;
 	virtual void onPreRender() = 0;
 
