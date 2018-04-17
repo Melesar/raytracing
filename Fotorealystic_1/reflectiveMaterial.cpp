@@ -6,6 +6,11 @@
 #include "ray.h"
 
 
+void ReflectiveMaterial::print(std::ostream& stream) const
+{
+	stream << "Reflective material";
+}
+
 bool ReflectiveMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Intersection & intersec, Color & color, Ray & secondaryRay)
 {
 	Vector3 lightDirection = light->getDirectionAt(intersec.point);

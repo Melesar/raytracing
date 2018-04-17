@@ -5,6 +5,7 @@
 #include "vector3.h"
 
 #include <ostream>
+#include "printable.h"
 
 class Ray;
 class Object;
@@ -21,7 +22,7 @@ struct Intersection
 	double u, v;
 };
 
-class Object
+class Object : public Printable
 {
 protected:
 
@@ -44,7 +45,6 @@ public:
 		return stream;
 	}
 
-protected:
-
 	virtual void print(std::ostream& stream) const = 0;
+
 };

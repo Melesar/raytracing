@@ -3,8 +3,10 @@
 #include "ray.h"
 #include "transform.h"
 #include "matrix4x4.h"
+#include "printable.h"
+#include <ostream>
 
-class Camera
+class Camera : public Printable
 {
 public:
 	virtual Ray raycast(double x, double y, double screenWidth, double screenHeight) = 0;
@@ -17,7 +19,15 @@ public:
 
 	Transform& getTransform() const;
 
+
+	void print(std::ostream& stream) const override = 0;
 	virtual ~Camera();
+
+	friend std::ostream& operator << (std::ostream& os, const Camera& obj)
+	{
+		obj.print(os);
+		return os;
+	}
 
 protected:
 
@@ -35,6 +45,8 @@ public:
 		:fieldOfView (fov)
 	{}
 
+
+	void print(std::ostream& stream) const override;
 private:
 
 	double fieldOfView;
@@ -53,6 +65,8 @@ public:
 	OrthographicCamera(double orthographicSize)
 		: orthographicSize(orthographicSize) {}
 
+
+	void print(std::ostream& stream) const override;
 private:
 
 	double orthographicSize;

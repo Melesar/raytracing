@@ -163,6 +163,7 @@
     <ClInclude Include="object.h" />
     <ClInclude Include="objParser.h" />
     <ClInclude Include="plane.h" />
+    <ClInclude Include="printable.h" />
     <ClInclude Include="quad.h" />
     <ClInclude Include="ray.h" />
     <ClInclude Include="reflectiveMaterial.h" />

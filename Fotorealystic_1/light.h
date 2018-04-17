@@ -3,12 +3,12 @@
 #include "transform.h"
 #include "color.h"
 #include <random>
-#include <time.h>
+#include "printable.h"
 
 class Vector3;
 class Scene;
 
-class Light
+class Light : public Printable
 {
 public:
 
@@ -22,6 +22,8 @@ public:
 
 	Transform& getTransform() { return transform; };
 
+	virtual void print(std::ostream& stream) const = 0;
+
 	friend std::ostream& operator << (std::ostream& stream, const Light& light)
 	{
 		light.print(stream);
@@ -29,8 +31,6 @@ public:
 	}
 
 protected:
-
-	virtual void print(std::ostream& stream) const = 0;
 
 	Transform transform;
 	double intensity;

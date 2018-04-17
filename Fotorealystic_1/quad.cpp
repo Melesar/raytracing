@@ -80,9 +80,26 @@ void Quad::onPreRender()
 
 void Quad::print(std::ostream & stream) const
 {
+	stream << "Quad: center = " << getCenter() << ", size = " << getWidth() << " x " << getHeight()
+		<< ", material = (" << *material << ")";
 }
 
 void Quad::setMaterial(Material* material)
 {
 	Object::setMaterial(material);
+}
+
+Vector3 Quad::getCenter() const
+{
+	return (v3 - 2 * v1 + v2) * 0.5;
+}
+
+double Quad::getWidth() const
+{
+	return (v2 - v1).magnitude();
+}
+
+double Quad::getHeight() const
+{
+	return (v3 - v1).magnitude();
 }

@@ -7,7 +7,7 @@
 
 void AreaLight::print(std::ostream & stream) const
 {
-
+	stream << "Area light: number of samples = " << totalSamples;
 }
 
 void AreaLight::getSamples()

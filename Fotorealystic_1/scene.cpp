@@ -44,6 +44,11 @@ bool Scene::traceForIntersection(const Ray& ray, Intersection& intersec, double 
 	return isObjectFound && nearestDistance <= maxDistance;
 }
 
+void Scene::print(std::ostream& stream) const
+{
+	stream << *this;
+}
+
 bool Scene::trace(const Ray& r, Color & color, int maxBounce, double maxDistance) const
 {
 	Intersection intersec;
@@ -70,19 +75,16 @@ bool Scene::trace(const Ray& r, Color & color, int maxBounce, double maxDistance
 
 std::ostream & operator<<(std::ostream & stream, const Scene& scene)
 {
-	stream << "Objects: [" << std::endl;
+	stream << "\tObjects: " << std::endl;
 	for (size_t i = 0; i < scene.objects.size(); i++) {
-		stream << "\t" << *scene.objects.at(i) << std::endl;
+		stream << "\t\t" << *scene.objects.at(i) << std::endl;
 	}
-	stream << "]" << std::endl;
 
-	stream << "Lights: [" << std::endl;
+	stream << "\tLights:" << std::endl;
 
 	for (size_t i = 0; i < scene.lights.size(); i++) {
-		stream << "\t" << *scene.lights.at(i) << std::endl;
+		stream << "\t\t" << *scene.lights.at(i) << std::endl;
 	}
-
-	stream << "]" << std::endl;
 
 	return stream;
 }

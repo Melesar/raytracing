@@ -11,8 +11,8 @@ class AreaLight : public Light
 	AreaLightShape* shape;
 	Vector3* samples;
 
-	const int horizontalSamples = 8;
-	const int verticalSamples = 8;
+	const int horizontalSamples = 2;
+	const int verticalSamples = 2;
 	const int totalSamples = horizontalSamples * verticalSamples;
 
 public:

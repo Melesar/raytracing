@@ -75,7 +75,7 @@ void Mesh::onPreRender()
 
 void Mesh::print(std::ostream & stream) const
 {
-	stream << "Triangles count: " << triangles->size();
+	stream << "Mesh: triangles count = " << triangles->size();
 }
 
 void Mesh::applyTransform()
@@ -83,9 +83,7 @@ void Mesh::applyTransform()
 	Matrix4x4 modelMatrix = transform->getModelMatrix();
 	Matrix4x4 rotationMatrix = Matrix4x4::rotate(transform->getRotation());
 
-	for (int i = 0; i < triangles->size(); ++i) {
-		Triangle &t = triangles->at(i);
-
+	for (auto& t : *triangles) {
 		t.v0.pos = modelMatrix * t.v0.pos;
 		t.v1.pos = modelMatrix * t.v1.pos;
 		t.v2.pos = modelMatrix * t.v2.pos;

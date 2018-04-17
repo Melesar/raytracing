@@ -24,6 +24,9 @@
     <Filter Include="Materials">
       <UniqueIdentifier>{6cc87e00-47c5-4757-b212-d37468bf9fad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{9f88e113-0fa5-42be-9b1d-9bef90793350}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h">
@@ -95,9 +98,6 @@
     <ClInclude Include="main.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="logger.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="quad.h">
       <Filter>Objects</Filter>
     </ClInclude>
@@ -121,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="AreaLightShape.h">
       <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="printable.h">
+      <Filter>Logging</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -187,9 +193,6 @@
     <ClCompile Include="utils.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="logger.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="quad.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
@@ -210,6 +213,9 @@
     </ClCompile>
     <ClCompile Include="refractiveMaterial.cpp">
       <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="logger.cpp">
+      <Filter>Logging</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

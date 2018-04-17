@@ -46,7 +46,8 @@ bool Sphere::intersects(const Ray& ray, Intersection& intersection)
 
 void Sphere::print(std::ostream& stream) const
 {
-	stream << "Center: " << center << ", radius: " << radius;
+	stream << "Sphere: center = " << center << ", radius = " << radius
+		<< ", material = (" << *material << ")";
 }
 
 void Sphere::calculateUVs(Intersection& intersection) const

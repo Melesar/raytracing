@@ -16,9 +16,10 @@ double DirectionalLight::getIntensityAt(const Vector3 & point) const
 
 void DirectionalLight::print(std::ostream & stream) const
 {
-	stream << "Directional light:\t" << "direction: " << direction << ", intensity: " << intensity;
+	stream << "Directional light:" << "direction = " << direction << ", intensity = " << intensity;
 }
 
+//TODO implement directional light shading
 double DirectionalLight::shade(const Vector3 & point, const Scene & scene) const
 {
 	return 1;
@@ -41,7 +42,7 @@ double PointLight::getIntensityAt(const Vector3 & point) const
 
 void PointLight::print(std::ostream & stream) const
 {
-	stream << "Point light:\t" << "position: " << position << ", intensity: " << intensity;
+	stream << "Point light:" << "position = " << position << ", intensity = " << intensity;
 }
 
 double PointLight::shade(const Vector3 & point, const Scene & scene) const

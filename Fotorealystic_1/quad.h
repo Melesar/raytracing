@@ -17,6 +17,10 @@ public:
 	Vector3 getSamplePoint(double u, double v) override;
 	void setMaterial(Material* material) override;
 
+	Vector3 getCenter() const;
+	double getWidth() const;
+	double getHeight() const;
+
 	bool intersects(const Ray& ray, Intersection & intersection) override;
 	void onPreRender() override;
 	void print(std::ostream& stream) const override;

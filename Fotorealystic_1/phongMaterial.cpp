@@ -17,6 +17,11 @@ bool PhongMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Int
 	return false;
 }
 
+void PhongMaterial::print(std::ostream& stream) const
+{
+	stream << "Phong material: diffuse = " << diffuseColor << ", specular = " << specularColor << ", specular power = " << specularPower;
+}
+
 Color PhongMaterial::diffuse(const Light & light, const Intersection& intersec) const
 {
 	Vector3 hitPoint = intersec.point;

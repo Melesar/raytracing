@@ -7,7 +7,7 @@
 void Render::render(char * outputPath)
 {
 	Image img(imageWidth, imageHeight);
-	Logger logger(scene);
+	Logger logger(this);
 
 	logger.start();
 	scene->onPreRender();
@@ -88,4 +88,22 @@ Render::~Render()
 
 	delete camera;
 	delete scene;
+}
+
+void Render::print(std::ostream& stream) const
+{
+	stream << "Renderer configuration:" << std::endl;
+	stream << "\tImage size: " << imageWidth << " x " << imageHeight << std::endl;
+
+	stream << "\tAntialiasing: ";
+	if (antialiasingEnabled) {
+		stream << "max sampling depth is " << MaxSamplingDepth << std::endl;
+	} else {
+		stream << "disabled" << std::endl;
+	}
+
+	stream << "\tNumber of secondary rays: " << maxSecondaryRays << std::endl;
+
+	stream << "Camera: " << std::endl << *camera << std::endl;
+	stream << "Scene: " << std::endl << *scene << std::endl;
 }

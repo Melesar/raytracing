@@ -6,6 +6,11 @@
 #include "color.h"
 #include "ray.h"
 
+void RefractiveMaterial::print(std::ostream& stream) const
+{
+	stream << "Refractive material: refractive factor = " << refractionFactor;
+}
+
 bool RefractiveMaterial::getColorAndSendSecondaryRayIfNeeded(Light* light, const Intersection& intersec, Color& color, Ray& secondaryRay)
 {
 	Vector3 d = light->getDirectionAt(intersec.point);

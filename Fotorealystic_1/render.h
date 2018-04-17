@@ -4,7 +4,7 @@
 #include "camera.h"
 #include "color.h"
 
-class Render
+class Render : public Printable
 {
 	Scene* scene;
 	Camera* camera;
@@ -22,6 +22,9 @@ public:
 	void render(char* outputPath);
 
 	void setAntialiasing(bool isEnabled);
+
+
+	void print(std::ostream& stream) const override;
 
 	Render(int imageWidth, int imageHeight, Scene* scene, Camera* camera, const Color& backgroundColor = Color(0, 0, 0.4), int maxSecondaryRays = 1) :
 		imageWidth(imageWidth),

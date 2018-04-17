@@ -135,6 +135,7 @@ int main(int argc, char** argv)
 	createLight(*scene);
 
 	Render r(800, 600, scene, cam, Color(0, 0, 0.6), 2);
+	r.setAntialiasing(false);
 
 	std::cout << "Started rendering" << std::endl;
 	

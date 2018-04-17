@@ -13,5 +13,7 @@ public:
 	EmissiveMaterial (const Color& color = Color(1, 1, 1), double intensity = 5.0)
 		: color(color), intensity(intensity) {}
 
-	virtual bool getColorAndSendSecondaryRayIfNeeded(Light * light, const Intersection & intersec, Color & color, Ray & secondaryRay) override;
+
+	void print(std::ostream& stream) const override;
+	bool getColorAndSendSecondaryRayIfNeeded(Light * light, const Intersection & intersec, Color & color, Ray & secondaryRay) override;
 };

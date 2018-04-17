@@ -9,7 +9,7 @@
 class Light;
 class Ray;
 
-class Scene
+class Scene : public Printable
 {
 	std::vector<Object*> objects;
 	std::vector<Light*> lights;
@@ -28,5 +28,6 @@ public:
 	bool trace(const Ray& r, Color& color, int maxBounce = 1, double maxDistance = INFINITY) const;
 	bool traceForIntersection(const Ray& ray, Intersection& intersec, double maxDistance) const;
 
+	void print(std::ostream& stream) const override;
 	friend std::ostream& operator << (std::ostream& stream, const Scene& scene);
 };

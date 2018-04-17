@@ -28,6 +28,11 @@ Vector3 PerspectiveCamera::screenToWorldCoordinates(int x, int y, double screenW
 	return Vector3(pixelWorld.x, pixelWorld.y, pixelWorld.z);
 }
 
+void PerspectiveCamera::print(std::ostream& stream) const
+{
+	stream << "\tPerspective camera: fov = " << fieldOfView;
+}
+
 Camera::~Camera()
 {
 	delete transform;
@@ -57,4 +62,9 @@ Vector3 OrthographicCamera::screenToWorldCoordinates(int x, int y, double screen
 	Vector4 pixelWorld = lookAt * Vector4(px, py, 1, 1);
 	
 	return Vector3(pixelWorld.x, pixelWorld.y, pixelWorld.z);
+}
+
+void OrthographicCamera::print(std::ostream& stream) const
+{
+	stream << "\Orthographic camera: orthosize = " << orthographicSize;
 }

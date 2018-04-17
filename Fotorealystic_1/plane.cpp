@@ -26,7 +26,8 @@ bool Plane::intersects(const Ray & ray, Intersection& intersection)
 
 void Plane::print(std::ostream & stream) const
 {
-	stream << "Point: " << point << ", " << "normal: " << normal;
+	stream << "Plane: point = " << point << ", normal = " << normal
+		<< ", material = (" << *material << ")";
 }
 
 void Plane::calculateUVs(Intersection & intersection)
@@ -37,6 +38,6 @@ void Plane::calculateUVs(Intersection & intersection)
 	double u = abs(intersectionPoint.x - point.x) / mat->getResolutionX();
 	double v = abs(intersectionPoint.z - point.z) / mat->getResolutionY();
 
-	intersection.u = u - (int)u;
-	intersection.v = v - (int)v;
+	intersection.u = u - static_cast<int>(u);
+	intersection.v = v - static_cast<int>(v);
 }

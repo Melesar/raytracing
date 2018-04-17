@@ -15,7 +15,7 @@ public:
 
 	Vector3 getNormal() const { return normal; }
 
-	bool intersects(const Ray& ray, Intersection& intersection);
+	bool intersects(const Ray& ray, Intersection& intersection) override;
 	void onPreRender() override {}
 
 protected:

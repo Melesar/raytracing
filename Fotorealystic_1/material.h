@@ -1,11 +1,13 @@
 #pragma once
+#include "printable.h"
+#include <ostream>
 
 class Light;
 class Intersection;
 class Ray;
 class Color;
 
-class Material
+class Material : public Printable
 {
 public:
 
@@ -14,6 +16,15 @@ public:
 
 	double getResolutionX() const { return resolutionX; }
 	double getResolutionY() const { return resolutionY; }
+
+	void print(std::ostream& stream) const override = 0;
+
+
+	friend std::ostream& operator<<(std::ostream& os, const Material& obj)
+	{
+		obj.print(os);
+		return os;
+	}
 
 protected:
 

@@ -3,6 +3,7 @@
 #include <string>
 #include <chrono>
 #include <fstream>
+#include "printable.h"
 
 class Scene;
 
@@ -13,12 +14,12 @@ class Logger
 	std::chrono::time_point<std::chrono::steady_clock> startTime;
 	std::ofstream file;
 
-	Scene* scene;
+	Printable* printable;
 
 public:
 
 	void output();
 	void start();
 
-	Logger(Scene* scene);
+	Logger(Printable* scene);
 };

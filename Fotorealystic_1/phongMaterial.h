@@ -48,6 +48,8 @@ public:
 		setSpecular(specular);
 	}
 
+	void print(std::ostream& stream) const override;
+
 private:
 
 	double albedo;
