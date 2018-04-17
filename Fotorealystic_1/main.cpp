@@ -105,7 +105,7 @@ void createPrimitives(Scene& scene)
 	scene.addObject(blueSphere);
 
 	Object* redSphere = new Sphere(Vector3(-8, -5, -20), 3);
-	redSphere->setMaterial(new RefractiveMaterial());
+	redSphere->setMaterial(new RefractiveMaterial(2.5));
 
 	scene.addObject(redSphere);
 }
@@ -127,7 +127,7 @@ int main(int argc, char** argv)
 	createPrimitives(*scene);
 	createLight(*scene);
 
-	Render r(800, 600, scene, cam, Color(0.12, 0.7, 0.4));
+	Render r(800, 600, scene, cam, Color(0.12, 0.7, 0.4), 2);
 
 	std::cout << "Started rendering" << std::endl;
 	
