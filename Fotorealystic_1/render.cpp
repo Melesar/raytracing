@@ -1,6 +1,5 @@
 #include "render.h"
 #include "image.h"
-#include <fstream>
 #include <string>
 #include "logger.h"
 
