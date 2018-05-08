@@ -150,7 +150,7 @@ int main(int argc, char** argv)
 	/*traceDebug(621, 427, 800, 600, *scene, *cam);
 	return 0;*/
 
-	Render r(800, 600, scene, cam, Color(0, 0, 0.6), 2);
+	Render r(800, 600, scene, cam, Color(1, 1, 1), 2);
 	r.setAntialiasing(false);
 
 	std::cout << "Started rendering" << std::endl;

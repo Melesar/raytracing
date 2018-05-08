@@ -62,12 +62,17 @@ bool Scene::trace(const Ray& r, Color & color, int maxBounce, double maxDistance
 		Light* light = lights.at(lightIndex);
 
 		Ray secondaryRay;
-		Color materialColor;
-		if (!intersec.material->getColorAndSendSecondaryRayIfNeeded(light, intersec, materialColor, secondaryRay)) {
+		if (intersec.material->sendSecondaryRay(*light, intersec, secondaryRay) && maxBounce > 0) {
+			return trace(secondaryRay, color, maxBounce - 1, maxDistance);
+		}
+
+		color += intersec.material->illuminateDirectly(*light, intersec);
+
+		/*if (!intersec.material->getColorAndSendSecondaryRayIfNeeded(light, intersec, materialColor, secondaryRay)) {
 			color += light->shade(intersec.point, *this) * materialColor;
 		} else if (maxBounce > 0) {
 			return trace(secondaryRay, color, maxBounce - 1, maxDistance);
-		}
+		}*/
 	}
 
 	return true;

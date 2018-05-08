@@ -6,6 +6,18 @@
 #include "color.h"
 #include "ray.h"
 
+bool RefractiveMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
+{
+}
+
+Color RefractiveMaterial::illuminateDirectly(const Light& light, const Intersection& intersec)
+{
+}
+
+Color RefractiveMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples)
+{
+}
+
 void RefractiveMaterial::print(std::ostream& stream) const
 {
 	stream << "Refractive material: refractive factor = " << refractionFactor;

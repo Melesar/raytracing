@@ -6,6 +6,18 @@
 #include "ray.h"
 
 
+bool ReflectiveMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
+{
+}
+
+Color ReflectiveMaterial::illuminateDirectly(const Light& light, const Intersection& intersec)
+{
+}
+
+Color ReflectiveMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples)
+{
+}
+
 void ReflectiveMaterial::print(std::ostream& stream) const
 {
 	stream << "Reflective material";

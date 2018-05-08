@@ -19,3 +19,24 @@ Scene:
 	Lights:
 		Area light: number of samples = 64
 
+
+Rendering completed in 2 sec
+Renderer configuration:
+	Image size: 800 x 600
+	Antialiasing: disabled
+	Number of secondary rays: 2
+Camera: 
+	Perspective camera: fov = 60
+Scene: 
+	Objects: 
+		Quad: center = (-20, 17.5, 0), size = 40 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (76, 76, 76), specular power = 1)
+		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (229, 229, 229), specular power = 4)
+		Quad: center = (0, 17.5, -25), size = 50 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (229, 229, 229), specular power = 4)
+		Quad: center = (0, 17.5, -25), size = 50 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (229, 229, 229), specular power = 4)
+		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (229, 229, 229), specular power = 4)
+		Sphere: center = (3, -2, -30), radius = 6, material = (Phong material: diffuse = (204, 204, 204), specular = (102, 102, 102), specular power = 10)
+		Sphere: center = (-8, -5, -20), radius = 3, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 2)
+		Quad: center = (-5, 0, 7.5), size = 10 x 15, material = (Emissive material: color = (255, 255, 255), intensity = 5)
+	Lights:
+		Area light: number of samples = 64
+

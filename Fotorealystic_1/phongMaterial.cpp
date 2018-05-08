@@ -17,6 +17,26 @@ bool PhongMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Int
 	return false;
 }
 
+bool PhongMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
+{
+	return false;
+}
+
+Color PhongMaterial::illuminateDirectly(const Light& light, const Intersection& intersec)
+{
+	Color Kd = getDiffuse(), Ks = getSpecular();
+	Color diff = diffuse(light, intersec);
+	Color spec = specular(light, intersec);
+
+	return Kd * diff + Ks * spec;
+}
+
+Color PhongMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples)
+{
+	return Color();
+}
+
+
 void PhongMaterial::print(std::ostream& stream) const
 {
 	stream << "Phong material: diffuse = " << diffuseColor << ", specular = " << specularColor << ", specular power = " << specularPower;
@@ -114,9 +134,9 @@ void PhongMaterial::setDiffuseMap(Image* diffuseMap)
 	this->diffuseMap.reset(diffuseMap);
 }
 
-const Image & PhongMaterial::getDiffuseMap() const
+const Image& PhongMaterial::getDiffuseMap() const
 {
-	return *diffuseMap.get();
+	return *diffuseMap;
 }
 
 Color PhongMaterial::getDiffuseColor(double u, double v) const
@@ -125,6 +145,8 @@ Color PhongMaterial::getDiffuseColor(double u, double v) const
 
 	return diffuseTexture != nullptr ? diffuseTexture->getColor(u, v) : color;
 }
+
+
 
 
 

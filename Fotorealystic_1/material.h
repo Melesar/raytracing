@@ -2,6 +2,7 @@
 #include "printable.h"
 #include <ostream>
 
+class Scene;
 class Light;
 class Intersection;
 class Ray;
@@ -10,6 +11,11 @@ class Color;
 class Material : public Printable
 {
 public:
+
+	virtual bool sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay) = 0;
+
+	virtual Color illuminateDirectly(const Light& light, const Intersection& intersec) = 0;
+	virtual Color illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples) = 0;
 
 	//Returns true if material generates secondary ray
 	virtual bool getColorAndSendSecondaryRayIfNeeded(Light* light, const Intersection& intersec, Color& color, Ray& secondaryRay) = 0;
