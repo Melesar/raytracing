@@ -99,12 +99,16 @@ void createPrimitives(Scene& scene)
 	scene.addObject(topQuad);
 
 	Object* blueSphere = new Sphere(Vector3(3, -2, -30), 6);
-	blueSphere->setMaterial(new ReflectiveMaterial());
+	PhongMaterial* mat = new PhongMaterial(Color(0, 0, 0.87));
+	mat->setDiffuse(0.8);
+	mat->setSpecular(0.4);
+	mat->setSpecularPower(10);
+	blueSphere->setMaterial(mat);
 
 	scene.addObject(blueSphere);
 
 	Object* redSphere = new Sphere(Vector3(-8, -5, -20), 3);
-	redSphere->setMaterial(new RefractiveMaterial(2.5));
+	redSphere->setMaterial(new PhongMaterial(Color(0.87, 0, 0)));
 
 	scene.addObject(redSphere);
 }
@@ -114,13 +118,22 @@ void createLight(Scene& scene)
 	/*Light* pointLight = new PointLight(Vector3(0, 20, -20), 60.0);
 	scene.addLight(pointLight);*/
 
-	Quad* areaLightShape = new Quad(Vector3(5, 24, -30), Vector3(-5, 24, -30), Vector3(5, 24, -15));
+	Quad* areaLightShape = new Quad(Vector3(5, 24, -20), Vector3(-5, 24, -20), Vector3(5, 24, -5));
 	areaLightShape->invertNormal();
 
 	Light* areaLight = new AreaLight(areaLightShape, 50);
 
 	scene.addLight(areaLight);
 	scene.addObject(areaLightShape);
+}
+
+Color traceDebug (int x, int y, int imageWidth, int imageHeight, Scene& scene, Camera& cam)
+{
+	Color rayColor;
+	Ray r = cam.raycast(x, y, imageWidth, imageHeight);
+	scene.trace(r, rayColor, 1);
+
+	return rayColor;
 }
 
 int main(int argc, char** argv)
@@ -134,7 +147,11 @@ int main(int argc, char** argv)
 	createPrimitives(*scene);
 	createLight(*scene);
 
+	/*traceDebug(621, 427, 800, 600, *scene, *cam);
+	return 0;*/
+
 	Render r(800, 600, scene, cam, Color(0, 0, 0.6), 2);
+	r.setAntialiasing(false);
 
 	std::cout << "Started rendering" << std::endl;
 	

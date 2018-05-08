@@ -43,7 +43,7 @@ double AreaLight::getIntensityAt(const Vector3 & point) const
 	return intensity / distance.magnitude();
 }
 
-double AreaLight::shade(const Vector3 & point, const Scene & scene) const
+double AreaLight::shade(const Vector3& point, const Scene& scene) const
 {
 	const double shadingStep = 1.0 / totalSamples;
 

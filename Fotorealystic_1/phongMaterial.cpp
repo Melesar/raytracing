@@ -26,7 +26,7 @@ Color PhongMaterial::diffuse(const Light & light, const Intersection& intersec) 
 {
 	Vector3 hitPoint = intersec.point;
 
-	double albedo = this->albedo / 3.1415;
+	double albedo = this->albedo * Utils::InvPi;
 	double lightIntensity = light.getIntensityAt(hitPoint);
 	Vector3 lightDirection = light.getDirectionAt(hitPoint);
 	Vector3 hitNormal = intersec.hitNormal;
