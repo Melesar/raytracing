@@ -27,7 +27,7 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* faceMaterial = new PhongMaterial();
 	faceMaterial->color = Color(0.4, 0.4, 0.4);
-	faceMaterial->setSpecular(0.3);
+	//faceMaterial->setSpecular(0.3);
 	faceMaterial->setSpecularPower(1);
 
 	faceQuad->setMaterial(faceMaterial);
@@ -44,7 +44,7 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* bottomMaterial = new PhongMaterial();
 	bottomMaterial->color = Color(0.4, 0.4, 0.4);
-	bottomMaterial->setSpecular(0.9);
+	//bottomMaterial->setSpecular(0.9);
 	bottomMaterial->setSpecularPower(4);
 
 	bottomQuad->setMaterial(bottomMaterial);
@@ -61,7 +61,7 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* leftMaterial = new PhongMaterial();
 	leftMaterial->color = Color(0.9, 0.1, 0.2);
-	leftMaterial->setSpecular(0.9);
+	//leftMaterial->setSpecular(0.9);
 	leftMaterial->setSpecularPower(4);
 
 	leftQuad->setMaterial(leftMaterial);
@@ -76,7 +76,7 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* rightMaterial = new PhongMaterial();
 	rightMaterial->color = Color(0.2, 0.1, 0.9);
-	rightMaterial->setSpecular(0.9);
+	//rightMaterial->setSpecular(0.9);
 	rightMaterial->setSpecularPower(4);
 
 	rightQuad->setMaterial(rightMaterial);
@@ -91,7 +91,7 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* topMaterial = new PhongMaterial();
 	topMaterial->color = Color(0.4, 0.4, 0.4);
-	topMaterial->setSpecular(0.9);
+	//topMaterial->setSpecular(0.9);
 	topMaterial->setSpecularPower(4);
 
 	topQuad->setMaterial(topMaterial);
@@ -100,8 +100,9 @@ void createPrimitives(Scene& scene)
 
 	Object* blueSphere = new Sphere(Vector3(3, -2, -30), 6);
 	PhongMaterial* mat = new PhongMaterial(Color(0, 0, 0.87));
-	mat->setDiffuse(0.8);
-	mat->setSpecular(0.4);
+	mat->setAlbedo(0.8);
+	mat->setDiffuse(1);
+	//mat->setSpecular(0);
 	mat->setSpecularPower(10);
 	blueSphere->setMaterial(mat);
 
@@ -115,9 +116,6 @@ void createPrimitives(Scene& scene)
 
 void createLight(Scene& scene)
 {
-	/*Light* pointLight = new PointLight(Vector3(0, 20, -20), 60.0);
-	scene.addLight(pointLight);*/
-
 	Quad* areaLightShape = new Quad(Vector3(5, 24, -20), Vector3(-5, 24, -20), Vector3(5, 24, -5));
 	areaLightShape->invertNormal();
 
@@ -147,10 +145,12 @@ int main(int argc, char** argv)
 	createPrimitives(*scene);
 	createLight(*scene);
 
-	/*traceDebug(621, 427, 800, 600, *scene, *cam);
-	return 0;*/
+#ifdef _DEBUG
+	traceDebug(373, 137, 800, 600, *scene, *cam);
+	return 0;
+#endif
 
-	Render r(800, 600, scene, cam, Color(1, 1, 1), 2);
+	Render r(800, 600, scene, cam, Color(1, 1, 1), 2, 8);
 	r.setAntialiasing(false);
 
 	std::cout << "Started rendering" << std::endl;

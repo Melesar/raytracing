@@ -16,6 +16,7 @@ class Render : public Printable
 	Color backgroundColor;
 
 	bool antialiasingEnabled = true;
+	int indirectLightingSamples;
 
 public:
 
@@ -26,13 +27,16 @@ public:
 
 	void print(std::ostream& stream) const override;
 
-	Render(int imageWidth, int imageHeight, Scene* scene, Camera* camera, const Color& backgroundColor = Color(0, 0, 0.4), int maxSecondaryRays = 1) :
-		imageWidth(imageWidth),
-		imageHeight(imageHeight),
+	Render(int imageWidth, int imageHeight, Scene* scene, Camera* camera, const Color& backgroundColor = Color(0, 0, 0.4),
+		int maxSecondaryRays = 1, int indirectLightingSamples = 16) 
+	:
 		scene(scene),
 		camera(camera),
+		imageWidth(imageWidth),
+		imageHeight(imageHeight),
+		maxSecondaryRays(maxSecondaryRays),
 		backgroundColor(backgroundColor),
-		maxSecondaryRays(maxSecondaryRays)
+		indirectLightingSamples(indirectLightingSamples)
 	{
 		imageBuffer = new Color [imageWidth * imageHeight];
 	}

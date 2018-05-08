@@ -8,14 +8,17 @@
 
 bool RefractiveMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
 {
+	return false;
 }
 
 Color RefractiveMaterial::illuminateDirectly(const Light& light, const Intersection& intersec)
 {
+	return Color();
 }
 
-Color RefractiveMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples)
+Color RefractiveMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples, int maxBounces)
 {
+	return Color();
 }
 
 void RefractiveMaterial::print(std::ostream& stream) const

@@ -10,7 +10,7 @@ Color EmissiveMaterial::illuminateDirectly(const Light& light, const Intersectio
 	return color * intensity;
 }
 
-Color EmissiveMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples)
+Color EmissiveMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples, int maxBounces)
 {
 	return Color();
 }

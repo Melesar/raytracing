@@ -71,7 +71,7 @@ Render::SamplingInfo Render::trace(double x, double y)
 {
 	Color rayColor;
 	Ray r = camera->raycast(x, y, imageWidth, imageHeight);
-	bool isHit = scene->trace(r, rayColor, maxSecondaryRays);
+	bool isHit = scene->trace(r, rayColor, maxSecondaryRays, indirectLightingSamples);
 
 	SamplingInfo info;
 	info.x = x;
@@ -102,6 +102,7 @@ void Render::print(std::ostream& stream) const
 	}
 
 	stream << "\tNumber of secondary rays: " << maxSecondaryRays << std::endl;
+	stream << "\tIndirect lighting samples: " << indirectLightingSamples << std::endl;
 
 	stream << "Camera: " << std::endl << *camera << std::endl;
 	stream << "Scene: " << std::endl << *scene << std::endl;

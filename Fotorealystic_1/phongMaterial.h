@@ -4,6 +4,7 @@
 #include "material.h"
 
 #include <memory>
+#include <random>
 
 class Vector3;
 class Image;
@@ -37,7 +38,7 @@ public:
 
 	bool sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay) override;
 	Color illuminateDirectly(const Light& light, const Intersection& intersec) override;
-	Color illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples) override;
+	Color illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples, int maxBounces) override;
 
 	bool getColorAndSendSecondaryRayIfNeeded(Light* light, const Intersection& intersec, Color& color, Ray& secondaryRay) override;
 
@@ -61,6 +62,7 @@ private:
 	Color diffuseColor, specularColor;
 
 	std::shared_ptr<Image> diffuseMap;
+	std::default_random_engine randomEngine;
 
 	Color diffuse(const Light & light, const Intersection& intersec) const;
 	Color specular(const Light & light, const Intersection& intersec) const;

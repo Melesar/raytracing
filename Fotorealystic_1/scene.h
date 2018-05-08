@@ -25,7 +25,7 @@ public:
 
 	~Scene();
 
-	bool trace(const Ray& r, Color& color, int maxBounce = 1, double maxDistance = INFINITY) const;
+	bool trace(const Ray& r, Color& color, int maxBounce = 1, int indirectLightingSamples = 15, double maxDistance = INFINITY) const;
 	bool traceForIntersection(const Ray& ray, Intersection& intersec, double maxDistance) const;
 
 	void print(std::ostream& stream) const override;

@@ -3,19 +3,13 @@
 
 #include "object.h"
 #include "utils.h"
+#include "image.h"
+#include "ray.h"
+#include "scene.h"
 
 #include <algorithm>
-#include "image.h"
+#include <random>
 
-bool PhongMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Intersection & intersec, Color & color, Ray & secondaryRay)
-{
-	Color Kd = getDiffuse(), Ks = getSpecular();
-	Color diff = diffuse(*light, intersec);
-	Color spec = specular(*light, intersec);
-
-	color += Kd * diff + Ks * spec;
-	return false;
-}
 
 bool PhongMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
 {
@@ -31,9 +25,32 @@ Color PhongMaterial::illuminateDirectly(const Light& light, const Intersection& 
 	return Kd * diff + Ks * spec;
 }
 
-Color PhongMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples)
+Color PhongMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples, int maxBounces)
 {
-	return Color();
+	//std::default_random_engine randomEngine;
+	std::uniform_real_distribution<double> distribution(0, 1);
+
+	Vector3 Nt, Nb;
+	Utils::createCoordnateSystem(intersec.hitNormal, Nt, Nb);
+
+	Color color;
+	double invPdf = Utils::DoublePi;
+	for (int i = 0; i < numSamples; ++i) {
+		double r1 = distribution(randomEngine);
+		double r2 = distribution(randomEngine);
+		Vector3 sample = Utils::sampleHemisphere(r1, r2, intersec.hitNormal, Nt, Nb);
+
+		Ray bounceRay = Ray(intersec.point, sample);
+		Color bounceColor;
+		if (scene.trace(bounceRay, bounceColor, maxBounces - 1, numSamples)) {
+			color += r1 * bounceColor * invPdf;
+		}
+	}
+
+	color *= albedo * Utils::InvPi;
+	color /= numSamples;
+
+	return color;
 }
 
 
@@ -146,7 +163,15 @@ Color PhongMaterial::getDiffuseColor(double u, double v) const
 	return diffuseTexture != nullptr ? diffuseTexture->getColor(u, v) : color;
 }
 
+bool PhongMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Intersection & intersec, Color & color, Ray & secondaryRay)
+{
+	Color Kd = getDiffuse(), Ks = getSpecular();
+	Color diff = diffuse(*light, intersec);
+	Color spec = specular(*light, intersec);
 
+	color += Kd * diff + Ks * spec;
+	return false;
+}
 
 
 

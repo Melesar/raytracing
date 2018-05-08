@@ -49,8 +49,12 @@ void Scene::print(std::ostream& stream) const
 	stream << *this;
 }
 
-bool Scene::trace(const Ray& r, Color & color, int maxBounce, double maxDistance) const
+bool Scene::trace(const Ray& r, Color & color, int maxBounce, int indirectLightingSamples, double maxDistance) const
 {
+	if (maxBounce < 0) {
+		return false;
+	}
+
 	Intersection intersec;
 
 	if (!traceForIntersection(r, intersec, maxDistance)) {
@@ -62,18 +66,15 @@ bool Scene::trace(const Ray& r, Color & color, int maxBounce, double maxDistance
 		Light* light = lights.at(lightIndex);
 
 		Ray secondaryRay;
-		if (intersec.material->sendSecondaryRay(*light, intersec, secondaryRay) && maxBounce > 0) {
+		if (intersec.material->sendSecondaryRay(*light, intersec, secondaryRay)) {
 			return trace(secondaryRay, color, maxBounce - 1, maxDistance);
 		}
 
 		color += intersec.material->illuminateDirectly(*light, intersec);
-
-		/*if (!intersec.material->getColorAndSendSecondaryRayIfNeeded(light, intersec, materialColor, secondaryRay)) {
-			color += light->shade(intersec.point, *this) * materialColor;
-		} else if (maxBounce > 0) {
-			return trace(secondaryRay, color, maxBounce - 1, maxDistance);
-		}*/
 	}
+
+
+	color += intersec.material->illuminateIndirectly(*this, intersec, indirectLightingSamples, maxBounce);
 
 	return true;
 }
