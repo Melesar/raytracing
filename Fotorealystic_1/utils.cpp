@@ -16,6 +16,11 @@ Vector3 Utils::reflect(const Vector3 & direction, const Vector3 & normal)
 	return (2 * normal.dot(direction) * normal - direction).normalized();
 }
 
+Ray Utils::shiftedRay(const Vector3& origin, const Vector3& direction)
+{
+	return Ray(origin + 0.04 * direction, direction);
+}
+
 void Utils::createCoordnateSystem(const Vector3& normal, Vector3& Nt, Vector3& Nb)
 {
 	if (std::fabs(normal.x) > std::fabs(normal.y)) {

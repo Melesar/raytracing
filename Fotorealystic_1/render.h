@@ -12,7 +12,6 @@ class Render : public Printable
 	int imageWidth, imageHeight;
 	int maxSecondaryRays;
 
-	Color* imageBuffer;
 	Color backgroundColor;
 
 	bool antialiasingEnabled = true;
@@ -38,7 +37,6 @@ public:
 		backgroundColor(backgroundColor),
 		indirectLightingSamples(indirectLightingSamples)
 	{
-		imageBuffer = new Color [imageWidth * imageHeight];
 	}
 
 	~Render();

@@ -5,6 +5,7 @@
 #include "object.h"
 #include "color.h"
 #include "ray.h"
+#include "utils.h"
 
 bool RefractiveMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
 {
@@ -35,7 +36,7 @@ bool RefractiveMaterial::getColorAndSendSecondaryRayIfNeeded(Light* light, const
 	Vector3 t = (d - n * dn) / refractionFactor;
 	t -= n * sqrt(1 - (1 - dn * dn) / (refractionFactor * refractionFactor));
 
-	secondaryRay = Ray(intersec.point + 0.04 * t, t);
+	secondaryRay = Utils::shiftedRay(intersec.point, t);
 
 	return true;
 }

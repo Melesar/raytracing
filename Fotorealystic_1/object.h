@@ -45,6 +45,6 @@ public:
 		return stream;
 	}
 
-	virtual void print(std::ostream& stream) const = 0;
+	void print(std::ostream& stream) const override = 0;
 
 };

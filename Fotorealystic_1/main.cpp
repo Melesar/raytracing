@@ -116,22 +116,26 @@ void createPrimitives(Scene& scene)
 
 void createLight(Scene& scene)
 {
-	Quad* areaLightShape = new Quad(Vector3(5, 24, -20), Vector3(-5, 24, -20), Vector3(5, 24, -5));
+	Light* pointLight = new PointLight(Vector3(0, 20, -20), 100.0);
+	scene.addLight(pointLight);
+
+	/*Quad* areaLightShape = new Quad(Vector3(5, 24, -20), Vector3(-5, 24, -20), Vector3(5, 24, -5));
 	areaLightShape->invertNormal();
 
-	Light* areaLight = new AreaLight(areaLightShape, 50);
+	Light* areaLight = new AreaLight(areaLightShape, 100);
 
 	scene.addLight(areaLight);
-	scene.addObject(areaLightShape);
+	scene.addObject(areaLightShape);*/
 }
 
-Color traceDebug (int x, int y, int imageWidth, int imageHeight, Scene& scene, Camera& cam)
+void traceDebug (int x, int y, int imageWidth, int imageHeight, Scene& scene, Camera& cam)
 {
 	Color rayColor;
 	Ray r = cam.raycast(x, y, imageWidth, imageHeight);
-	scene.trace(r, rayColor, 1);
+	scene.trace(r, rayColor, 2, 32);
 
-	return rayColor;
+	std::cout << rayColor << std::endl;
+	std::cin.get();
 }
 
 int main(int argc, char** argv)
@@ -150,7 +154,7 @@ int main(int argc, char** argv)
 	return 0;
 #endif
 
-	Render r(800, 600, scene, cam, Color(1, 1, 1), 2, 8);
+	Render r(800, 600, scene, cam, Color(1, 1, 1), 2, 128);
 	r.setAntialiasing(false);
 
 	std::cout << "Started rendering" << std::endl;

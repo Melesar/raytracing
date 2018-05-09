@@ -27,7 +27,10 @@ Color PhongMaterial::illuminateDirectly(const Light& light, const Intersection& 
 
 Color PhongMaterial::illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples, int maxBounces)
 {
-	//std::default_random_engine randomEngine;
+	if (maxBounces == 0) {
+		return Color(0, 0, 0);
+	}
+
 	std::uniform_real_distribution<double> distribution(0, 1);
 
 	Vector3 Nt, Nb;

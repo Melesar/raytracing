@@ -42,7 +42,7 @@ public:
 
 	bool getColorAndSendSecondaryRayIfNeeded(Light* light, const Intersection& intersec, Color& color, Ray& secondaryRay) override;
 
-	PhongMaterial(const Color& color = Color(255, 255, 255), double albedo = 3.1415, double diffuse = 1, double specular = 0, double specularPower = 2)
+	PhongMaterial(const Color& color = Color(255, 255, 255), double albedo = 0.8, double diffuse = 1, double specular = 0, double specularPower = 2)
 		:	color(color),
 			albedo(albedo),
 			specularPower(specularPower)

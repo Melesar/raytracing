@@ -83,8 +83,6 @@ Render::SamplingInfo Render::trace(double x, double y)
 
 Render::~Render()
 {
-	delete[] imageBuffer;
-
 	delete camera;
 	delete scene;
 }
