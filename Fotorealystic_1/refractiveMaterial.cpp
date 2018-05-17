@@ -9,7 +9,16 @@
 
 bool RefractiveMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
 {
-	return false;
+	Vector3 d = light.getDirectionAt(intersec.point);
+	Vector3 n = intersec.hitNormal;
+	double dn = d.dot(n);
+
+	Vector3 t = (d - n * dn) / refractionFactor;
+	t -= n * sqrt(1 - (1 - dn * dn) / (refractionFactor * refractionFactor));
+
+	secondaryRay = Utils::shiftedRay(intersec.point, t);
+
+	return true;
 }
 
 Color RefractiveMaterial::illuminateDirectly(const Light& light, const Intersection& intersec)

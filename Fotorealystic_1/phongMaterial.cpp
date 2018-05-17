@@ -170,9 +170,9 @@ bool PhongMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Int
 {
 	Color Kd = getDiffuse(), Ks = getSpecular();
 	Color diff = diffuse(*light, intersec);
-	Color spec = specular(*light, intersec);
+	//Color spec = specular(*light, intersec);
 
-	color += Kd * diff + Ks * spec;
+	color += Kd * diff/* + Ks * spec*/;
 	return false;
 }
 

@@ -70,7 +70,7 @@ bool Scene::trace(const Ray& r, Color & color, int maxBounce, int indirectLighti
 			return trace(secondaryRay, color, maxBounce - 1, maxDistance);
 		}
 
-		color += /*light->shade(intersec.point, *this) * */intersec.material->illuminateDirectly(*light, intersec);
+		color += /*light->shade(intersec.point, *this) **/ intersec.material->illuminateDirectly(*light, intersec);
 	}
 
 

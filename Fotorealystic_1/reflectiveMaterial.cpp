@@ -8,7 +8,14 @@
 
 bool ReflectiveMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
 {
-	return false;
+	Vector3 lightDirection = light.getDirectionAt(intersec.point);
+	Vector3 normal = intersec.hitNormal;
+
+	Vector3 rayDirection = -1 * Utils::reflect(lightDirection, normal);
+
+	secondaryRay = Utils::shiftedRay(intersec.point, rayDirection);
+
+	return true;
 }
 
 Color ReflectiveMaterial::illuminateDirectly(const Light& light, const Intersection& intersec)

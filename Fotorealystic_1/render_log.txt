@@ -1,63 +1,106 @@
 
-Rendering completed in 513 sec
+Rendering completed in 546 sec
 Renderer configuration:
 	Image size: 800 x 600
 	Antialiasing: disabled
 	Number of secondary rays: 2
 	Indirect lighting samples: 32
 Camera: 
-	Perspective camera: fov = 60
+	Perspective camera: fov = 75
 Scene: 
 	Objects: 
-		Quad: center = (-20, 17.5, 0), size = 40 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 1)
+		Quad: center = (-20, 10, 0), size = 40 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 1)
 		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
-		Quad: center = (0, 17.5, -25), size = 50 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
-		Quad: center = (0, 17.5, -25), size = 50 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
 		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
 		Sphere: center = (3, -2, -30), radius = 6, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 10)
 		Sphere: center = (-8, -5, -20), radius = 3, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 2)
 	Lights:
-		Point light:position = (0, 20, -20), intensity = 60
+		Point light:position = (0, 9.5, -27), intensity = 100
 
 
-Rendering completed in 5535 sec
+Rendering completed in 25440 sec
 Renderer configuration:
 	Image size: 800 x 600
 	Antialiasing: disabled
 	Number of secondary rays: 2
-	Indirect lighting samples: 128
+	Indirect lighting samples: 250
 Camera: 
-	Perspective camera: fov = 60
+	Perspective camera: fov = 75
 Scene: 
 	Objects: 
-		Quad: center = (-20, 17.5, 0), size = 40 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 1)
+		Quad: center = (-20, 10, 0), size = 40 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 1)
 		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
-		Quad: center = (0, 17.5, -25), size = 50 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
-		Quad: center = (0, 17.5, -25), size = 50 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
 		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
 		Sphere: center = (3, -2, -30), radius = 6, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 10)
 		Sphere: center = (-8, -5, -20), radius = 3, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 2)
 	Lights:
-		Point light:position = (0, 20, -20), intensity = 100
+		Point light:position = (0, 9.5, -27), intensity = 100
 
 
-Rendering completed in 1 sec
+Rendering completed in 302 sec
 Renderer configuration:
 	Image size: 800 x 600
 	Antialiasing: disabled
 	Number of secondary rays: 2
-	Indirect lighting samples: 128
+	Indirect lighting samples: 16
 Camera: 
-	Perspective camera: fov = 60
+	Perspective camera: fov = 75
 Scene: 
 	Objects: 
-		Quad: center = (-20, 17.5, 0), size = 40 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 1)
+		Quad: center = (-20, 10, 0), size = 40 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 1)
 		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
-		Quad: center = (0, 17.5, -25), size = 50 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
-		Quad: center = (0, 17.5, -25), size = 50 x 35, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
 		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
 		Sphere: center = (3, -2, -30), radius = 6, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 10)
-		Sphere: center = (-8, -5, -20), radius = 3, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 2)
+		Sphere: center = (-8, -5, -20), radius = 3, material = (Reflective material)
 	Lights:
-		Point light:position = (0, 20, -20), intensity = 100
+		Point light:position = (0, 9.5, -27), intensity = 100
+
+
+Rendering completed in 276 sec
+Renderer configuration:
+	Image size: 800 x 600
+	Antialiasing: disabled
+	Number of secondary rays: 2
+	Indirect lighting samples: 16
+Camera: 
+	Perspective camera: fov = 75
+Scene: 
+	Objects: 
+		Quad: center = (-20, 10, 0), size = 40 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 1)
+		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Sphere: center = (3, -2, -30), radius = 6, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 10)
+		Sphere: center = (-8, -5, -20), radius = 3, material = (Reflective material)
+	Lights:
+		Point light:position = (0, 9.5, -27), intensity = 100
+
+
+Rendering completed in 276 sec
+Renderer configuration:
+	Image size: 800 x 600
+	Antialiasing: disabled
+	Number of secondary rays: 2
+	Indirect lighting samples: 16
+Camera: 
+	Perspective camera: fov = 75
+Scene: 
+	Objects: 
+		Quad: center = (-20, 10, 0), size = 40 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 1)
+		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (0, 10, -25), size = 50 x 20, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Quad: center = (20, 0, -25), size = 50 x 40, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 4)
+		Sphere: center = (3, -2, -30), radius = 6, material = (Phong material: diffuse = (255, 255, 255), specular = (0, 0, 0), specular power = 10)
+		Sphere: center = (-8, -5, -20), radius = 3, material = (Refractive material: refractive factor = 2.5)
+	Lights:
+		Point light:position = (0, 9.5, -27), intensity = 100
+
 

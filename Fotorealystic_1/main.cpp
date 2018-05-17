@@ -20,7 +20,7 @@ void createPrimitives(Scene& scene)
 	Quad* faceQuad = new Quad(
 		Vector3(20, -10, -50),  //bottom-left
 		Vector3(-20, -10, -50), //bottom-right
-		Vector3(20, 25, -50)    //top-left
+		Vector3(20, 10, -50)    //top-left
 	);
 	
 	faceQuad->invertNormal();
@@ -54,7 +54,7 @@ void createPrimitives(Scene& scene)
 	Quad* leftQuad = new Quad(
 		Vector3(20, -10, 0),  //bottom-left
 		Vector3(20, -10, -50), //bottom-right
-		Vector3(20, 25, 0)    //top-left
+		Vector3(20, 10, 0)    //top-left
 	);
 
 	leftQuad->invertNormal();
@@ -71,7 +71,7 @@ void createPrimitives(Scene& scene)
 	Quad* rightQuad = new Quad(
 		Vector3(-20, -10, 0),  //bottom-left
 		Vector3(-20, -10, -50), //bottom-right
-		Vector3(-20, 25, 0)    //top-left
+		Vector3(-20, 10, 0)    //top-left
 	);
 
 	PhongMaterial* rightMaterial = new PhongMaterial();
@@ -84,9 +84,9 @@ void createPrimitives(Scene& scene)
 	scene.addObject(rightQuad);
 
 	Quad* topQuad = new Quad(
-		Vector3(-20, 25, 0),  //bottom-left
-		Vector3(-20, 25, -50), //bottom-right
-		Vector3(20, 25, 0)    //top-left
+		Vector3(-20, 10, 0),  //bottom-left
+		Vector3(-20, 10, -50), //bottom-right
+		Vector3(20, 10, 0)    //top-left
 	);
 
 	PhongMaterial* topMaterial = new PhongMaterial();
@@ -110,16 +110,17 @@ void createPrimitives(Scene& scene)
 
 	Object* redSphere = new Sphere(Vector3(-8, -5, -20), 3);
 	redSphere->setMaterial(new PhongMaterial(Color(0.87, 0, 0)));
+	//redSphere->setMaterial(new RefractiveMaterial(2.5));
 
 	scene.addObject(redSphere);
 }
 
 void createLight(Scene& scene)
 {
-	Light* pointLight = new PointLight(Vector3(0, 20, -20), 100.0);
+	Light* pointLight = new PointLight(Vector3(0, 9.5, -27), 100.0);
 	scene.addLight(pointLight);
 
-	/*Quad* areaLightShape = new Quad(Vector3(5, 24, -20), Vector3(-5, 24, -20), Vector3(5, 24, -5));
+	/*Quad* areaLightShape = new Quad(Vector3(5, 10, -30), Vector3(-5, 10, -30), Vector3(5, 10, -25));
 	areaLightShape->invertNormal();
 
 	Light* areaLight = new AreaLight(areaLightShape, 100);
@@ -142,8 +143,7 @@ int main(int argc, char** argv)
 {
 	std::cout << "Program started" << std::endl;
 
-	//Camera* cam = new OrthographicCamera(10);
-	Camera* cam = new PerspectiveCamera(60);
+	Camera* cam = new PerspectiveCamera(75);
 	Scene* scene = new Scene();
 
 	createPrimitives(*scene);
@@ -154,12 +154,11 @@ int main(int argc, char** argv)
 	return 0;
 #endif
 
-	Render r(800, 600, scene, cam, Color(1, 1, 1), 2, 128);
+	Render r(800, 600, scene, cam, Color(1, 1, 1), 2, 16);
 	r.setAntialiasing(false);
 
 	std::cout << "Started rendering" << std::endl;
 	
-	//r.render("orthographic_10.bmp");
 	r.render("perspective_60.bmp");
 
 	return 0;
