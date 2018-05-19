@@ -1,4 +1,15 @@
 #include "emissiveMaterial.h"
+#include "ray.h"
+
+bool EmissiveMaterial::isReflective() const
+{
+	return false;
+}
+
+Ray EmissiveMaterial::sampleReflection(const Intersection& intersection, float& pdf)
+{
+	return Ray();
+}
 
 bool EmissiveMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
 {

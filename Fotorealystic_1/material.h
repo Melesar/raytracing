@@ -17,6 +17,9 @@ public:
 	virtual Color illuminateDirectly(const Light& light, const Intersection& intersec) = 0;
 	virtual Color illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples, int maxBounces) = 0;
 
+	virtual bool isReflective() const = 0;
+	virtual Ray sampleReflection(const Intersection& intersection, float& pdf) = 0;
+
 	//Returns true if material generates secondary ray
 	virtual bool getColorAndSendSecondaryRayIfNeeded(Light* light, const Intersection& intersec, Color& color, Ray& secondaryRay) = 0;
 

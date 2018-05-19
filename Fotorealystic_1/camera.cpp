@@ -1,4 +1,5 @@
 #include "camera.h"
+#include "utils.h"
 
 
 Ray PerspectiveCamera::raycast(double x, double y, double screenWidth, double screenHeight)
@@ -19,8 +20,9 @@ Vector3 PerspectiveCamera::screenToWorldCoordinates(int x, int y, double screenW
 {
 	double aspect = screenWidth / screenHeight;
 
-	double px = (2.0 * (x + 0.5) / screenWidth - 1.0) * tan(fieldOfView / 2 * 3.1415 / 180.0) * aspect;
-	double py = (1.0 - 2.0 * (y + 0.5) / screenHeight) * tan(fieldOfView / 2 * 3.1415 / 180.0);
+	double toCanvasSpace = tan(fieldOfView / 2 * utils::Pi / 180.0);
+	double px = (2.0 * (x + 0.5) / screenWidth - 1.0) * toCanvasSpace * aspect;
+	double py = (1.0 - 2.0 * (y + 0.5) / screenHeight) * toCanvasSpace;
 
 	Matrix4x4 lookAt = Matrix4x4::lookAt(transform->getPosition(), transform->getPosition() + transform->forward(), transform->up());
 	Vector4 pixelWorld = lookAt * Vector4(px, py, 1, 1);
@@ -36,12 +38,6 @@ void PerspectiveCamera::print(std::ostream& stream) const
 Camera::~Camera()
 {
 	delete transform;
-}
-
-Matrix4x4 PerspectiveCamera::getViewProjection() const
-{
-	Vector3 pos = transform->getPosition();
-	return perspective * Matrix4x4::lookAt(pos, pos + transform->forward(), transform->up());
 }
 
 Ray OrthographicCamera::raycast(double x, double y, double screenWidth, double screenHeight)

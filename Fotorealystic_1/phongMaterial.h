@@ -40,9 +40,13 @@ public:
 	Color illuminateDirectly(const Light& light, const Intersection& intersec) override;
 	Color illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples, int maxBounces) override;
 
+
+	bool isReflective() const override;
+	Ray sampleReflection(const Intersection& intersection, float& pdf) override;
+
 	bool getColorAndSendSecondaryRayIfNeeded(Light* light, const Intersection& intersec, Color& color, Ray& secondaryRay) override;
 
-	PhongMaterial(const Color& color = Color(255, 255, 255), double albedo = 0.8, double diffuse = 1, double specular = 0, double specularPower = 2)
+	PhongMaterial(const Color& color = Color(255, 255, 255), double albedo = 0.8, double diffuse = 1, double specular = 0, double specularPower = 0)
 		:	color(color),
 			albedo(albedo),
 			specularPower(specularPower)

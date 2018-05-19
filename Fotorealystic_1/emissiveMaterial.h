@@ -14,6 +14,9 @@ public:
 		: color(color), intensity(intensity) {}
 
 
+	bool isReflective() const override;
+	Ray sampleReflection(const Intersection& intersection, float& pdf) override;
+
 	bool sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay) override;
 	Color illuminateDirectly(const Light& light, const Intersection& intersec) override;
 	Color illuminateIndirectly(const Scene& scene, const Intersection& intersec, int numSamples, int maxBounces) override;

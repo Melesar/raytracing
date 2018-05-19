@@ -13,6 +13,11 @@ void Scene::addLight(Light* newLight)
 	lights.push_back(newLight);
 }
 
+const std::vector<Light*>& Scene::getLights() const
+{
+	return lights;
+}
+
 void Scene::onPreRender()
 {
 	for (auto obj : objects) {
@@ -47,36 +52,6 @@ bool Scene::traceForIntersection(const Ray& ray, Intersection& intersec, double 
 void Scene::print(std::ostream& stream) const
 {
 	stream << *this;
-}
-
-bool Scene::trace(const Ray& r, Color & color, int maxBounce, int indirectLightingSamples, double maxDistance) const
-{
-	if (maxBounce < 0) {
-		return false;
-	}
-
-	Intersection intersec;
-
-	if (!traceForIntersection(r, intersec, maxDistance)) {
-		return false;
-	}
-
-	int lightsCount = lights.size();
-	for (int lightIndex = 0; lightIndex < lightsCount; ++lightIndex) {
-		Light* light = lights.at(lightIndex);
-
-		Ray secondaryRay;
-		if (intersec.material->sendSecondaryRay(*light, intersec, secondaryRay)) {
-			return trace(secondaryRay, color, maxBounce - 1, maxDistance);
-		}
-
-		color += /*light->shade(intersec.point, *this) **/ intersec.material->illuminateDirectly(*light, intersec);
-	}
-
-
-	color += intersec.material->illuminateIndirectly(*this, intersec, indirectLightingSamples, maxBounce);
-
-	return true;
 }
 
 std::ostream & operator<<(std::ostream & stream, const Scene& scene)

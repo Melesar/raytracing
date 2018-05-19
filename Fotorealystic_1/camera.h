@@ -47,12 +47,13 @@ public:
 
 
 	void print(std::ostream& stream) const override;
+
 private:
 
-	double fieldOfView;
-	Matrix4x4 perspective;
+	const double focalLenght = 1.0;
+	const double lensRadius = 0.0;
 
-	Matrix4x4 getViewProjection() const;
+	double fieldOfView;
 };
 
 class OrthographicCamera : public Camera

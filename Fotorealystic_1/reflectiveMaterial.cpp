@@ -11,9 +11,9 @@ bool ReflectiveMaterial::sendSecondaryRay(const Light& light, const Intersection
 	Vector3 lightDirection = light.getDirectionAt(intersec.point);
 	Vector3 normal = intersec.hitNormal;
 
-	Vector3 rayDirection = -1 * Utils::reflect(lightDirection, normal);
+	Vector3 rayDirection = -1 * utils::reflect(lightDirection, normal);
 
-	secondaryRay = Utils::shiftedRay(intersec.point, rayDirection);
+	secondaryRay = utils::shiftedRay(intersec.point, rayDirection);
 
 	return true;
 }
@@ -38,9 +38,9 @@ bool ReflectiveMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, cons
 	Vector3 lightDirection = light->getDirectionAt(intersec.point);
 	Vector3 normal = intersec.hitNormal;
 
-	Vector3 rayDirection = -1 * Utils::reflect(lightDirection, normal);
+	Vector3 rayDirection = -1 * utils::reflect(lightDirection, normal);
 
-	secondaryRay = Utils::shiftedRay(intersec.point, rayDirection);
+	secondaryRay = utils::shiftedRay(intersec.point, rayDirection);
 
 	return true;
 }

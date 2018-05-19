@@ -1,9 +1,9 @@
-#include "render.h"
 #include "image.h"
 #include <string>
 #include "logger.h"
+#include "pathtracer.h"
 
-void Render::render(char * outputPath)
+void Pathtracer::render(char * outputPath)
 {
 	Image img(imageWidth, imageHeight);
 	Logger logger(this);
@@ -24,12 +24,12 @@ void Render::render(char * outputPath)
 	img.save(std::string(outputPath));
 }
 
-void Render::setAntialiasing(bool isEnabled)
+void Pathtracer::setAntialiasing(bool isEnabled)
 {
 	antialiasingEnabled = isEnabled;
 }
 
-void Render::samplePixel(double x, double y, Color& resultColor, int depthLevel)
+void Pathtracer::samplePixel(double x, double y, Color& resultColor, int depthLevel)
 {
 	if (!antialiasingEnabled) {
 		resultColor = trace(x, y).color;
@@ -67,11 +67,11 @@ void Render::samplePixel(double x, double y, Color& resultColor, int depthLevel)
 	resultColor *= 0.25;
 }
 
-Render::SamplingInfo Render::trace(double x, double y)
+Pathtracer::SamplingInfo Pathtracer::trace(double x, double y)
 {
 	Color rayColor;
 	Ray r = camera->raycast(x, y, imageWidth, imageHeight);
-	bool isHit = scene->trace(r, rayColor, maxSecondaryRays, indirectLightingSamples);
+	bool isHit = trace(r, rayColor, maxSecondaryRays);
 
 	SamplingInfo info;
 	info.x = x;
@@ -81,13 +81,63 @@ Render::SamplingInfo Render::trace(double x, double y)
 	return info;
 }
 
-Render::~Render()
+bool Pathtracer::trace(const Ray& r, Color& color, int maxBounce, double maxDistance) const
+{
+	if(maxBounce < 0) {
+		return false;
+	}
+
+	Intersection intersec;
+
+	if (!scene->traceForIntersection(r, intersec, maxDistance)) {
+		return false;
+	}
+
+	auto lights = scene->getLights();
+	int lightsCount = lights.size();
+	Material& material = *intersec.material;
+	for (int lightIndex = 0; lightIndex < lightsCount; ++lightIndex) {
+		Light* light = lights.at(lightIndex);
+
+		Ray secondaryRay;
+		if (material.sendSecondaryRay(*light, intersec, secondaryRay)) {
+			return trace(secondaryRay, color, maxBounce - 1, maxDistance);
+		}
+
+		color += /*light->shade(intersec.point, *this) **/ material.illuminateDirectly(*light, intersec);
+	}
+
+	if (!material.isReflective() || maxBounce == 0) {
+		return true;
+	}
+
+	Color indirectIllumination;
+	for (int i = 0; i < indirectLightingSamples; ++i) {
+		float pdf;
+		Color sampleColor;
+		Ray sampleRay = material.sampleReflection(intersec, pdf);
+
+		if (trace(sampleRay, sampleColor, maxBounce - 1, maxDistance)) {
+			indirectIllumination += pdf * sampleColor;
+		}
+	}
+
+	indirectIllumination /= indirectLightingSamples;
+	color += indirectIllumination;
+
+	//color += intersec.material->illuminateIndirectly(*scene, intersec, indirectLightingSamples, maxBounce);
+
+	return true;
+}
+
+
+Pathtracer::~Pathtracer()
 {
 	delete camera;
 	delete scene;
 }
 
-void Render::print(std::ostream& stream) const
+void Pathtracer::print(std::ostream& stream) const
 {
 	stream << "Renderer configuration:" << std::endl;
 	stream << "\tImage size: " << imageWidth << " x " << imageHeight << std::endl;

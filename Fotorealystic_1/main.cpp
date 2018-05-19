@@ -6,7 +6,7 @@
 #include "matrix4x4.h"
 #include "camera.h"
 #include "scene.h"
-#include "render.h"
+#include "pathtracer.h"
 #include "light.h"
 #include "triangle.h"
 #include "image.h"
@@ -27,8 +27,6 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* faceMaterial = new PhongMaterial();
 	faceMaterial->color = Color(0.4, 0.4, 0.4);
-	//faceMaterial->setSpecular(0.3);
-	faceMaterial->setSpecularPower(1);
 
 	faceQuad->setMaterial(faceMaterial);
 
@@ -44,8 +42,6 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* bottomMaterial = new PhongMaterial();
 	bottomMaterial->color = Color(0.4, 0.4, 0.4);
-	//bottomMaterial->setSpecular(0.9);
-	bottomMaterial->setSpecularPower(4);
 
 	bottomQuad->setMaterial(bottomMaterial);
 
@@ -61,8 +57,6 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* leftMaterial = new PhongMaterial();
 	leftMaterial->color = Color(0.9, 0.1, 0.2);
-	//leftMaterial->setSpecular(0.9);
-	leftMaterial->setSpecularPower(4);
 
 	leftQuad->setMaterial(leftMaterial);
 
@@ -76,8 +70,6 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* rightMaterial = new PhongMaterial();
 	rightMaterial->color = Color(0.2, 0.1, 0.9);
-	//rightMaterial->setSpecular(0.9);
-	rightMaterial->setSpecularPower(4);
 
 	rightQuad->setMaterial(rightMaterial);
 
@@ -91,8 +83,6 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* topMaterial = new PhongMaterial();
 	topMaterial->color = Color(0.4, 0.4, 0.4);
-	//topMaterial->setSpecular(0.9);
-	topMaterial->setSpecularPower(4);
 
 	topQuad->setMaterial(topMaterial);
 
@@ -101,23 +91,22 @@ void createPrimitives(Scene& scene)
 	Object* blueSphere = new Sphere(Vector3(3, -2, -30), 6);
 	PhongMaterial* mat = new PhongMaterial(Color(0, 0, 0.87));
 	mat->setAlbedo(0.8);
-	mat->setDiffuse(1);
-	//mat->setSpecular(0);
-	mat->setSpecularPower(10);
+	mat->setDiffuse(0.4);
+	mat->setSpecular(0.6);
+	mat->setSpecularPower(15);
 	blueSphere->setMaterial(mat);
 
 	scene.addObject(blueSphere);
 
 	Object* redSphere = new Sphere(Vector3(-8, -5, -20), 3);
 	redSphere->setMaterial(new PhongMaterial(Color(0.87, 0, 0)));
-	//redSphere->setMaterial(new RefractiveMaterial(2.5));
 
 	scene.addObject(redSphere);
 }
 
 void createLight(Scene& scene)
 {
-	Light* pointLight = new PointLight(Vector3(0, 9.5, -27), 100.0);
+	Light* pointLight = new PointLight(Vector3(0, 9.5, -22), 100.0);
 	scene.addLight(pointLight);
 
 	/*Quad* areaLightShape = new Quad(Vector3(5, 10, -30), Vector3(-5, 10, -30), Vector3(5, 10, -25));
@@ -127,16 +116,6 @@ void createLight(Scene& scene)
 
 	scene.addLight(areaLight);
 	scene.addObject(areaLightShape);*/
-}
-
-void traceDebug (int x, int y, int imageWidth, int imageHeight, Scene& scene, Camera& cam)
-{
-	Color rayColor;
-	Ray r = cam.raycast(x, y, imageWidth, imageHeight);
-	scene.trace(r, rayColor, 2, 32);
-
-	std::cout << rayColor << std::endl;
-	std::cin.get();
 }
 
 int main(int argc, char** argv)
@@ -149,12 +128,7 @@ int main(int argc, char** argv)
 	createPrimitives(*scene);
 	createLight(*scene);
 
-#ifdef _DEBUG
-	traceDebug(373, 137, 800, 600, *scene, *cam);
-	return 0;
-#endif
-
-	Render r(800, 600, scene, cam, Color(1, 1, 1), 2, 16);
+	Pathtracer r(800, 600, scene, cam, Color(1, 1, 1), 2, 16);
 	r.setAntialiasing(false);
 
 	std::cout << "Started rendering" << std::endl;

@@ -21,11 +21,12 @@ public:
 	void addObject(Object* newObject);
 	void addLight(Light* light);
 
+	const std::vector<Light*>& getLights() const;
+
 	void onPreRender();
 
 	~Scene();
 
-	bool trace(const Ray& r, Color& color, int maxBounce = 1, int indirectLightingSamples = 15, double maxDistance = INFINITY) const;
 	bool traceForIntersection(const Ray& ray, Intersection& intersec, double maxDistance) const;
 
 	void print(std::ostream& stream) const override;

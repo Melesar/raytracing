@@ -183,7 +183,8 @@
     <ClInclude Include="ray.h" />
     <ClInclude Include="reflectiveMaterial.h" />
     <ClInclude Include="refractiveMaterial.h" />
-    <ClInclude Include="render.h" />
+    <ClInclude Include="Pathtracer.h" />
+    <ClInclude Include="renderer.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="transform.h" />
@@ -214,7 +215,7 @@
     <ClCompile Include="ray.cpp" />
     <ClCompile Include="reflectiveMaterial.cpp" />
     <ClCompile Include="refractiveMaterial.cpp" />
-    <ClCompile Include="render.cpp" />
+    <ClCompile Include="Pathtracer.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="sphere.cpp" />
     <ClCompile Include="transform.cpp" />
