@@ -16,7 +16,7 @@ bool RefractiveMaterial::sendSecondaryRay(const Light& light, const Intersection
 	Vector3 t = (d - n * dn) / refractionFactor;
 	t -= n * sqrt(1 - (1 - dn * dn) / (refractionFactor * refractionFactor));
 
-	secondaryRay = Utils::shiftedRay(intersec.point, t);
+	secondaryRay = utils::shiftedRay(intersec.point, t);
 
 	return true;
 }
@@ -45,7 +45,7 @@ bool RefractiveMaterial::getColorAndSendSecondaryRayIfNeeded(Light* light, const
 	Vector3 t = (d - n * dn) / refractionFactor;
 	t -= n * sqrt(1 - (1 - dn * dn) / (refractionFactor * refractionFactor));
 
-	secondaryRay = Utils::shiftedRay(intersec.point, t);
+	secondaryRay = utils::shiftedRay(intersec.point, t);
 
 	return true;
 }

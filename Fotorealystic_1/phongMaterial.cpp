@@ -34,14 +34,14 @@ Color PhongMaterial::illuminateIndirectly(const Scene& scene, const Intersection
 	std::uniform_real_distribution<double> distribution(0, 1);
 
 	Vector3 Nt, Nb;
-	Utils::createCoordnateSystem(intersec.hitNormal, Nt, Nb);
+	utils::createCoordnateSystem(intersec.hitNormal, Nt, Nb);
 
 	Color color;
-	double invPdf = Utils::DoublePi;
+	double invPdf = utils::DoublePi;
 	for (int i = 0; i < numSamples; ++i) {
 		double r1 = distribution(randomEngine);
 		double r2 = distribution(randomEngine);
-		Vector3 sample = Utils::sampleHemisphere(r1, r2, intersec.hitNormal, Nt, Nb);
+		Vector3 sample = utils::sampleHemisphere(r1, r2, intersec.hitNormal, Nt, Nb);
 
 		Ray bounceRay = Ray(intersec.point, sample);
 		Color bounceColor;
@@ -50,7 +50,7 @@ Color PhongMaterial::illuminateIndirectly(const Scene& scene, const Intersection
 		}
 	}
 
-	color *= albedo * Utils::InvPi;
+	color *= albedo * utils::InvPi;
 	color /= numSamples;
 
 	return color;
@@ -66,7 +66,7 @@ Color PhongMaterial::diffuse(const Light & light, const Intersection& intersec) 
 {
 	Vector3 hitPoint = intersec.point;
 
-	double albedo = this->albedo * Utils::InvPi;
+	double albedo = this->albedo * utils::InvPi;
 	double lightIntensity = light.getIntensityAt(hitPoint);
 	Vector3 lightDirection = light.getDirectionAt(hitPoint);
 	Vector3 hitNormal = intersec.hitNormal;
@@ -85,7 +85,7 @@ Color PhongMaterial::specular(const Light & light, const Intersection& intersec)
 
 	Vector3 L = light.getDirectionAt(hitPoint);
 	Vector3 N = intersec.hitNormal;
-	Vector3 R = Utils::reflect(L, N);
+	Vector3 R = utils::reflect(L, N);
 
 	double S = std::pow(std::max(0.0, R.dot(intersec.viewDirection)), getSpecularPower());
 

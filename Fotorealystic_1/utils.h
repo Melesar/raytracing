@@ -4,7 +4,7 @@
 #include "vector3.h"
 #include "ray.h"
 
-namespace Utils
+namespace utils
 {
 	void replace(std::string& str, const std::string& pattern, const std::string& sub);
 	Vector3 reflect(const Vector3& direction, const Vector3& normal);

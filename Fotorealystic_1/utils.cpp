@@ -1,6 +1,6 @@
 #include "utils.h"
 
-void Utils::replace(std::string & str, const std::string & pattern, const std::string & sub)
+void utils::replace(std::string & str, const std::string & pattern, const std::string & sub)
 {
 	int start = str.find(pattern);
 	int len = pattern.length();
@@ -11,17 +11,17 @@ void Utils::replace(std::string & str, const std::string & pattern, const std::s
 	}
 }
 
-Vector3 Utils::reflect(const Vector3 & direction, const Vector3 & normal)
+Vector3 utils::reflect(const Vector3 & direction, const Vector3 & normal)
 {
 	return (2 * normal.dot(direction) * normal - direction).normalized();
 }
 
-Ray Utils::shiftedRay(const Vector3& origin, const Vector3& direction)
+Ray utils::shiftedRay(const Vector3& origin, const Vector3& direction)
 {
 	return Ray(origin + 0.04 * direction, direction);
 }
 
-void Utils::createCoordnateSystem(const Vector3& normal, Vector3& Nt, Vector3& Nb)
+void utils::createCoordnateSystem(const Vector3& normal, Vector3& Nt, Vector3& Nb)
 {
 	if (std::fabs(normal.x) > std::fabs(normal.y)) {
 		Nt = Vector3(normal.z, 0, -normal.x) / sqrtf(normal.x * normal.x + normal.z * normal.z);
@@ -32,7 +32,7 @@ void Utils::createCoordnateSystem(const Vector3& normal, Vector3& Nt, Vector3& N
 	Nb = normal.cross(Nt);
 }
 
-Vector3 Utils::sampleHemisphere(double r1, double r2, const Vector3& normal, const Vector3& Nt, const Vector3& Nb)
+Vector3 utils::sampleHemisphere(double r1, double r2, const Vector3& normal, const Vector3& Nt, const Vector3& Nb)
 {
 	float sinTheta = sqrtf(1 - r1 * r1);
 	float phi = DoublePi * r2;
