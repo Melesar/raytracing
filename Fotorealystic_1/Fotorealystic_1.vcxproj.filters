@@ -134,6 +134,12 @@
     <ClInclude Include="renderer.h">
       <Filter>Renderers</Filter>
     </ClInclude>
+    <ClInclude Include="lighttracer.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="PathVertex.h">
+      <Filter>Data</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -222,6 +228,12 @@
     </ClCompile>
     <ClCompile Include="Pathtracer.cpp">
       <Filter>Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="lighttracer.cpp">
+      <Filter>Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="PathVertex.cpp">
+      <Filter>Data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

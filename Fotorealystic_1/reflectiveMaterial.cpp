@@ -32,15 +32,3 @@ void ReflectiveMaterial::print(std::ostream& stream) const
 {
 	stream << "Reflective material";
 }
-
-bool ReflectiveMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Intersection & intersec, Color & color, Ray & secondaryRay)
-{
-	Vector3 lightDirection = light->getDirectionAt(intersec.point);
-	Vector3 normal = intersec.hitNormal;
-
-	Vector3 rayDirection = -1 * utils::reflect(lightDirection, normal);
-
-	secondaryRay = utils::shiftedRay(intersec.point, rayDirection);
-
-	return true;
-}

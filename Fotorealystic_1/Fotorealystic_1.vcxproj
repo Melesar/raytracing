@@ -168,9 +168,11 @@
     <ClInclude Include="emissiveMaterial.h" />
     <ClInclude Include="image.h" />
     <ClInclude Include="light.h" />
+    <ClInclude Include="lighttracer.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="material.h" />
+    <ClInclude Include="PathVertex.h" />
     <ClInclude Include="phongMaterial.h" />
     <ClInclude Include="matrix4x4.h" />
     <ClInclude Include="mesh.h" />
@@ -201,9 +203,11 @@
     <ClCompile Include="emissiveMaterial.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="light.cpp" />
+    <ClCompile Include="lighttracer.cpp" />
     <ClCompile Include="logger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="material.cpp" />
+    <ClCompile Include="PathVertex.cpp" />
     <ClCompile Include="phongMaterial.cpp" />
     <ClCompile Include="matrix4x4.cpp" />
     <ClCompile Include="mesh.cpp" />

@@ -43,8 +43,7 @@ public:
 
 	bool isReflective() const override;
 	Ray sampleReflection(const Intersection& intersection, float& pdf) override;
-
-	bool getColorAndSendSecondaryRayIfNeeded(Light* light, const Intersection& intersec, Color& color, Ray& secondaryRay) override;
+	Color sampleBSDF(const Intersection& intersection, Ray& bounceRay, double& scatteringPdf) override;
 
 	PhongMaterial(const Color& color = Color(255, 255, 255), double albedo = 0.8, double diffuse = 1, double specular = 0, double specularPower = 0)
 		:	color(color),

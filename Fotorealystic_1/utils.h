@@ -13,7 +13,7 @@ namespace utils
 	void createCoordnateSystem(const Vector3& normal, Vector3& Nt, Vector3& Nb);
 	Vector3 transformHemisphere(const Vector3& hemisphereSample, const Vector3& normal);
 
-	Vector3 sampleHemisphere(double r1, double r2, const Vector3& normal, const Vector3& Nt, const Vector3& Nb);
+	Vector3 sampleSphere(double u, double v);
 	Vector3 sampleHemisphere(double r1, double r2, int power = 0);
 
 	const double Pi = 3.1415;

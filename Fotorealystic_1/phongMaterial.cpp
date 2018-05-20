@@ -77,6 +77,22 @@ Ray PhongMaterial::sampleReflection(const Intersection& intersection, float& pdf
 	return bounceRay;
 }
 
+Color PhongMaterial::sampleBSDF(const Intersection& intersection, Ray& bounceRay, double& scatteringPdf)
+{
+	std::uniform_real_distribution<double> distribution(0, 1);
+
+	double r1 = distribution(randomEngine);
+	double r2 = distribution(randomEngine);
+
+	Vector3 hemisphereSample = utils::sampleHemisphere(r1, r2, specularPower);
+	Vector3 sample = utils::transformHemisphere(hemisphereSample, intersection.hitNormal);
+
+	bounceRay = Ray(intersection.point, sample);
+	scatteringPdf = r1 * utils::InvPi;
+
+	return color * albedo * utils::InvPi;
+}
+
 
 void PhongMaterial::print(std::ostream& stream) const
 {
@@ -185,16 +201,6 @@ Color PhongMaterial::getDiffuseColor(double u, double v) const
 	Image* diffuseTexture = diffuseMap.get();
 
 	return diffuseTexture != nullptr ? diffuseTexture->getColor(u, v) : color;
-}
-
-bool PhongMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Intersection & intersec, Color & color, Ray & secondaryRay)
-{
-	Color Kd = getDiffuse(), Ks = getSpecular();
-	Color diff = diffuse(*light, intersec);
-	//Color spec = specular(*light, intersec);
-
-	color += Kd * diff/* + Ks * spec*/;
-	return false;
 }
 
 

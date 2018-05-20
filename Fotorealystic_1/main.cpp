@@ -1,19 +1,17 @@
 #include "reflectiveMaterial.h"
-#include "refractiveMaterial.h"
 #include "ray.h"
 #include "sphere.h"
 #include "plane.h"
 #include "matrix4x4.h"
 #include "camera.h"
 #include "scene.h"
-#include "pathtracer.h"
 #include "light.h"
 #include "triangle.h"
 #include "image.h"
-#include "mesh.h"
 #include "utils.h"
 #include "quad.h"
 #include "areaLight.h"
+#include "lighttracer.h"
 
 void createPrimitives(Scene& scene)
 {
@@ -120,20 +118,19 @@ void createLight(Scene& scene)
 
 int main(int argc, char** argv)
 {
-	std::cout << "Program started" << std::endl;
+	int imageWidth = 800;
+	int imageHeight = 600;
+	double aspect = static_cast<double>(imageWidth) / imageHeight;
 
-	Camera* cam = new PerspectiveCamera(75);
+	Camera* cam = new PerspectiveCamera(75, aspect);
 	Scene* scene = new Scene();
 
 	createPrimitives(*scene);
 	createLight(*scene);
 
-	Pathtracer r(800, 600, scene, cam, Color(1, 1, 1), 2, 16);
-	r.setAntialiasing(false);
+	LightTracer r(imageWidth, imageHeight, scene, cam, 10000000, 4);
 
-	std::cout << "Started rendering" << std::endl;
-	
-	r.render("perspective_60.bmp");
+	r.render("lighttracing.bmp");
 
 	return 0;
 }

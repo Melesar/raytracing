@@ -1,4 +1,67 @@
-﻿  Pathtracer.cpp
+﻿  lighttracer.cpp
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\material.h(9): warning C4099: Color: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\color.h(7): note:  см. объявление "Color"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(7): warning C4099: Vector3: имя типа, ранее отображенное с помощью "class", теперь отображено с помощью "struct"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(6): note:  см. объявление "Vector3"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\object.h(14): warning C4099: Intersection: имя типа, ранее отображенное с помощью "class", теперь отображено с помощью "struct"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\object.h(13): note:  см. объявление "Intersection"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\image.h(8): warning C4099: Color: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\material.h(9): note:  см. объявление "Color"
+lighttracer.cpp(59): error C2679: бинарный "<<": не найден оператор, принимающий правый операнд типа "Camera" (или приемлемое преобразование отсутствует)
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(488): note: может быть "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(468): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(448): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(428): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(408): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(388): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(368): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(348): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(328): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(308): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(283): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(263): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(229): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(209): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(203): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(197): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(192): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\scene.h(33): note: или       "std::ostream &operator <<(std::ostream &,const Scene &)"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(31): note: или       "std::ostream &operator <<(std::ostream &,const Vector3 &)"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\color.h(29): note: или       "std::ostream &operator <<(std::ostream &,const Color &)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(684): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(731): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(769): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(816): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(942): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const signed char *)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(949): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,signed char)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(956): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const unsigned char *)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(963): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,unsigned char)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(973): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>,Camera>(std::basic_ostream<char,std::char_traits<char>> &&,const _Ty &)"
+          with
+          [
+              _Ty=Camera
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\ostream(1011): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::error_code &)"
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.10.25017\include\random(2616): note: или       "std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::bernoulli_distribution &)"
+  lighttracer.cpp(59): note: при попытке сопоставить список аргументов "(std::basic_ostream<char,std::char_traits<char>>, Camera)"
+  main.cpp
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\color.h(7): warning C4099: Color: имя типа, ранее отображенное с помощью "class", теперь отображено с помощью "struct"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\color.h(6): note:  см. объявление "Color"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\phongMaterial.h(9): warning C4099: Vector3: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(7): note:  см. объявление "Vector3"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\object.h(14): warning C4099: Intersection: имя типа, ранее отображенное с помощью "class", теперь отображено с помощью "struct"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\object.h(13): note:  см. объявление "Intersection"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\matrix4x4.h(8): warning C4099: Vector3: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\phongMaterial.h(9): note:  см. объявление "Vector3"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\light.h(8): warning C4099: Vector3: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\matrix4x4.h(8): note:  см. объявление "Vector3"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\triangle.h(8): warning C4099: Intersection: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\object.h(14): note:  см. объявление "Intersection"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\image.h(8): warning C4099: Color: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\color.h(7): note:  см. объявление "Color"
+c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\mesh.h(10): warning C4099: Vertex: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
+  c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\triangle.h(11): note:  см. объявление "Vertex"
+  Pathtracer.cpp
 c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\color.h(7): warning C4099: Color: имя типа, ранее отображенное с помощью "class", теперь отображено с помощью "struct"
   c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\color.h(6): note:  см. объявление "Color"
 c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\material.h(9): warning C4099: Color: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
@@ -9,10 +72,3 @@ c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealysti
   c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\object.h(13): note:  см. объявление "Intersection"
 c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\matrix4x4.h(8): warning C4099: Vector3: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
   c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\vector3.h(7): note:  см. объявление "Vector3"
-  Создание кода
-c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\ray.h(14): warning C4723: возможное деление на 0
-  3 of 636 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    8 functions had inline decision re-evaluated but remain unchanged
-  Создание кода завершено
-  Fotorealystic_1.vcxproj -> C:\Users\Serg\documents\visual studio 2017\Projects\Fotorealystic_1\bin\Win32\Release\Fotorealystic_1.exe

@@ -1,4 +1,5 @@
 #include "utils.h"
+#include <algorithm>
 
 void utils::replace(std::string & str, const std::string & pattern, const std::string & sub)
 {
@@ -49,19 +50,15 @@ Vector3 utils::transformHemisphere(const Vector3& hemisphereSample, const Vector
 		hemisphereSample.x * Nb.z + hemisphereSample.y * normal.z + hemisphereSample.z * Nt.z);
 }
 
-Vector3 utils::sampleHemisphere(double r1, double r2, const Vector3& normal, const Vector3& Nt, const Vector3& Nb)
+Vector3 utils::sampleSphere(double u, double v)
 {
-	float sinTheta = sqrtf(1 - r1 * r1);
-	float phi = DoublePi * r2;
-	float x = sinTheta * cosf(phi);
-	float z = sinTheta * sinf(phi);
+	double z = 1.0f - 2.0f * u;
+	double sinTheta = sqrtf(std::max(0.0, 1.0 - z * z));
+	double phi = DoublePi * v;
+	double x = sinTheta * cos(phi);
+	double y = sinTheta * sin(phi);
 
-	Vector3 localSample = Vector3(x, r1, z);
-
-	return Vector3(
-		localSample.x * Nb.x + localSample.y * normal.x + localSample.z * Nt.x,
-		localSample.x * Nb.y + localSample.y * normal.y + localSample.z * Nt.y,
-		localSample.x * Nb.z + localSample.y * normal.z + localSample.z * Nt.z);
+	return Vector3(x, y, z);
 }
 
 Vector3 utils::sampleHemisphere(double r1, double r2, int power)

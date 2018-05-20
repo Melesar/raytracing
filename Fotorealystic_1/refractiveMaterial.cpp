@@ -35,17 +35,3 @@ void RefractiveMaterial::print(std::ostream& stream) const
 {
 	stream << "Refractive material: refractive factor = " << refractionFactor;
 }
-
-bool RefractiveMaterial::getColorAndSendSecondaryRayIfNeeded(Light* light, const Intersection& intersec, Color& color, Ray& secondaryRay)
-{
-	Vector3 d = light->getDirectionAt(intersec.point);
-	Vector3 n = intersec.hitNormal;
-	double dn = d.dot(n);
-
-	Vector3 t = (d - n * dn) / refractionFactor;
-	t -= n * sqrt(1 - (1 - dn * dn) / (refractionFactor * refractionFactor));
-
-	secondaryRay = utils::shiftedRay(intersec.point, t);
-
-	return true;
-}

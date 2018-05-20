@@ -82,6 +82,12 @@ Color operator * (double value, const Color& color)
 	return color * value;
 }
 
+Color operator/(Color c, double d)
+{
+	c /= d;
+	return c;
+}
+
 std::ostream & operator<<(std::ostream & stream, const Color & color)
 {
 	int r = (int)(255 * Color::normalize(color.r));

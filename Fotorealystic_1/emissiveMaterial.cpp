@@ -11,6 +11,11 @@ Ray EmissiveMaterial::sampleReflection(const Intersection& intersection, float& 
 	return Ray();
 }
 
+Color EmissiveMaterial::sampleBSDF(const Intersection& intersection, Ray& bounceRay, double& scatteringPdf)
+{
+	return Color();
+}
+
 bool EmissiveMaterial::sendSecondaryRay(const Light& light, const Intersection& intersec, Ray& secondaryRay)
 {
 	return false;
@@ -29,10 +34,4 @@ Color EmissiveMaterial::illuminateIndirectly(const Scene& scene, const Intersect
 void EmissiveMaterial::print(std::ostream& stream) const
 {
 	stream << "Emissive material: color = " << color << ", intensity = " << intensity;
-}
-
-bool EmissiveMaterial::getColorAndSendSecondaryRayIfNeeded(Light * light, const Intersection & intersec, Color & color, Ray & secondaryRay)
-{
-	color = this->color * intensity;
-	return false;
 }

@@ -27,7 +27,7 @@ public:
 
 	~Scene();
 
-	bool traceForIntersection(const Ray& ray, Intersection& intersec, double maxDistance) const;
+	bool traceForIntersection(const Ray& ray, Intersection& intersec, double maxDistance = INFINITY) const;
 
 	void print(std::ostream& stream) const override;
 	friend std::ostream& operator << (std::ostream& stream, const Scene& scene);
