@@ -16,8 +16,8 @@ c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealysti
 c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\mesh.h(10): warning C4099: Vertex: имя типа, ранее отображенное с помощью "struct", теперь отображено с помощью "class"
   c:\users\serg\documents\visual studio 2017\projects\fotorealystic_1\fotorealystic_1\triangle.h(11): note:  см. объявление "Vertex"
   Создание кода
-  2 of 614 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  2 of 616 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    6 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   Fotorealystic_1.vcxproj -> C:\Users\Serg\documents\visual studio 2017\Projects\Fotorealystic_1\bin\Win32\Release\Fotorealystic_1.exe

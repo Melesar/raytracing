@@ -61,9 +61,9 @@ void Sphere::calculateUVs(Intersection& intersection) const
 	double phi = atan2(localPoint.x, localPoint.z);
 
 	if (phi < 0) {
-		phi += Utils::DoublePi;
+		phi += utils::DoublePi;
 	}
 
-	intersection.u = phi * Utils::InvDoublePi;
-	intersection.v = 1.0 - theta * Utils::InvPi;
+	intersection.u = phi * utils::InvDoublePi;
+	intersection.v = 1.0 - theta * utils::InvPi;
 }

@@ -64,7 +64,7 @@ void MtlParser::loadDiffuseTexture(std::stringstream & stream)
 	int lastSpacePos = streamContents.find_last_of(' ');
 	std::string texturePath = streamContents.substr(lastSpacePos + 1);
 	
-	Utils::replace(texturePath, "\\", "/");
+	utils::replace(texturePath, "\\", "/");
 
 	try {
 		Image* diffuseTexture = new Image(texturePath);

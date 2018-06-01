@@ -61,7 +61,7 @@ void createPrimitives(Scene& scene)
 
 	PhongMaterial* leftMaterial = new PhongMaterial();
 	leftMaterial->color = Color(0.9, 0.1, 0.2);
-	//leftMaterial->setSpecular(0.9);
+	leftMaterial->setSpecular(0.5);
 	leftMaterial->setSpecularPower(4);
 
 	leftQuad->setMaterial(leftMaterial);
@@ -117,7 +117,7 @@ void createPrimitives(Scene& scene)
 
 void createLight(Scene& scene)
 {
-	Light* pointLight = new PointLight(Vector3(0, 9.5, -27), 100.0);
+	Light* pointLight = new PointLight(Vector3(0, 9.5, -22), 100.0);
 	scene.addLight(pointLight);
 
 	/*Quad* areaLightShape = new Quad(Vector3(5, 10, -30), Vector3(-5, 10, -30), Vector3(5, 10, -25));
@@ -141,25 +141,21 @@ void traceDebug (int x, int y, int imageWidth, int imageHeight, Scene& scene, Ca
 
 int main(int argc, char** argv)
 {
-	std::cout << "Program started" << std::endl;
-
 	Camera* cam = new PerspectiveCamera(75);
 	Scene* scene = new Scene();
 
 	createPrimitives(*scene);
 	createLight(*scene);
+//
+//#ifdef _DEBUG
+//	traceDebug(373, 137, 800, 600, *scene, *cam);
+//	return 0;
+//#endif
 
-#ifdef _DEBUG
-	traceDebug(373, 137, 800, 600, *scene, *cam);
-	return 0;
-#endif
-
-	Render r(800, 600, scene, cam, Color(1, 1, 1), 2, 16);
+	Render r(800, 600, scene, cam, Color(1, 1, 1), 2, 256);
 	r.setAntialiasing(false);
 
-	std::cout << "Started rendering" << std::endl;
-	
-	r.render("perspective_60.bmp");
+	r.render("pathtracing_final.bmp");
 
 	return 0;
 }

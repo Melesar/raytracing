@@ -41,7 +41,11 @@ Color PhongMaterial::illuminateIndirectly(const Scene& scene, const Intersection
 	for (int i = 0; i < numSamples; ++i) {
 		double r1 = distribution(randomEngine);
 		double r2 = distribution(randomEngine);
-		Vector3 sample = utils::sampleHemisphere(r1, r2, intersec.hitNormal, Nt, Nb);
+
+		Vector3 hemisphereSample = utils::sampleHemisphere(r1, r2, getSpecularPower());
+		Vector3 sample = utils::transformHemisphere(hemisphereSample, intersec.hitNormal);
+
+		//Vector3 sample = utils::sampleHemisphere(r1, r2, intersec.hitNormal, Nt, Nb);
 
 		Ray bounceRay = Ray(intersec.point, sample);
 		Color bounceColor;
@@ -141,7 +145,7 @@ void PhongMaterial::setSpecular(const Color & specular)
 
 double PhongMaterial::getSpecularPower() const
 {
-	return specularPower;
+	return specularColor.r > 0 ? specularPower : 0;
 }
 
 void PhongMaterial::setSpecularPower(double sp)
